@@ -1,0 +1,65 @@
+<html>
+	<head>
+		<!-- <script src="jquery-3.2.1.min.js"></script> -->
+		<!-- <script src="/API/APIfront.js"></script> -->
+		<!--- Styles will be moved off into their own css file --->
+		<style>
+			body{margin:0px;width:100%;}
+			.left{float:left;}
+			.staticLeft{left:0px;}
+			.staticRight{right:0px;}
+			.right{float:right;}
+
+			.panel{background:rgb(118,203,137);color:#FFF;margin-top:20px;text-align:center;}
+
+			#ribbon{height:40px;width:100%;position:fixed;margin-top:0px;}
+			#ribbon span{padding:5px;}
+
+			aside{margin-top:40px;position:fixed;width:30%;}
+			main{width:calc(40% - 100px);margin-left:calc(30% + 50px);padding-top:40px;}
+			progress{width:100%;}
+		</style>
+	</head>
+	<body>
+		<header id="ribbon" class="panel">
+			<span class="image left">VTRAK</span>
+			<span class="account right">D:</span>
+		</header>
+		<aside class="staticLeft">
+			<!--<div id="goalText" class="right panel"><span id="progressText">55 of 100</span></div>-->
+			<progress id="goalBar" class="panel" value="55" max="100"></progress>
+			<div id="addNew" class="panel">
+				<div class="name">
+					<label>Name</label>
+					<input id="newName" type="text"></input>
+				</div>
+				<div class="date"><label>Date</label><input id="newDate" type="date"></input></div>
+				<div class="hours"><label>Hours</label><input id="newHours" type="number"></input></div>
+				<div class="more"><input id="newMore" type="button" value="+"></input></div>
+				<div class="submit"><input id="newSubmit" type="button" value="Submit"></input></div>
+			</div>
+		</aside>
+		<aside class="staticRight">
+			<div id="recs" class="panel">
+				<div id="o435">
+					<div class="name">ACM-W @ UCF</div>
+					<div class="type">Social Causes</div>
+				</div>
+			</div>
+		</aside>
+		<main id="history">
+			<div id="recent" class="panel">
+				<div id="e437">
+					<div class="name">NCWIT Awards</div>
+					<div class="date">5-13-17</div>
+					<div class="hours">8 hours</div>
+				</div>
+				<div id="e344">
+					<div class="name">Junior Knights</div>
+					<div class="date">4-15-17</div>
+					<div class="hours">7 hours</div>
+				</div>
+			</div>
+		</main>
+	</body>
+</html>
