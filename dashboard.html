@@ -9,15 +9,22 @@
 			.staticLeft{left:0px;}
 			.staticRight{right:0px;}
 			.right{float:right;}
+			.clearBoth{clear:both;}
 
-			.panel{background:rgb(118,203,137);color:#FFF;margin-top:20px;text-align:center;}
+			.panel{background:rgb(118,203,137);color:#FFF;margin-top:20px;text-align:center;padding:5px;}
+			.panel .panel{background:#FFF;color:#333;margin-top:5px;}
+			.panel .panel:first-of-type{margin-top:0px;}
 
-			#ribbon{height:40px;width:100%;position:fixed;margin-top:0px;}
+			#ribbon{height:40px;width:100%;position:fixed;margin-top:0px;border-bottom:20px solid #F5F5F5;padding:0px;}
 			#ribbon span{padding:5px;}
 
+			#goalText{margin-top:20px;color:#333;}
+
+			body{background:#F5F5F5;}
 			aside{margin-top:40px;position:fixed;width:30%;}
-			main{width:calc(40% - 100px);margin-left:calc(30% + 50px);padding-top:40px;}
-			progress{width:100%;}
+			main{width:calc(40% - 40px);margin-left:calc(30% + 20px);padding-top:40px;}
+			progress{width:100%;height:30px;}
+			progress.panel{padding:0px;}
 		</style>
 	</head>
 	<body>
@@ -26,8 +33,11 @@
 			<span class="account right">D:</span>
 		</header>
 		<aside class="staticLeft">
-			<!--<div id="goalText" class="right panel"><span id="progressText">55 of 100</span></div>-->
-			<progress id="goalBar" class="panel" value="55" max="100"></progress>
+			<div id="goalText">
+				<span class="left">Goal</span>
+				<span class="right">55 of 100</span>
+			</div>
+			<progress id="goalBar" value="55" max="100"></progress>
 			<div id="addNew" class="panel">
 				<div class="name">
 					<label>Name</label>
@@ -35,26 +45,33 @@
 				</div>
 				<div class="date"><label>Date</label><input id="newDate" type="date"></input></div>
 				<div class="hours"><label>Hours</label><input id="newHours" type="number"></input></div>
-				<div class="more"><input id="newMore" type="button" value="+"></input></div>
-				<div class="submit"><input id="newSubmit" type="button" value="Submit"></input></div>
+				<div class="more"><input id="newMore" type="button" value="+" class="left"></input></div>
+				<div class="submit"><input id="newSubmit" type="button" value="Submit" class="right"></input></div>
+				<div class="clearBoth"></div>
 			</div>
 		</aside>
 		<aside class="staticRight">
 			<div id="recs" class="panel">
-				<div id="o435">
+				<h2>You might like...</h2>
+				<div id="o435" class="panel">
 					<div class="name">ACM-W @ UCF</div>
 					<div class="type">Social Causes</div>
+				</div>
+				<div id="o438" class="panel">
+					<div class="name">Pet Rescue By Judy</div>
+					<div class="type">Animals</div>
 				</div>
 			</div>
 		</aside>
 		<main id="history">
 			<div id="recent" class="panel">
-				<div id="e437">
+				<h2>Recent Activity</h2>
+				<div id="e437" class="panel">
 					<div class="name">NCWIT Awards</div>
 					<div class="date">5-13-17</div>
 					<div class="hours">8 hours</div>
 				</div>
-				<div id="e344">
+				<div id="e344" class="panel">
 					<div class="name">Junior Knights</div>
 					<div class="date">4-15-17</div>
 					<div class="hours">7 hours</div>
