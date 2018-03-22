@@ -1,0 +1,35 @@
+function addExperience(userID, more){
+	if(more)
+	{
+		var name=$("#newName").val();
+	    var expDate=$("#newDate").val();
+		var hours=$("#newHours").val();
+		var notes=$("#newNotes").val();
+	}
+	else
+	{
+		var name=$("#newName").val();
+	    var expDate=$("#newDate").val();
+		var hours=$("#newHours").val();
+		var notes="";
+	}
+
+	$('#newName').val("");
+	$('#newDate').val("");
+	$('#newHours').val("");
+    jQuery.ajax({
+        url: '/API/addExperience.php',
+        type: "POST",
+        data: {userID:userID, name:name, expDate:expDate, hours:hours, notes:notes},
+		success: function(resp){
+			if(resp!="fail whale :("){
+				var obj = $.parseJSON(resp);
+				$("#recent div").first().before('<div id="e' + obj.id + '" class="panel"><div class="name">' + obj.name + '</div><div class="date">' + obj.expDate + '</div><div class="hours">' + obj.hours + ' hours</div></div>');
+				//$("#"+obj.id).on("click",function(){viewContact(obj.UserID, this.id);});
+			}
+			else {
+				alert("addContact API call fail whaled :(");
+			}
+		}
+    });
+}
