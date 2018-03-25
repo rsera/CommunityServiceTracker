@@ -25,7 +25,9 @@ function addExperience(userID, more){
 			if(resp!="fail whale :("){
 				var obj = $.parseJSON(resp);
 				$("#recent div").first().before('<div id="e' + obj.id + '" class="panel"><div class="name">' + obj.name + '</div><div class="date">' + obj.expDate + '</div><div class="hours">' + obj.hours + ' hours</div></div>');
-				//$("#"+obj.id).on("click",function(){viewContact(obj.UserID, this.id);});
+				var numHours = parseFloat($("#hoursLabel").html()) + parseFloat(obj.hours);
+				$("#hoursLabel").html(numHours);
+				$("#goalBar").attr("value", numHours);
 			}
 			else {
 				alert("addContact API call fail whaled :(");

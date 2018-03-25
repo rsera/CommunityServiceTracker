@@ -16,7 +16,7 @@
 			.clearBoth{clear:both;}
 
 			.panel{background:#9ad3a6;color:#FFF;margin-top:20px;text-align:center;padding:30px;}
-			.panel .panel{background:#F5F5F5;color:#333;margin-top:5px;border-radius:25px;}
+			.panel .panel{background:#F5F5F5;color:#333;margin-top:5px;border-radius:5px;}
 			.panel .panel:first-of-type{margin-top:0px;}
 
 			#ribbon{height:40px;width:100%;position:fixed;margin-top:0px;border-bottom:20px solid #F5F5F5;background:#9ad3a6;padding:0px;}
@@ -24,11 +24,10 @@
 			#goalText{margin-top:20px;color:#333;}
 			#recent{padding-top:60px;}
 
-
 			body{background:#F5F5F5}
 			aside{margin-top:40px;position:fixed;width:30%;}
-			main{width:calc(40% - 40px);margin-left:calc(30% + 20px);padding-top:40px;}
-			progress{width:100%;height:60px; border-radius:20px;}
+			main{width:calc(40% - 60px);margin-left:calc(30% + 30px);padding-top:30px;}
+			progress{width:100%;height:60px; border-radius:5px;}
 			h2{background:#76cb89;}
 
 
@@ -40,31 +39,46 @@
 			<span class="account right">D:</span>
 		</header>
 		<aside class="staticLeft">
-			<div id="goalText">
-				<span class="left">Goal</span>
-				<span class="right">55 of 100</span>
-			</div>
-			<progress id="goalBar" value="55" max="100"></progress>
+			<?php
+				$thisUserID = $_SESSION['UserID'];
+				$sql = "SELECT goal, SUM(hours) AS hours FROM user LEFT JOIN experiences on user.userID = experiences.userID WHERE user.userID = ".$thisUserID. " GROUP BY user.userID";
+				$result = mysqli_query($conn, $sql);
+
+				if (mysqli_num_rows($result) > 0)
+				{
+					while($row = mysqli_fetch_assoc($result)){
+						echo '<div id="goalText"><span class="left">Goal</span><span class="right"><span id="hoursLabel">' . $row['hours'] . '</span> of <span id="goalLabel">' . $row['goal'] . '</span></span></div>';
+						echo '<progress id="goalBar" value="' . $row['hours'] . '" max="' . $row['goal'] . '"></progress>';
+					}
+				}
+			?>
+
+			<div class="panel">
 			<div id="addNew" class="panel">
-				<div class="name panel"><label>Name</label><input id="newName" type="text"></input></div>
-				<div class="date panel"><label>Date</label><input id="newDate" type="date"></input></div>
-				<div class="hours panel"><label>Hours</label><input id="newHours" type="number"></input></div>
+				<div class="name"><label>Name</label><input id="newName" type="text"></input></div>
+				<div class="date"><label>Date</label><input id="newDate" type="date"></input></div>
+				<div class="hours"><label>Hours</label><input id="newHours" type="number"></input></div>
 				<div class="more"><input id="newMore" type="button" value="+" class="left"></input></div>
 				<div class="submit"><input id="newSubmit" type="button" value="Submit" class="right"></input></div>
 				<div class="clearBoth"></div>
 			</div>
+		</div>
 		</aside>
 		<aside class="staticRight">
 			<h2 class="panel">You might like...</h2>
-			<div id="recs" class="panel">
-				<div id="o435" class="panel">
-					<div class="name">ACM-W @ UCF</div>
-					<div class="type">Social Causes</div>
-				</div>
-				<div id="o438" class="panel">
-					<div class="name">Pet Rescue By Judy</div>
-					<div class="type">Animals</div>
-				</div>
+			<div id="recommendations" class="panel">
+				<?php
+					$thisUserID = $_SESSION['UserID'];
+					$sql = "SELECT orgID, orgName, orgType, orgWebsite FROM organizations INNER JOIN user ON organizations.orgZip = user.userZip AND user.userID = ".$thisUserID;
+					$result = mysqli_query($conn, $sql);
+
+					if (mysqli_num_rows($result) > 0)
+					{
+						while($row = mysqli_fetch_assoc($result)){
+							echo '<div id="o'. $row['orgID'] . '" class="panel"><div class="name">' . $row['orgName'] . '</div><div class="type">' . $row['orgType'] . '</div><div class="webaddress">' . $row['orgWebsite'] . '</div></div>';
+						}
+					}
+				?>
 			</div>
 		</aside>
 		<main id="history">
