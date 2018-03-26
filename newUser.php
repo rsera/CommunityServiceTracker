@@ -5,6 +5,7 @@
 	// Store username and password from form submission
 	$FName =  mysqli_real_escape_string($conn, $_POST['FName']);
 	$LName = mysqli_real_escape_string($conn, $_POST['LName']);
+    $zip = mysqli_real_escape_string($conn, $_POST['zip']);
     $username = mysqli_real_escape_string($conn, $_POST['username']);
 	$goal = mysqli_real_escape_string($conn, $_POST['goal']);
     $pass = mysqli_real_escape_string($conn, $_POST['PWHash']);
@@ -47,8 +48,8 @@
 		$hashedPass = password_hash($pass, PASSWORD_DEFAULT);
 
 		// Make sql query string
-		$sql = "INSERT INTO user(FName, LName, goal, username, userPWHash)
-					VALUES('" . $FName . "','". $LName . "','" . $goal . "','" . $username . "','" . $hashedPass . "')";
+		$sql = "INSERT INTO user(FName, LName, userZip, goal, username, userPWHash)
+					VALUES('" . $FName . "','". $LName . "','" . $zip . "','" . $goal . "','" . $username . "','" . $hashedPass . "')";
 
 		if (!$conn->query($sql) == TRUE)
 		{
