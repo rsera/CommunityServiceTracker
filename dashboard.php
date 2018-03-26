@@ -103,7 +103,7 @@
 			<script src="API/webAJAX.js"></script>
 
 		<script>
-			// When you click "submit" for new experiences, add the experience and updat the recent list
+			// When you click "submit" for new experiences, add the experience and update the recent activity list
 			$("#newSubmit").on("click",function(){addExperience(<?=$_SESSION['UserID']?>, false)});
 			//$("#newSubmit").on("click",$("#addNew").val(""));
 
@@ -129,10 +129,6 @@
 
 			$('#myContacts h2').on("click",function(){$('#contactList button').not('.defaultHidden').show()});
 
-			// Helper function for showing errors.
-			function showError(str){
-				$("#error").html(str).removeClass("defaultHidden");
-				setTimeout(function(){$("#error").addClass("defaultHidden");},3000);
 			}
 		</script>
 	</body>
