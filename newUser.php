@@ -44,7 +44,7 @@
 	else
 	{
 		// Make hashed version of password using bcrypt
-		//$hashedPass = password_hash($pass, PASSWORD_DEFAULT);
+		$hashedPass = password_hash($pass, PASSWORD_DEFAULT);
 
 		// Make sql query string
 		$sql = "INSERT INTO user(FName, LName, goal, username, userPWHash)
