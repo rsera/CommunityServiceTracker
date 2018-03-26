@@ -77,8 +77,9 @@
 						<?php if($error!=""&&$default=="signup")echo $error;?>
 						<input id="firstname" class="usernameBox" type="text" placeholder=" First Name" name="FName" required value="<?=$fname?>"><br />
 						<input id="lastname" class="usernameBox" type="text" placeholder=" Last Name" name="LName" required value="<?=$lname?>"><br />
+						<input id="zip" class="usernameBox" type="text" placeholder=" Zip Code" name="zip" required value=""><br />
 						<input id="username" class="usernameBox" type="text" placeholder=" Username" name="username" required value="<?=$username?>"><br />
-						<input id="goal" class="usernameBox" type="text" placeholder="Set Your Goal (in hours)" name="goal" required value="<?=$goal?>"><br />
+						<input id="goal" class="usernameBox" type="text" placeholder=" Set Your Goal (in hours)" name="goal" required value="<?=$goal?>"><br />
 						<input id="password" class="passwordBox" type="password" placeholder=" Password" name="PWHash" required><br />
 						<input id="password" class="passwordBox" type="password" placeholder=" Retype Password" name="PWHash2" required><br />
 						<input type="submit" class="signUpButton" value="Sign Up">
