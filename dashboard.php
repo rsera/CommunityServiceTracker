@@ -41,7 +41,7 @@
 		<aside class="staticLeft">
 			<?php
 				$thisUserID = $_SESSION['UserID'];
-				$sql = "SELECT goal, SUM(hours) AS hours FROM user LEFT JOIN experiences on user.userID = experiences.userID WHERE user.userID = ".$thisUserID. " GROUP BY user.userID";
+				$sql = "SELECT goal, IFNULL(SUM(hours),0) AS hours FROM user LEFT JOIN experiences on user.userID = experiences.userID WHERE user.userID = ".$thisUserID. " GROUP BY user.userID";
 				$result = mysqli_query($conn, $sql);
 
 				if (mysqli_num_rows($result) > 0)
