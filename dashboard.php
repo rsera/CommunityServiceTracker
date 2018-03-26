@@ -128,8 +128,6 @@
 			$("#searchButton").on("click",function(){searchContact(<?=$_SESSION['UserID']?>, $("#searchBox").val())});
 
 			$('#myContacts h2').on("click",function(){$('#contactList button').not('.defaultHidden').show()});
-
-			}
 		</script>
 	</body>
 </html>
