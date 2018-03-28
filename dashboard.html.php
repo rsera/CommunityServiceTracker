@@ -68,7 +68,7 @@
     				if (mysqli_num_rows($result) > 0)
     				{
     					while($row = mysqli_fetch_assoc($result)){
-								echo '<p>Current hours:'.$row['hours'].'</p>';
+								/*echo '<p>Current hours:'.$row['hours'].'</p>';*/
                 echo '<span class="pull-right">'. $row['hours'].' of '.$row['goal'].'</span>';
     					}
     				}
@@ -99,7 +99,7 @@
         }
 
       ?>
-
+			<!--
       <div class="progress">
         <div  class="progress-bar" role="progressbar" area-valuenow="<?php echo $val;?>"
         area-valuemin="0" aria-valuemax="100" style="width:<?php echo $val;?>%;">
@@ -116,9 +116,9 @@
 				<div class="submit"><input id="newSubmit" type="button" value="Submit" class="right"></input></div>
 				<div class="clearBoth"></div>
 			</div>
+		-->
 
-			<!--
-      <!--Add activity form
+      <!--Add activity form-->
       <div id="addNew" class="panel panel-default" >
         <div class="panel-heading">Add Activity</div>
         <div class="panel-body">
@@ -156,7 +156,6 @@
       </div>
     </div>
 
--->
 
     <div class="col-sm-4">
       <h2><span class="label label-default">Recent Activity</span></h2>
