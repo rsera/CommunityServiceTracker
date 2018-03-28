@@ -30,9 +30,22 @@
 
 			if(password_verify($pass, $retrievedHash))
 			{
-				$_SESSION["UserID"] = $userID;
-				$loginFlag = true;
-				header("Location: /dashboard.php");
+				$sql = "INSERT INTO sessions(userID, sessionID) VALUES('".$userID."', UUID())";
+				if ($result = $conn->query($sql) == TRUE)
+			    {
+					$sql = "SELECT sessionID FROM sessions WHERE userID = '".$userID."' ORDER BY lastActivity DESC LIMIT 1";
+					$result = $conn->query($sql);
+					if ($result->num_rows > 0)
+					{
+						$result = $result->fetch_assoc();
+						setcookie("vtrakSession", $result["sessionID"], time() + (86400 * 30), "/"); // (86400 * 30) is to expire after 30 days -- can modify if desired
+						setcookie("vtrakUser", $userID, time() + (86400 * 30), "/"); // (86400 * 30) is to expire after 30 days -- can modify if desired
+						$_SESSION["UserID"] = $userID;
+						$loginFlag = true;
+						header("Location: /dashboard.php");
+					}
+			    }
+
 			}
 
 		}

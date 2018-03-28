@@ -3,4 +3,21 @@
 session_start();
 // creates db connection only the first time header is included
 require_once "dbinit.php";
+
+// utililty functions
+function checkSession(){
+	global $conn;
+	if (isset($_COOKIE['vtrakUser']) && isset($_COOKIE["vtrakSession"])){
+		$sql = "SELECT 1 FROM sessions WHERE userID='".mysqli_real_escape_string($conn, $_COOKIE['vtrakUser'])."' AND sessionID = '".mysqli_real_escape_string($conn, $_COOKIE['vtrakSession'])."'";
+		$result = mysqli_query($conn, $sql);
+
+		if (mysqli_num_rows($result) > 0)
+		{
+			$sql = "UPDATE sessions SET lastActivity=NOW() WHERE userID='".mysqli_real_escape_string($conn, $_COOKIE['vtrakUser'])."' AND sessionID = '".mysqli_real_escape_string($conn, $_COOKIE['vtrakSession'])."'";
+			$result = mysqli_query($conn, $sql);
+			return true;
+		}
+	}
+	return false;
+}
 ?>
