@@ -1,4 +1,4 @@
-package com.albums;
+package com.vtrak;
 
 import android.app.Application;
 
