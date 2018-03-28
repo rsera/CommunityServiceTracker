@@ -94,6 +94,8 @@
 						while($row = mysqli_fetch_assoc($result)){
 							echo '<div id="e' . $row['experienceID'] . '" class="panel"><div class="name">' . $row['name'] . '</div><div class="date">' . $row['expDate'] . '</div><div class="hours">' . $row['hours'] . ' hours</div></div>';
 						}
+					} else {
+						echo '<div id="noActivity">You have no activity.</div>';
 					}
 				?>
 			</div>
@@ -104,7 +106,7 @@
 
 		<script>
 			// When you click "submit" for new experiences, add the experience and update the recent activity list
-			$("#newSubmit").on("click",function(){addExperience(<?=$_SESSION['UserID']?>, false)});
+			$("#newSubmit").on("click",function(){addExperience(false)});
 			//$("#newSubmit").on("click",$("#addNew").val(""));
 
 			// When you click on contacts, swap to the Read-Only form and show their info
