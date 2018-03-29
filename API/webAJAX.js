@@ -1,22 +1,14 @@
-function addExperience(more){
-	if(more)
-	{
+function addExperience(){
 		var name=$("#newName").val();
 	    var expDate=$("#newDate").val();
 		var hours=$("#newHours").val();
 		var notes=$("#newNotes").val();
-	}
-	else
-	{
-		var name=$("#newName").val();
-	    var expDate=$("#newDate").val();
-		var hours=$("#newHours").val();
-		var notes="";
-	}
 
 	$('#newName').val("");
 	$('#newDate').val("");
 	$('#newHours').val("");
+	$('#newNotes').val("");
+
     jQuery.ajax({
         url: '/API/addExperience.php',
         type: "POST",
@@ -28,10 +20,11 @@ function addExperience(more){
 			else if(resp!="fail whale :("){
 				var obj = $.parseJSON(resp);
 				$("#noActivity").hide();
-				$("#recent div").first().before('<div id="e' + obj.id + '" class="panel"><div class="name">' + obj.name + '</div><div class="date">' + obj.expDate + '</div><div class="hours">' + obj.hours + ' hours</div></div>');
+				$("#recent tr").first().before('<tr><td><p id="e' + obj.id + '" class="header">' + obj.name + '</strong></p><p>' + obj.expDate + '</p><p>' + obj.hours + ' hours</p></td></tr>');
 				var numHours = parseFloat($("#hoursLabel").html()) + parseFloat(obj.hours);
 				$("#hoursLabel").html(numHours);
-				$("#goalBar").attr("value", numHours);
+				var goal = parseFloat($(".progress-bar").attr("aria-valuemax"));
+				$(".progress-bar").attr("style", "width:"+100*numHours/goal+"%");
 			}
 			else {
 				alert("addContact API call fail whaled :(");

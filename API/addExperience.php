@@ -12,20 +12,19 @@
   // Verify that the user has entered a first, last, phone, and email
   if (!(isset($_COOKIE['vtrakUser']) && isset($_POST['name']) && isset($_POST['expDate']) && isset($_POST['hours']) && isset($_POST['notes'])))
   {
-    echo "fail whale :(";
+    echo "fail whale isset";
 	return;
   }
 
   // Establishing database connection
   if ($conn->connect_error)
   {
-    echo "fail whale :(";
+    echo "fail whale conn";
 	return;
   }
   else {
 
-    // Create a long query string to add the given contact into Contact table
-    // Still need userID associated with this given contact.
+    //
     $sql = "INSERT INTO experiences(name, expDate, hours, notes, userID) VALUES(";
     $sql = $sql."'".mysqli_real_escape_string($conn, $_POST['name'])."', ";
     $sql = $sql."'".mysqli_real_escape_string($conn, $_POST['expDate'])."', ";
@@ -35,7 +34,7 @@
 
     if ($result = $conn->query($sql) != TRUE)
     {
-      echo "fail whale :(";
+      echo "fail whale result not true";
     }
     else
     {

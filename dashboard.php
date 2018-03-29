@@ -2,134 +2,205 @@
 	if(!isset($_SESSION['UserID'])){
 		header("location: /");
 	}
-?><!DOCTYPE html><html>
-	<head>
-		<!-- <script src="jquery-3.2.1.min.js"></script> -->
-		<!-- <script src="/API/APIfront.js"></script> -->
-		<!--- Styles will be moved off into their own css file --->
-		<style>
-			body{margin:0px;width:100%;}
-			.left{float:left;}
-			.staticLeft{left:0px;}
-			.staticRight{right:0px;}
-			.right{float:right;}
-			.clearBoth{clear:both;}
+?>
 
-			.panel{background:#9ad3a6;color:#FFF;margin-top:20px;text-align:center;padding:30px;}
-			.panel .panel{background:#F5F5F5;color:#333;margin-top:5px;border-radius:5px;}
-			.panel .panel:first-of-type{margin-top:0px;}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>VTRAK</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="css/styles.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <style>
+    .defaultHidden{display:none;visibility:hidden;}
+    @font-face{font-family: sanssaFont;src:url(CSS/Sansation_Regular.ttf)};
+    @font-face{font-family: sanssaBold;src:url(CSS/Sansation_Bold.ttf);font-weight:bold};
+    body{font-family:sanssaFont;}
+    #vtrakButton{font-family:sanssaFont; font-size: 25px;}
+    #signUpRibbon{font-family:sanssaFont; font-size: 20px}
+    #loginRibbon{font-family:sanssaFont; font-size: 20px}
+    #homePageContent h1{font-family:sanssaFont;}
+  </style>
+</head>
+<body class="myDashboard">
 
-			#ribbon{height:40px;width:100%;position:fixed;margin-top:0px;border-bottom:20px solid #F5F5F5;background:#9ad3a6;padding:0px;}
-			#ribbon span{padding:5px;}
-			#goalText{margin-top:20px;color:#333;}
-			#recent{padding-top:60px;}
+  <!-- Top Banner Start -->
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#" data-target="home" id="vtrakButton">vTrak</a>
+      </div>
 
-			body{background:#F5F5F5}
-			aside{margin-top:40px;position:fixed;width:30%;}
-			main{width:calc(40% - 60px);margin-left:calc(30% + 30px);padding-top:30px;}
-			progress{width:100%;height:60px; border-radius:5px;}
-			h2{background:#76cb89;}
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#" data-target="signUp" id="signUpRibbon">Account</a></li>
+          <li><a href="#" data-target="login" id="loginRibbon">Log Out</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Top Banner End -->
 
+  <div class="row row-eq-height">
+    <div class="col-sm-4">
+      <!-- Progress bar -->
+      <div class="progress-bar-label">
+        <h2>
+          <span class="label label-default">Goal</span>
 
-		</style>
-	</head>
-	<body>
-		<header id="ribbon">
-			<span class="image left">VTRAK</span>
-			<span class="account right">D:</span>
-		</header>
-		<aside class="staticLeft">
-			<?php
-				$thisUserID = $_SESSION['UserID'];
-				$sql = "SELECT goal, IFNULL(SUM(hours),0) AS hours FROM user LEFT JOIN experiences on user.userID = experiences.userID WHERE user.userID = ".$thisUserID. " GROUP BY user.userID";
-				$result = mysqli_query($conn, $sql);
+          <?php
+			$thisUserID = $_SESSION['UserID'];
+			$sql = "SELECT goal, IFNULL(SUM(hours),0) AS hours FROM user LEFT JOIN experiences on user.userID = experiences.userID WHERE user.userID = ".$thisUserID. " GROUP BY user.userID";
+			$result = mysqli_query($conn, $sql);
 
-				if (mysqli_num_rows($result) > 0)
-				{
-					while($row = mysqli_fetch_assoc($result)){
-						echo '<div id="goalText"><span class="left">Goal</span><span class="right"><span id="hoursLabel">' . $row['hours'] . '</span> of <span id="goalLabel">' . $row['goal'] . '</span></span></div>';
-						echo '<progress id="goalBar" value="' . $row['hours'] . '" max="' . $row['goal'] . '"></progress>';
-					}
+			if (mysqli_num_rows($result) > 0)
+			{
+				while($row = mysqli_fetch_assoc($result)){
+					/*echo '<p>Current hours:'.$row['hours'].'</p>';*/
+        			//echo '<span class="pull-right">'. $row['hours'].' of '.$row['goal'].'</span>';
+					echo '<span class="pull-right"><span id="hoursLabel">' . $row['hours'] . '</span> of <span id="goalLabel">' . $row['goal'] . '</span></span>';
 				}
-			?>
+			}
+    	?>
+        </h2>
+      </div>
 
-			<div class="panel">
-			<div id="addNew" class="panel">
-				<div class="name"><label>Name</label><input id="newName" type="text"></input></div>
-				<div class="date"><label>Date</label><input id="newDate" type="date"></input></div>
-				<div class="hours"><label>Hours</label><input id="newHours" type="number"></input></div>
-				<div class="more"><input id="newMore" type="button" value="+" class="left"></input></div>
-				<div class="submit"><input id="newSubmit" type="button" value="Submit" class="right"></input></div>
-				<div class="clearBoth"></div>
-			</div>
-		</div>
-		</aside>
-		<aside class="staticRight">
-			<h2 class="panel">You might like...</h2>
-			<div id="recommendations" class="panel">
-				<?php
-					$thisUserID = $_SESSION['UserID'];
-					$sql = "SELECT orgID, orgName, orgType, orgWebsite FROM organizations INNER JOIN user ON organizations.orgZip = user.userZip AND user.userID = ".$thisUserID;
-					$result = mysqli_query($conn, $sql);
 
-					if (mysqli_num_rows($result) > 0)
-					{
-						while($row = mysqli_fetch_assoc($result)){
-							echo '<div id="o'. $row['orgID'] . '" class="panel"><div class="name">' . $row['orgName'] . '</div><div class="type">' . $row['orgType'] . '</div><div class="webaddress">' . $row['orgWebsite'] . '</div></div>';
+      <?php
+
+        $thisUserID = $_SESSION['UserID'];
+        $sql = "SELECT goal, IFNULL(SUM(hours),0) AS hours FROM user LEFT JOIN experiences on user.userID = experiences.userID WHERE user.userID = ".$thisUserID. " GROUP BY user.userID";
+        $result = mysqli_query($conn, $sql);
+
+        if (mysqli_num_rows($result) > 0)
+        {
+          while($row = mysqli_fetch_assoc($result)){
+            $val = (int)($row['hours']/$row['goal']*100);
+
+			echo '<div class="progress"><div class="progress-bar" role="progressbar" aria-valuenow="'.$row['hours'].'" aria-value-min="0" aria-valuemax="'.$row['goal'].'" style="width:'.$val.'%">'.'<div class="progress-bar-title"></div>'.'</div></div>';
+
+          }
+        }
+
+      ?>
+
+      <!--Add activity-->
+      <div id="addNew" class="panel panel-default" >
+        <div class="panel-heading">Add Activity</div>
+        <div class="panel-body">
+
+          <!--<form>-->
+            <div class="form-group">
+              <label for="newName">Name:</label>
+              <input type="text" class="form-control" id="newName">
+            </div>
+
+            <label for="newDate">Date:</label>
+            <div class="form-group">
+                <div class='input-group date'>
+                    <input type='date' class="form-control" id="newDate"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="form-group">
+              <label for="newHours">Hours:</label>
+              <input type="number" class="form-control" id="newHours">
+            </div>
+
+            <div class="form-group">
+              <label for="comment">Notes:</label>
+              <textarea class="form-control" rows="5" id="newNotes"></textarea>
+            </div>
+
+            <button type="button" class="btn btn-default" id="newSubmit">Submit</button>
+          <!--</form>-->
+
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-sm-4">
+      <h2><span class="label label-default">Recent Activity</span></h2>
+
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <table id="recent" class="table" border="1">
+              <tbody>
+				  <?php
+  					$thisUserID = $_SESSION['UserID'];
+  					$sql = "SELECT experienceID, name, expDate, hours FROM experiences WHERE userID = ".$thisUserID ." ORDER BY expDate DESC";
+  					$result = mysqli_query($conn, $sql);
+
+  					if (mysqli_num_rows($result) > 0)
+  					{
+  						while($row = mysqli_fetch_assoc($result)){
+  							echo '<tr><td><p id="e' . $row['experienceID'] . '" class="header">' . $row['name'] . '</strong></p><p>' . $row['expDate'] . '</p><p>' . $row['hours'] . ' hours</p></td></tr>';
 						}
-					}
-				?>
-			</div>
-		</aside>
-		<main id="history">
-			<h2 class="panel">Recent Activity</h2>
-			<div id="recent" class="panel">
-				<?php
-					$thisUserID = $_SESSION['UserID'];
-					$sql = "SELECT experienceID, name, expDate, hours FROM experiences WHERE userID = ".$thisUserID ." ORDER BY expDate DESC";
-					$result = mysqli_query($conn, $sql);
+  					}
+					else echo '<tr><td><p id="noActivity">You have no activity.</p></td></tr>';
 
-					if (mysqli_num_rows($result) > 0)
-					{
-						while($row = mysqli_fetch_assoc($result)){
-							echo '<div id="e' . $row['experienceID'] . '" class="panel"><div class="name">' . $row['name'] . '</div><div class="date">' . $row['expDate'] . '</div><div class="hours">' . $row['hours'] . ' hours</div></div>';
+				?>
+              </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <h2><span class="label label-default">Recommendations</span></h2>
+
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <table class="table" border="1">
+              <tbody>
+				  <?php
+  					$thisUserID = $_SESSION['UserID'];
+  					$sql = "SELECT orgID, orgName, orgType, orgWebsite FROM organizations INNER JOIN user ON organizations.orgZip = user.userZip AND user.userID = ".$thisUserID;
+  					$result = mysqli_query($conn, $sql);
+
+  					if (mysqli_num_rows($result) > 0)
+  					{
+  						while($row = mysqli_fetch_assoc($result)){
+  							//echo '<div id="o'. $row['orgID'] . '" class="panel"><div class="name">' . $row['orgName'] . '</div><div class="type">' . $row['orgType'] . '</div><div class="webaddress">' . $row['orgWebsite'] . '</div></div>';
+							echo '<tr><td><p id="o'. $row['orgID'] . '" class="header">' . $row['orgName'] . '</p><p>' . $row['orgWebsite'] . '</p></td></tr>';
 						}
-					} else {
-						echo '<div id="noActivity">You have no activity.</div>';
+  					}
+					else {
+						echo '<tr><td><p id="noActivity">No organizations match your area/interests.</p></td></tr>';
 					}
-				?>
-			</div>
-		</main>
-		<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-			<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-			<script src="API/webAJAX.js"></script>
+  				?>
+              </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
 
-		<script>
-			// When you click "submit" for new experiences, add the experience and update the recent activity list
-			$("#newSubmit").on("click",function(){addExperience(false)});
-			//$("#newSubmit").on("click",$("#addNew").val(""));
+  </div>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+		<script src="API/webAJAX.js"></script>
+	<script>
+		// When you click "submit" for new experiences, add the experience and update the recent activity list
+		$("#newSubmit").on("click",function(){addExperience()});
+		//$("#newSubmit").on("click",$("#addNew").val(""));
 
-			// When you click on contacts, swap to the Read-Only form and show their info
-			$(".contact").on("click",function(){viewContact(<?=$_SESSION['UserID']?>,this.id);});
-			// When you click 'Add A New Contact', show the add contact section
-			$("#AddContact").on("click",function(){
-				if($("#addContactInfo").is(":hidden")){
-					$(".togglePanel").toggleClass("defaultHidden");
-				}
-			});
-			// When you click 'Delete Contact', remove the contact from the active page
-			$("#DeleteContact").on("click",function(){
-				if($("#addContactInfo").is(":hidden")){
-					deleteContact(<?=$_SESSION['UserID']?>,$("#contactDisplay").attr("data-cid"))
-				}
-			});
-			// When you click 'Save Contact', add the contact and display its info
-			$(".addContactButton").on("click",function(){addContact(<?=$_SESSION['UserID']?>)});
+	</script>
+</body>
 
-			// When you click "search" it searches with what's in the box
-			$("#searchButton").on("click",function(){searchContact(<?=$_SESSION['UserID']?>, $("#searchBox").val())});
-
-			$('#myContacts h2').on("click",function(){$('#contactList button').not('.defaultHidden').show()});
-		</script>
-	</body>
 </html>
