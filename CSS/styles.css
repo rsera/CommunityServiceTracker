@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway');
 
+p.myOrgs {
+	margin-left: 5px;
+}
+
 body {
 	background:#76CB89;
 	background-size: cover;
@@ -175,4 +179,53 @@ html {
 	color: #515151;
 	font-size: 100%;
 	text-shadow: 0px 0px 300px #000;
+}
+body.myDashboard{
+  background-color: #76CB89;
+}
+
+.panel-default{
+  margin-left: 5px;
+}
+
+.progress{
+  position: relative;
+  margin-top: 10px;
+  margin-left: 10px;
+  height: 35px;
+}
+
+.label-default{
+  background-color: #4d4d4d;
+  color: white;
+  font-family: Cambria;
+  margin-top: 50px;
+  margin-left: 10px;
+}
+
+.panel-heading{
+  font-family: Cambria;
+  font-weight: bold;
+  font-size: 20.5px;
+}
+.progress .progress-bar{
+  background-color: #006600;
+  position: absolute;
+  text-align: center;
+  line-height: 35px;
+  overflow: hidden;
+  color: white;
+  font-weight: bold;
+  right: 0;
+  left: 0;
+  top: 0;
+}
+
+td {
+  font-family: Cambria;
+  font-size: 16.5px;
+}
+
+td > p.header{
+  font-weight: bold;
 }
