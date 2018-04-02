@@ -7,24 +7,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>VTRAK</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link href="css/styles.css" rel="stylesheet">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-  <style>
-    .defaultHidden{display:none;visibility:hidden;}
-    @font-face{font-family: sanssaFont;src:url(CSS/Sansation_Regular.ttf)};
-    @font-face{font-family: sanssaBold;src:url(CSS/Sansation_Bold.ttf);font-weight:bold};
-    body{font-family:sanssaFont;}
-    #vtrakButton{font-family:sanssaFont; font-size: 25px;}
-    #signUpRibbon{font-family:sanssaFont; font-size: 20px}
-    #loginRibbon{font-family:sanssaFont; font-size: 20px}
-    #homePageContent h1{font-family:sanssaFont;}
-  </style>
+	<title>VTRAK</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link href="css/styles.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<style>
+		.defaultHidden{display:none;visibility:hidden;}
+		@font-face{font-family: sanssaFont;src:url(CSS/Sansation_Regular.ttf)};
+		@font-face{font-family: sanssaBold;src:url(CSS/Sansation_Bold.ttf);font-weight:bold};
+		body{font-family:sanssaFont;}
+		#vtrakButton{font-family:sanssaFont; font-size: 25px;}
+		#signUpRibbon{font-family:sanssaFont; font-size: 20px}
+		#loginRibbon{font-family:sanssaFont; font-size: 20px}
+		#homePageContent h1{font-family:sanssaFont;}
+	</style>
 </head>
 <body class="myDashboard">
 
@@ -77,9 +77,7 @@
         </h2>
       </div>
 
-
       <?php
-
         $thisUserID = $_SESSION['UserID'];
         $sql = "SELECT goal, IFNULL(SUM(hours),0) AS hours FROM user LEFT JOIN experiences on user.userID = experiences.userID WHERE user.userID = ".$thisUserID. " GROUP BY user.userID";
         $result = mysqli_query($conn, $sql);
@@ -90,10 +88,8 @@
             $val = (int)($row['hours']/$row['goal']*100);
 
 			echo '<div class="progress"><div class="progress-bar" role="progressbar" aria-valuenow="'.$row['hours'].'" aria-value-min="0" aria-valuemax="'.$row['goal'].'" style="width:'.$val.'%">'.'<div class="progress-bar-title"></div>'.'</div></div>';
-
           }
         }
-
       ?>
 
       <!--Add activity-->
