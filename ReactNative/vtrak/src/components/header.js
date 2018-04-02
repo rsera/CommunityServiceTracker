@@ -1,11 +1,15 @@
 import React from 'react';
 import { Text, View } from 'react-native';
+import ProfileIcon from './ProfileIcon';
 
 const Header = (props) => {
-  const { textStyle, viewStyle } = styles;
+  const { textStyle, iconStyle, viewStyle } = styles;
 
   return  (
     <View style={viewStyle}>
+      <View style={iconStyle}>
+        <ProfileIcon />
+      </View>
       <Text style={textStyle}>{props.headerText}</Text>
     </View>
   );
@@ -16,13 +20,22 @@ const styles = {
     backgroundColor: '#76CB89',
     justifyContent: 'center',
     alignItems: 'center',
-    height: 60,
+    height: 70,
     elevation: 2,
-    position: 'relative'
+    position: 'relative',
+    flexDirection: 'row'
+  },
+  iconStyle: {
+    alignItems: 'flex-start',
+    alignSelf: 'center',
+    right: 145 // to put to the corner of header
   },
   textStyle: {
     color: '#FFFFFF',
-    fontSize: 30
+    fontSize: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'absolute'
   }
 };
 
