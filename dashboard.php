@@ -20,9 +20,9 @@
 		@font-face{font-family: sanssaFont;src:url(CSS/Sansation_Regular.ttf)};
 		@font-face{font-family: sanssaBold;src:url(CSS/Sansation_Bold.ttf);font-weight:bold};
 		body{font-family:sanssaFont;}
-		#vtrakButton{font-family:sanssaFont; font-size: 25px;}
-		#signUpRibbon{font-family:sanssaFont; font-size: 20px}
-		#loginRibbon{font-family:sanssaFont; font-size: 20px}
+		#vtrakButton{font-family:sanssaFont;}
+		#signUpRibbon{font-family:sanssaFont;}
+		#loginRibbon{font-family:sanssaFont;}
 		#homePageContent h1{font-family:sanssaFont;}
 	</style>
 </head>
@@ -46,7 +46,8 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#" data-target="signUp" id="signUpRibbon">Account</a></li>
-          <li><a href="#" data-target="login" id="loginRibbon">Log Out</a></li>
+          <li><a href="logout.php" data-target="login" id="loginRibbon">Log Out</a></li>
+		  <!--<button type="submit" class="btn btn-default navbar-btn"><a href="logout.php">Sign Out</a></button>-->
         </ul>
       </div>
     </div>
