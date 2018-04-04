@@ -60,7 +60,7 @@ const styles = {
 	},
 	hoursStyle: {
 		marginRight: 10,
-		marginLeft: 100,
+		marginLeft: 120,
 		alignItems: 'flex-end'
 	}
 };
