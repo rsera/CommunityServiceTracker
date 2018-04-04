@@ -23,7 +23,8 @@ const styles = {
     height: 70,
     elevation: 2,
     position: 'relative',
-    flexDirection: 'row'
+    flexDirection: 'row',
+    marginBottom: 10
   },
   iconStyle: {
     alignItems: 'flex-start',
@@ -35,7 +36,8 @@ const styles = {
     fontSize: 30,
     justifyContent: 'center',
     alignItems: 'center',
-    position: 'absolute'
+    position: 'absolute',
+    fontFamily: 'sansation'
   }
 };
 
