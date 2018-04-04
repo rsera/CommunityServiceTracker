@@ -8,9 +8,18 @@
           <meta name="viewport" content="width=device-width, initial-scale=1">
           <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
           <link href="css/styles.css" rel="stylesheet">
+          
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        
           <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-          <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        
+          <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js">
+          </script>
+        
+        
+        
+        
+        
           <style>
             .defaultHidden{display:none;visibility:hidden;}
             @font-face{font-family: sanssaFont;src:url(CSS/Sansation_Regular.ttf)};
@@ -59,38 +68,64 @@
                                 <br>
                                 <h1>Welcome</h1> 
                                 <h5>Tell Us About Your Organization</h5> <br>
-                                <input id="orgname" class="orgnameBox" type="text"
-                                placeholder="Organization Name" name="OrgName" required value>
-                                <br> <br>
-                                <input id="zip" class="orgnameBox" type="text"
-                                placeholder="Zip Code" name="ZipCode" required value>
-                                <br> <br>
-                                <input id="website" class="orgnameBox" type="text"
+                                <input id="orgname" class="usernameBox" type="text"
+                                placeholder="Organization Name" name="orgName" required value>
+                                <br> 
+                                <input id="zip" class="usernameBox" type="text"
+                                placeholder="Zip Code" name="zipCode" required value>
+                                <br>
+                                <input id="website" class="usernameBox" type="text"
                                 placeholder="Website Address" name="website" required value>   
-                                <br> <br>
-                             
-                                <input id="orgtype" class="orgnameBox" type="text"
-                                placeholder="Organization Type" name="OrgType" required value>
+                                <br>
+                                <input id="contactname" class="usernameBox" type="text"
+                                placeholder="Contact Name" name="contactName" required value>   
+                                <br>
+                                <input id="contactemail" class="usernameBox" type="text"
+                                placeholder="Contact Email" name="contactEmail" required value>   
+                                <br>
+                                
+                          
+                        
+                                        
+                                <div class="dropdown">
+                                    
+                                    <button id="org" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Organization Type
+                                    <span class="caret"></span>
+                                    </button>   
 
-                                <input type="submit" class="signUpButton" value="Register">
-
-
-                    </form>
+                                    <ul class="dropdown-menu" aria-labelledby="org">
+                                        <li><a href="#">Educational</a></li>
+                                        <li><a href="#">Social</a></li>
+                                        <li><a href="#">Diversity</a></li>
+                                        <li><a href="#">Poverty</a></li>
+                                        <li><a href="#">Animals</a></li>
+                                        
+                                    </ul> 
+                        
+                                    
             
+                            
+                                    <br>
+                                     <input type="submit" class="signUpButton" value="Register">
+                                </div>
+                                
+                    </form>
+                
                 </div>
             </div>
-          </section>      
+          </section>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+                
+    
         <style>
             @font-face{font-family: sanssaFont;src:url(CSS/Sansation_Regular.ttf)};
-            .welcometell{font-family: sanssaFont;}
-            .welcometell{font-family: sanssaFont;}
-            .nameentry{font-family: sanssaFont; font-size: 20px;}
-            .nameentry{font-family: sanssaFont; font-size: 20px;}
-            .zipentry{font-family: sanssaFont; font-size: 20px;}
-            .websiteentry{font-family: sanssaFont; font-size: 20px;}
-            .typeentry{font-family: sanssaFont; font-size: 20px;}
-            .regbutton{font-family: sanssaFont; font-size: 20px;}
         </style>
+        
+        
         
     </body>
 </html>
