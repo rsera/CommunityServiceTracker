@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway');
 
-p.myOrgs {
-	margin-left: 5px;
-}
-
 body {
 	background:#76CB89;
 	background-size: cover;
@@ -47,6 +43,15 @@ html {
 	margin: 30px;
 	width: 100px;
 }
+
+.defaultHidden{display:none;visibility:hidden;}
+@font-face{font-family: sanssaFont;src:url(Sansation_Regular.ttf)};
+@font-face{font-family: sanssaBold;src:url(Sansation_Bold.ttf);font-weight:bold};
+body{font-family:sanssaFont;}
+#vtrakButton{font-family:sanssaFont;}
+#signUpRibbon{font-family:sanssaFont;}
+#loginRibbon{font-family:sanssaFont;}
+#homePageContent h1{font-family:sanssaFont;}
 
 .signUpButton {
 	border-radius: 9px;

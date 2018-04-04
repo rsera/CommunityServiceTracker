@@ -15,19 +15,9 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-	<style>
-		.defaultHidden{display:none;visibility:hidden;}
-		@font-face{font-family: sanssaFont;src:url(CSS/Sansation_Regular.ttf)};
-		@font-face{font-family: sanssaBold;src:url(CSS/Sansation_Bold.ttf);font-weight:bold};
-		body{font-family:sanssaFont;}
-		#vtrakButton{font-family:sanssaFont;}
-		#signUpRibbon{font-family:sanssaFont;}
-		#loginRibbon{font-family:sanssaFont;}
-		#homePageContent h1{font-family:sanssaFont;}
-	</style>
 </head>
-<body class="myDashboard">
 
+<body class="myDashboard">
   <!-- Top Banner Start -->
   <nav class="navbar navbar-default">
     <div class="container">
@@ -54,7 +44,7 @@
   </nav>
   <!-- Top Banner End -->
 
-  <div class="row row-eq-height">
+  <div class="row row-eq-height" id="content">
     <div class="col-sm-4">
       <!-- Progress bar -->
       <div class="progress-bar-label">
@@ -114,14 +104,20 @@
                 </div>
             </div>
 
+			<span>
             <div class="form-group">
               <label for="newHours">Hours:</label>
               <input type="number" class="form-control" id="newHours">
             </div>
+			<div class="form-group">
+              <label for="newHours">Type:</label>
+              <input type="number" class="form-control" id="newHours">
+            </div>
+			</span>
 
             <div class="form-group">
               <label for="comment">Notes:</label>
-              <textarea class="form-control" rows="5" id="newNotes"></textarea>
+              <textarea class="form-control" rows="4" id="newNotes"></textarea>
             </div>
 
             <button type="button" class="btn btn-default" id="newSubmit">Submit</button>
@@ -135,8 +131,13 @@
     <div class="col-sm-4">
       <h2><span class="label label-default">Recent Activity</span></h2>
 
+	  <div>
+		<input id="searchBox" type="text" class="form-control" placeholder="Search" style="margin-bottom:20px">
+		<!--<button id="searchButton" type="button" class="btn btn-default">Search</button>-->
+	  </div>
+
       <div class="panel panel-default">
-        <div class="panel-body">
+        <div class="panel-body pre-scrollable" style="max-height: 75vh">
           <table id="recent" class="table" border="1">
               <tbody>
 				  <?php
@@ -195,7 +196,9 @@
 	<script>
 		// When you click "submit" for new experiences, add the experience and update the recent activity list
 		$("#newSubmit").on("click",function(){addExperience()});
-		//$("#newSubmit").on("click",$("#addNew").val(""));
+
+		// Pressing <enter> in the search box will trigger the search funciton
+		//$("searchBox").keypress(function(e){if(e.which == 13){function(){searchExperiences()}}});
 
 	</script>
 </body>
