@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
 import EventCard from './EventCard';
 
 class VolunteerEventList extends Component {
@@ -9,14 +9,16 @@ class VolunteerEventList extends Component {
   
   render() {
     return (
-      <View style={styles.containerStyle}>
-        <Text style={styles.listHeaderStyle}>
-          Recent History
-        </Text>
-        <EventCard />
-        <EventCard />
-        <EventCard />
-      </View>
+      <ScrollView>
+        <View style={styles.containerStyle}>
+          <Text style={styles.listHeaderStyle}>
+            Recent History
+          </Text>
+          <EventCard /> 
+          <EventCard />
+          <EventCard />
+        </View>
+      </ScrollView>
     );
   }
 }
