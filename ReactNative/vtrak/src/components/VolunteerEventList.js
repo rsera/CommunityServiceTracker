@@ -28,10 +28,10 @@ const styles = {
     marginLeft: 10
   },
   listHeaderStyle: {
-    fontFamily: 'arial',
+    fontFamily: 'System',
     fontSize: 23,
     color: '#368F8B',
-    fontWeight: 'bold'
+    fontWeight: '500'
   }
 };
 

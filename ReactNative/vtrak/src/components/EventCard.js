@@ -50,13 +50,15 @@ const styles = {
 		justifyContent: 'space-around'
 	},
 	descriptionStyle: {
-		fontFamily: 'arial',
+		fontFamily: 'System',
 		fontSize: 19,
+		fontWeight: '200'
 	},
 	locationStyle: {
-		fontFamily: 'arial',
+		fontFamily: 'System',
 		fontSize: 17,
-		color: '#A9A9A9'
+		color: '#A9A9A9',
+		fontWeight: '200'
 	},
 	hoursStyle: {
 		marginRight: 10,

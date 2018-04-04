@@ -34,7 +34,7 @@ const styles = {
   textStyle: {
     color: '#FFFFFF',
     fontSize: 30,
-    justifyContent: 'center',
+    // justifyContent: 'center',
     alignItems: 'center',
     position: 'absolute',
     fontFamily: 'sansation'
