@@ -50,38 +50,36 @@
         </div>
       </nav>
       <!-- Top Banner End -->
-            <div class="welcometell">
-                <h2>Welcome</h2> <br>
-                <h4>Tell Us About Your Organization</h4>
-                <br>
-            </div>
-            <div class="nameentry">
-                    <p>Name</p>
-                    <input type="text" name="orgname" size="25">   
-            </div>
-            <div class="zipentry">
-                    <br>
-                    <p>Zip</p>
-                    <input type="text" name="zip" size="25">
-            </div>
-            <div class="websiteentry">
-                    <br>
-                    <p>Website</p>
-                    <input type="text" name="url" size="25">
-            </div>
-            <div class="typeentry">
-                    <br>
-                    <p>Type</p>
-                    <input type="text" name="orgtype" size="25">
-                    <br>
-            </div>
         
-        <br> <br>
-        <div class="regbutton"> 
-            <button>
-            Register
-            </button>
-        </div>
+            
+        <section class="signUpPage">
+            <div class="inner">
+                <div class="signUpDiv">
+                    <form method="post" action="newOrg.php">  <!--optional php file name -->
+                                <br>
+                                <h1>Welcome</h1> 
+                                <h5>Tell Us About Your Organization</h5> <br>
+                                <input id="orgname" class="orgnameBox" type="text"
+                                placeholder="Organization Name" name="OrgName" required value>
+                                <br> <br>
+                                <input id="zip" class="orgnameBox" type="text"
+                                placeholder="Zip Code" name="ZipCode" required value>
+                                <br> <br>
+                                <input id="website" class="orgnameBox" type="text"
+                                placeholder="Website Address" name="website" required value>   
+                                <br> <br>
+                             
+                                <input id="orgtype" class="orgnameBox" type="text"
+                                placeholder="Organization Type" name="OrgType" required value>
+
+                                <input type="submit" class="signUpButton" value="Register">
+
+
+                    </form>
+            
+                </div>
+            </div>
+          </section>      
         <style>
             @font-face{font-family: sanssaFont;src:url(CSS/Sansation_Regular.ttf)};
             .welcometell{font-family: sanssaFont;}
