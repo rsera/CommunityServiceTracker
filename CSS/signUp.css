@@ -48,6 +48,58 @@
 	text-shadow: 0px 0px 300px #000;
 }
 
+
+.orgRegPage {
+	height: 100%;
+	width: 100%;
+	position: center;
+	display: table;
+	padding-top: 15%;
+    padding-bottom: 5%;
+}
+
+.orgRegPage .inner {
+	display: table-cell;
+	vertical-align: middle;
+	width: 100%;
+	max-width: none;
+}
+
+.orgRegDiv {
+	opacity: 0.8;
+	max-width: 500px;
+	margin: 0 auto;
+	text-align: center;
+	border-radius: 25px;
+    background: #F9F3F4;
+    padding: 10px; 
+    width: 250px;
+    height: 555px;
+}
+
+.orgRegDiv h1{
+	font-family: 'Raleway', sans-serif;
+	color: #515151;
+	font-size: 300%;
+	text-shadow: 0px 0px 300px #000;
+}
+
+.orgRegDiv h3{
+	font-family: 'Raleway', sans-serif;
+	color: #515151;
+	font-size: 100%;
+	text-shadow: 0px 0px 300px #000;
+}
+
+.orgRegDiv a{
+	font-family: 'Raleway', sans-serif;
+	color: #515151;
+	font-size: 100%;
+	text-shadow: 0px 0px 300px #000;
+}
+
+.orgRegDiv .orgTextBoxTitles { margin-top: 0; margin-bottom: 0; }
+
 .usernameBox {
 	width: 200px;
 	height: 25px;
