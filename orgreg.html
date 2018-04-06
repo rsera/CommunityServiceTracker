@@ -1,137 +1,87 @@
 <!DOCTYPE html>
 <html>
     <head>
-     <title>Register Your Organization</title>  
-
-     <title>VTRAK</title>
-          <meta charset="utf-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1">
-          <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-          <link href="css/styles.css" rel="stylesheet">
-          
-          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         
-          <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-        
-          <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js">
-          </script>
-        
-        
-        
-        
-        
-          <style>
-            .defaultHidden{display:none;visibility:hidden;}
-            @font-face{font-family: sanssaFont;src:url(CSS/Sansation_Regular.ttf)};
-            @font-face{font-family: sanssaBold;src:url(CSS/Sansation_Bold.ttf);font-weight:bold};
-            body{font-family:sanssaFont;}
-            #vtrakButton{font-family:sanssaFont; font-size: 25px;}
-            #signUpRibbon{font-family:sanssaFont; font-size: 20px}
-            #loginRibbon{font-family:sanssaFont; font-size: 20px}
-            #homePageContent h1{font-family:sanssaFont;}
-          </style>
-        
+    <title>Register Your Organization</title>  
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link href="css/styles.css" rel="stylesheet">
+    <link href="css/signUp.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>   
+    
     </head>
 
     <body>
         
-         <!-- Top Banner Start -->
-        <nav class="navbar navbar-default">
-        <div class="container">
-          <!-- Brand and toggle get grouped for better mobile display -->
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#" data-target="home" id="vtrakButton">vTrak</a>
-          </div>
-
-          <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="#" data-target="signUp" id="signUpRibbon">Account</a></li>
-              <li><a href="#" data-target="login" id="loginRibbon">Log Out</a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-      <!-- Top Banner End -->
+        <!-- Top Banner Start -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <!-- no "collapsed" and no "aria-expanded="false"" in button class below-->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                    <!-- no "data-target="home" id="vtrakButton""-->
+                    <a class="navbar-brand" href="#" data-target="home" id="vtrakButton">vTrak</a>
+                </div>
         
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <!-- no "navbar-right" at end of ul quotes-->
+                    <ul class="nav navbar-nav navbar-right">
+                      <li><a href="#" data-target="signUp" id="signUpRibbon">Account</a></li>
+                      <li><a href="#" data-target="login" id="loginRibbon">Log Out</a></li>
+                    </ul>
+                </div>    
+            </div>
+        </nav>
+        <!-- Top Banner End -->
+
             
-        <section class="signUpPage">
+        <section class="orgRegPage">
             <div class="inner">
-                <div class="signUpDiv">
+                <div class="orgRegDiv">
                     <form method="post" action="newOrg.php">  <!--optional php file name -->
                                 <br>
                                 <h1>Welcome</h1> 
-                                <h5>Tell Us About Your Organization</h5> <br>
+                                <h3>Tell Us About Your Organization</h3> <br>
+                                <p class="orgTextBoxTitles">Organization Name</p>
                                 <input id="orgname" class="usernameBox" type="text"
-                                placeholder="Organization Name" name="orgName" required value>
+                                name="orgName" required value>
                                 <br> 
+                                <p class="orgTextBoxTitles">Zip Code</p>
                                 <input id="zip" class="usernameBox" type="text"
-                                placeholder="Zip Code" name="zipCode" required value>
-                                <br>
+                                name="zipCode" required value>
+                                <br> 
+                                <p class="orgTextBoxTitles">Website Address</p>
                                 <input id="website" class="usernameBox" type="text"
-                                placeholder="Website Address" name="website" required value>   
-                                <br>
+                                name="website" required value>   
+                                <br> 
+                                <p class="orgTextBoxTitles">Contact Name</p>
                                 <input id="contactname" class="usernameBox" type="text"
-                                placeholder="Contact Name" name="contactName" required value>   
-                                <br>
+                                name="contactName" required value>   
+                                <br> 
+                                <p class="orgTextBoxTitles">Contact Email</p>
                                 <input id="contactemail" class="usernameBox" type="text"
-                                placeholder="Contact Email" name="contactEmail" required value>   
+                                name="contactEmail" required value>   
                                 <br>
-                                
-                          
-                        
-                        <select type="number" class="form-control" id="orgType">
-                        <option value="1">Organization Type</option>
-                        <option value="1">Animals</option>
-                        <option value="1">Diversity</option>
-                        <option value="1">Education</option>
-                        <option value="1">Poverty</option>
-                        <option value="1">Social</option>
-                        </select>
-                        
-                                        
-                           <!--     <div class="dropdown">
-                                    
-                                    <button id="org" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Organization Type
-                                    <span class="caret"></span>
-                                    </button>   
-
-                                    <ul class="dropdown-menu" aria-labelledby="org">
-                                        <li><a href="#">Educational</a></li>
-                                        <li><a href="#">Social</a></li>
-                                        <li><a href="#">Diversity</a></li>
-                                        <li><a href="#">Poverty</a></li>
-                                        <li><a href="#">Animals</a></li>
-                                        
-                                    </ul> 
-                        
-                                    <br>
-                                </div> -->
                                 <input type="submit" class="signUpButton" value="Register">
-
                     </form>
-                
                 </div>
             </div>
           </section>
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-                
+        
+        <!--This js bootstrap script is needed here for the navbar menu to toggle-->
+        <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     
         <style>
             @font-face{font-family: sanssaFont;src:url(CSS/Sansation_Regular.ttf)};
         </style>
-        
-        
         
     </body>
 </html>
