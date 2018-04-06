@@ -214,7 +214,7 @@ body.myDashboard{
   font-size: 20.5px;
 }
 .progress .progress-bar{
-  background-color: #006600;
+  background-color: #ef997a;
   position: absolute;
   text-align: center;
   line-height: 35px;
@@ -233,4 +233,31 @@ td {
 
 td > p.header{
   font-weight: bold;
+  font-size: 1.5em;
+}
+
+#recent tr p:nth-child(2) {
+    font-size: 0.75em;
+}
+
+#recent tr p:nth-child(3) {
+    float: right;
+    position: relative;
+    top: -50px;
+    font-weight: bold;
+    background-color: #4d4d4d;
+    margin-bottom: -65px;
+    color: #FFF;
+    padding: 5px;
+    border-radius: 30px;
+    font-size: 0.75em;
+}
+
+#hoursOfGoal{
+	font-size: 0.6em;
+	position: relative;
+	bottom: -20px;
+    color: #fff;
+    font-weight: 700;
+    font-family: sanssaFont;
 }

@@ -44,7 +44,7 @@
   </nav>
   <!-- Top Banner End -->
 
-  <div class="row row-eq-height" id="content">
+  <div class="row-eq-height" id="content">
     <div class="col-sm-4">
       <!-- Progress bar -->
       <div class="progress-bar-label">
@@ -61,7 +61,7 @@
 				while($row = mysqli_fetch_assoc($result)){
 					/*echo '<p>Current hours:'.$row['hours'].'</p>';*/
         			//echo '<span class="pull-right">'. $row['hours'].' of '.$row['goal'].'</span>';
-					echo '<span class="pull-right"><span id="hoursLabel">' . $row['hours'] . '</span> of <span id="goalLabel">' . $row['goal'] . '</span></span>';
+					echo '<span id="hoursOfGoal" class="pull-right"><span id="hoursLabel">' . $row['hours'] . '</span> of <span id="goalLabel">' . $row['goal'] . ' hours</span></span>';
 				}
 			}
     	?>
@@ -109,10 +109,13 @@
               <label for="newHours">Hours:</label>
               <input type="number" class="form-control" id="newHours">
             </div>
-			<div class="form-group">
-              <label for="newHours">Type:</label>
-              <input type="number" class="form-control" id="newHours">
-            </div>
+			<!--<div class="form-group">
+              <label for="newType">Type:</label>
+              <select type="number" class="form-control" id="newType">
+				  <option value="1">social</option>
+				  <option value="2">poverty</option>
+			  </select>
+		  </div>-->
 			</span>
 
             <div class="form-group">
@@ -142,13 +145,13 @@
               <tbody>
 				  <?php
   					$thisUserID = $_SESSION['UserID'];
-  					$sql = "SELECT experienceID, name, expDate, hours FROM experiences WHERE userID = ".$thisUserID ." ORDER BY expDate DESC";
+  					$sql = "SELECT experienceID, name, expDate, hours, notes FROM experiences WHERE userID = ".$thisUserID ." ORDER BY expDate DESC";
   					$result = mysqli_query($conn, $sql);
 
   					if (mysqli_num_rows($result) > 0)
   					{
   						while($row = mysqli_fetch_assoc($result)){
-  							echo '<tr><td><p id="e' . $row['experienceID'] . '" class="header">' . $row['name'] . '</strong></p><p>' . $row['expDate'] . '</p><p>' . $row['hours'] . ' hours</p></td></tr>';
+  							echo '<tr id="e' . $row['experienceID'] . '" data-note="'.$row['notes'].'"><td><p class="header">' . $row['name'] . '</strong></p><p>' . $row['expDate'] . '</p><p>' . $row['hours'] . ' hours</p></td></tr>';
 						}
   					}
 					else echo '<tr><td><p id="noActivity">You have no activity.</p></td></tr>';
@@ -180,7 +183,7 @@
 						}
   					}
 					else {
-						echo '<tr><td><p id="noActivity">No organizations match your area/interests.</p></td></tr>';
+						echo '<tr><td><p id="noRec">No organizations match your area/interests.</p></td></tr>';
 					}
   				?>
               </tbody>
@@ -190,15 +193,26 @@
     </div>
 
   </div>
-	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<!--<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>-->
 		<script src="API/webAJAX.js"></script>
 	<script>
 		// When you click "submit" for new experiences, add the experience and update the recent activity list
 		$("#newSubmit").on("click",function(){addExperience()});
 
 		// Pressing <enter> in the search box will trigger the search funciton
-		//$("searchBox").keypress(function(e){if(e.which == 13){function(){searchExperiences()}}});
+		function searchExperiences(searchTerm){
+			$("#recent tr").each(
+				function(){
+					var name = $(this).find(".header").html();
+					var note = $(this).attr("data-note");
+					var inName = name.toLowerCase().includes(searchTerm.toLowerCase());
+					var inNote = note.toLowerCase().includes(searchTerm.toLowerCase());
+					$(this).toggle(inName || inNote);
+			 	}
+			)
+		}
+		$("#searchBox").keyup(function(e){searchExperiences(this.value)});
 
 	</script>
 </body>
