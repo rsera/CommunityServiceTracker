@@ -48,6 +48,34 @@
 	text-shadow: 0px 0px 300px #000;
 }
 
+.usernameBox {
+	width: 200px;
+	height: 25px;
+	margin: 10px;
+	font-size: 100%;
+}
+
+.passwordBox {
+	width: 200px;
+	height: 25px;
+	margin: 10px;
+	font-size: 100%;
+}
+
+.signUpButton {
+	border-radius: 9px;
+	border: none;
+	font-family: 'Oswald', sans-serif;
+	background: #515151;
+	color: #F9F3F4;
+	font-size: 100%;
+	text-decoration: none;
+	position: relative;
+	padding: 5px;
+	margin-top: 15px;
+	width: 100px;
+}
+
 .orgRegPage {
 	height: 100%;
 	width: 100%;
@@ -99,30 +127,28 @@
 
 .orgRegDiv .orgTextBoxTitles { margin-top: 0; margin-bottom: 0; }
 
-.usernameBox {
-	width: 200px;
-	height: 25px;
-	margin: 10px;
-	font-size: 100%;
+.orgRegRespDiv {
+	opacity: 0.8;
+	max-width: 500px;
+	margin: 0 auto;
+	text-align: center;
+	border-radius: 25px;
+    background: #F9F3F4;
+    padding: 10px;
+    width: 400px;
+    height: 185px;
 }
 
-.passwordBox {
-	width: 200px;
-	height: 25px;
-	margin: 10px;
-	font-size: 100%;
+.orgRegRespDiv h1{
+	font-family: 'Raleway', sans-serif;
+	color: #515151;
+	font-size: 300%;
+	text-shadow: 0px 0px 300px #000;
 }
 
-.signUpButton {
-	border-radius: 9px;
-	border: none;
-	font-family: 'Oswald', sans-serif;
-	background: #515151;
-	color: #F9F3F4;
+.orgRegRespDiv h4{
+	font-family: 'Raleway', sans-serif;
+	color: #515151;
 	font-size: 100%;
-	text-decoration: none;
-	position: relative;
-	padding: 5px;
-	margin-top: 15px;
-	width: 100px;
+	text-shadow: 0px 0px 300px #000;
 }
