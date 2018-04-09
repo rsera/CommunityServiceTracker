@@ -4,6 +4,7 @@ import Header from './components/header';
 import VolunteerEventList from './components/VolunteerEventList';
 import LoginForm from './components/LoginForm';
 import SignUpForm from './components/SignUpForm';
+import WelcomeUser from './components/WelcomeUser';
 import GoalBar from './components/GoalBar';
 
 class App extends Component {
@@ -11,6 +12,7 @@ class App extends Component {
     return (
       <View>
         <Header headerText={'vtrak'} />
+        <WelcomeUser />
         <GoalBar goalBarText={'your goal'}/>
         <VolunteerEventList />
         {/* <Header headerText={'Log In'} />

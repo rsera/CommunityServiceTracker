@@ -20,7 +20,8 @@ const styles = {
 		alignItems: 'center',
 		justifyContent:'center',
 		marginLeft: 5,
-		marginRight: 5
+		marginRight: 5,
+		marginBottom: 10
 	},
 
 	welcomeTextStyle: {
