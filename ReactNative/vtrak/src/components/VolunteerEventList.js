@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, ScrollView } from 'react-native';
 import EventCard from './EventCard';
+import WelcomeUser from './WelcomeUser';
 
 class VolunteerEventList extends Component {
   componentWillMount() {
@@ -10,6 +11,7 @@ class VolunteerEventList extends Component {
   render() {
     return (
       <ScrollView>
+        <WelcomeUser />
         <View style={styles.containerStyle}>
           <Text style={styles.listHeaderStyle}>
             Recent History
@@ -25,7 +27,8 @@ class VolunteerEventList extends Component {
 
 const styles = {
   containerStyle: {
-    marginLeft: 10
+    marginLeft: 10,
+    marginTop: 5
   },
   listHeaderStyle: {
     fontFamily: 'System',

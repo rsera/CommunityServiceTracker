@@ -6,7 +6,7 @@ const HoursIcon = () => {
 		<View style={styles.iconContainerStyle}>
 			<View style={styles.hoursContainerStyle}>
 				<Text style={styles.hoursTextStyle}> 
-					0
+					100
 				</Text>
 			</View>
 			<Text style={styles.abbrevTextStyle}>

@@ -8,7 +8,6 @@ const EventCard = () => {
 		textContainerStyle,
 		descriptionStyle,
 		locationStyle,
-		hoursStyle
 	} = styles;
 
 	return (
@@ -21,7 +20,7 @@ const EventCard = () => {
 					Location
 				</Text>
 			</View>
-			<View style={hoursStyle}>
+			<View>
 				<HoursIcon />
 			</View>
 		</View>
@@ -42,12 +41,15 @@ const styles = {
 		marginTop: 7,
 		marginBottom: 7,
 		flexDirection: 'row',
-		position: 'relative'
+		position: 'relative',
+		justifyContent: 'space-between',
+		alignItems: 'stretch'
 	},
 	textContainerStyle: {
 		// to align location and volunteer description
 		flexDirection: 'column',
-		justifyContent: 'space-around'
+		justifyContent: 'space-around',
+
 	},
 	descriptionStyle: {
 		fontFamily: 'System',
@@ -59,11 +61,6 @@ const styles = {
 		fontSize: 17,
 		color: '#A9A9A9',
 		fontWeight: '200'
-	},
-	hoursStyle: {
-		marginRight: 10,
-		marginLeft: 120,
-		alignItems: 'flex-end'
 	}
 };
 
