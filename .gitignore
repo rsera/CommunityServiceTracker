@@ -1,2 +1,5 @@
 
 ReactNative/vtrak/src/components/common/Input.js
+ReactNative/vtrak/src/App.js
+ReactNative/vtrak/src/components/RecommendationsPage.js
+ReactNative/vtrak/src/components/RecommendationCard.js

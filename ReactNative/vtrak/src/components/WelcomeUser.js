@@ -5,7 +5,7 @@ const WelcomeUser = () => {
 	return (
 		<View style={styles.welcomeContainerStyle}>
 			<Text style={styles.welcomeTextStyle}>
-				Welcome, vtrak-user!
+				◄  Welcome, vtrak-user!  ► 
 			</Text>
 		</View>
 	);
