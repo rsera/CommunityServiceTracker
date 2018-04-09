@@ -3,6 +3,7 @@ import Button from './common/Button';
 import Card from './common/Card';
 import CardSection from './common/CardSection';
 import Input from './common/Input';
+import { Actions } from 'react-native-router-flux';
 
 
 class SignUpForm extends Component {
@@ -12,7 +13,7 @@ class SignUpForm extends Component {
     return (
       <Card>
         <CardSection>
-          <Input 
+          <Input
             label="Username"
             value={this.state.username}
             onChangeText={username => this.setState({ username })}
@@ -20,7 +21,7 @@ class SignUpForm extends Component {
         </CardSection>
 
         <CardSection>
-          <Input 
+          <Input
             secureTextEntry
             label="Password"
             value={this.state.password}
@@ -29,7 +30,7 @@ class SignUpForm extends Component {
         </CardSection>
 
         <CardSection>
-          <Input 
+          <Input
             secureTextEntry
             label="Retype Password"
             value={this.state.passwordConfirm}
@@ -38,7 +39,7 @@ class SignUpForm extends Component {
         </CardSection>
 
         <CardSection>
-          <Input 
+          <Input
             secureTextEntry
             label="Zipcode"
             value={this.state.zipcode}
@@ -47,7 +48,7 @@ class SignUpForm extends Component {
         </CardSection>
 
         <CardSection>
-          <Button>
+          <Button onPress={() => Actions.homescreen()} >
             Log in
           </Button>
         </CardSection>

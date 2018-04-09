@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, Text, View } from 'react';
 import Button from './common/Button';
 import Card from './common/Card';
 import CardSection from './common/CardSection';
 import Input from './common/Input';
+import { Actions } from 'react-native-router-flux';
 
 
 class LoginForm extends Component {
@@ -12,7 +13,7 @@ class LoginForm extends Component {
     return (
       <Card>
         <CardSection>
-          <Input 
+          <Input
             label="Username"
             value={this.state.username}
             onChangeText={username => this.setState({ username })}
@@ -20,7 +21,7 @@ class LoginForm extends Component {
         </CardSection>
 
         <CardSection>
-          <Input 
+          <Input
             secureTextEntry
             label="Password"
             value={this.state.password}
@@ -29,10 +30,17 @@ class LoginForm extends Component {
         </CardSection>
 
         <CardSection>
-          <Button>
+          <Button onPress={() => Actions.homescreen()} >
             Log in
           </Button>
         </CardSection>
+
+        <CardSection>
+          <Button onPress={() => Actions.signup()} >
+            New to vTrak? Sign Up!
+          </Button>
+        </CardSection>
+
       </Card>
     );
   }

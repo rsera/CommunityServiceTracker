@@ -3,14 +3,14 @@ import { Text, View } from 'react-native';
 import ProfileIcon from './ProfileIcon';
 
 const Header = (props) => {
-  const { textStyle, iconStyle, viewStyle } = styles;
+  const { titleTextStyle, iconStyle, viewStyle } = styles;
 
   return  (
     <View style={viewStyle}>
       <View style={iconStyle}>
         {/* <ProfileIcon /> */}
       </View>
-      <Text style={textStyle}>{props.headerText}</Text>
+        <Text style={titleTextStyle}>{props.headerText}</Text>
     </View>
   );
 };
@@ -31,7 +31,7 @@ const styles = {
     alignSelf: 'center',
     right: 145 // to put to the corner of header
   },
-  textStyle: {
+  titleTextStyle: {
     color: '#FFFFFF',
     fontSize: 30,
     // justifyContent: 'center',
