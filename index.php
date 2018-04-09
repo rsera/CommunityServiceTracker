@@ -115,7 +115,7 @@
         <section class="orgRegPage <?php if($default!="register")echo "defaultHidden"?>">
             <div class="inner">
                 <div id ="orgRegDiv" class="orgRegDiv">
-                    <form method="post" action="newOrg.php">  <!--optional php file name -->
+                    <form method="post" action="orgregresponse.html">  <!--optional php file name -->
                                 <br>
                                 <h1>Welcome</h1> 
                                 <h3>Tell Us About Your Organization</h3> <br>
@@ -156,10 +156,10 @@
         $(".signUpPage").addClass("defaultHidden");
         $(".orgRegPage").addClass("defaultHidden")})
         
-        <!--Working on-->
+        
         $("#registerButtonfromSignUp").on("click",function(){$(".orgRegPage").removeClass("defaultHidden");                
         $(".signUpPage").addClass("defaultHidden")})
-        <!--Working on-->
+       
         
 		$(".signUpfromLogin").on("click",function(){$(".signUpPage").removeClass("defaultHidden orgRegPage"); $(".loginPage").addClass("defaultHidden"); $(".orgRegPage").addClass("defaultHidden")})
         
