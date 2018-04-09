@@ -13,8 +13,6 @@ import { Router, Scene } from 'react-native-router-flux';
 class App extends Component {
   render() {
     return (
-      //<View>
-        //<Header headerText={'vTrak'} />
         <Router>
         <Scene key="root">
           <Scene key="login"
@@ -35,8 +33,16 @@ class App extends Component {
             key="tabbar"
             tabs={true}
             tabBarStyle={
-              { backgroundColor: '#FFFFFF' }
+              { backgroundColor: '#FFFFFF'
+              }
             }
+            labelStyle={
+              { fontSize: 16,
+                fontWeight: 'bold',
+                flex: 1
+              }
+            }
+            activeTintColor='#76CB89'
           >
             <Scene
               key="homescreen"
@@ -55,7 +61,6 @@ class App extends Component {
 
         </Scene>
       </Router>
-    //</View>
     );
   }
 }
