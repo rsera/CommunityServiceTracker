@@ -26,13 +26,13 @@ const styles = {
 		color: '#000',
 		paddingRight: 5,
 		paddingLeft: 5,
-		fontSize: 18,
+		fontSize: 16,
 		lineHeight: 23,
 		flex: 3
 	},
 
 	labelStyle: {
-		fontSize: 18,
+		fontSize: 16,
 		paddingLeft: 20,
 		flex: 1
 	},

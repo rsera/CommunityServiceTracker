@@ -8,7 +8,7 @@ const Header = (props) => {
   return  (
     <View style={viewStyle}>
       <View style={iconStyle}>
-        <ProfileIcon />
+        {/* <ProfileIcon /> */}
       </View>
       <Text style={textStyle}>{props.headerText}</Text>
     </View>
