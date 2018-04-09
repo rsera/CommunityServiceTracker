@@ -1,13 +1,4 @@
-import React from 'react';
-import { AppRegistry, View } from 'react-native';
-import Header from './src/components/header';
-import VolunteerEventList from './src/components/VolunteerEventList';
-
-const App = () => (
-  <View>
-    <Header headerText={'vtrak'} />
-    <VolunteerEventList />
-  </View>
-);
+import { AppRegistry } from 'react-native';
+import App from './src/App';
 
 AppRegistry.registerComponent('vtrak', () => App);
