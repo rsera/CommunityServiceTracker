@@ -4,18 +4,17 @@ import Header from './components/header';
 import VolunteerEventList from './components/VolunteerEventList';
 import LoginForm from './components/LoginForm';
 import SignUpForm from './components/SignUpForm';
+import GoalBar from './components/GoalBar';
 
 class App extends Component {
   render() {
     return (
       <View>
-        // home
-        {/* <Header headerText={'vtrak'} />
-        <VolunteerEventList /> */}
-        // log in
-        <Header headerText={'Log In'} />
-        <LoginForm />
-        // sign up
+        <Header headerText={'vtrak'} />
+        <GoalBar goalBarText={'your goal'}/>
+        <VolunteerEventList />
+        {/* <Header headerText={'Log In'} />
+        <LoginForm /> */}
         {/* <Header headerText={'Sign Up'} />
         <SignUpForm /> */}
       </View>
