@@ -14,6 +14,7 @@
 			body{font-family:sanssaFont;}
 			#vtrakButton{font-family:sanssaFont;}
 			#signUpRibbon{font-family:sanssaFont;}
+            #registerRibbon{font-family:sanssaFont;}
 			#loginRibbon{font-family:sanssaFont;}
 			#homePageContent h1{font-family:sanssaFont;}
 		</style>
@@ -84,6 +85,8 @@
 						<input id="password" class="passwordBox" type="password" placeholder=" Retype Password" name="PWHash2" required><br />
 						<input type="submit" class="signUpButton" value="Sign Up">
 						<h3>Existing member? <a href="#" data-target="login" id="loginButtonfromSignUp"><strong>Login</strong></a></h3>
+                        
+                        <h3>Want Your Organization Involved? <a href="#" data-target="register" id="registerButtonfromSignUp"><strong>Register</strong></a></h3>
 					</form>
 				</div>
 			</div>
@@ -107,17 +110,71 @@
 			</div>
 		</section>
 		<!-- login Page End -->
+        
+        <!-- Organization Registration Page Start -->
+        <section class="orgRegPage <?php if($default!="register")echo "defaultHidden"?>">
+            <div class="inner">
+                <div id ="orgRegDiv" class="orgRegDiv">
+                    <form method="post" action="newOrg.php">  <!--optional php file name -->
+                                <br>
+                                <h1>Welcome</h1> 
+                                <h3>Tell Us About Your Organization</h3> <br>
+                                <?php if($error!=""&&$default=="register")echo $error;?>
+                                <p class="orgTextBoxTitles">Organization Name</p>
+                                <input id="orgname" class="usernameBox" type="text"
+                                name="orgName" required value>
+                                <br> 
+                                <p class="orgTextBoxTitles">Zip Code</p>
+                                <input id="zip" class="usernameBox" type="text"
+                                name="zipCode" required value>
+                                <br> 
+                                <p class="orgTextBoxTitles">Website Address</p>
+                                <input id="website" class="usernameBox" type="text"
+                                name="website" required value>   
+                                <br> 
+                                <p class="orgTextBoxTitles">Contact Name</p>
+                                <input id="contactname" class="usernameBox" type="text"
+                                name="contactName" required value>   
+                                <br> 
+                                <p class="orgTextBoxTitles">Contact Email</p>
+                                <input id="contactemail" class="usernameBox" type="text"
+                                name="contactEmail" required value>   
+                                <br>
+                                <input type="submit" class="signUpButton" value="Register">
+                    </form>
+                </div>
+            </div>
+          </section>
+        <!-- Organization Registration Page End -->
 
 	<script>
-		$(".getStarted").on("click",function(){$(".signUpPage").removeClass("defaultHidden"); $(".splashScreen").addClass("defaultHidden")})
-		$("#loginButtonfromSignUp").on("click",function(){$(".loginPage").removeClass("defaultHidden"); $(".signUpPage").addClass("defaultHidden")})
-		$(".signUpfromLogin").on("click",function(){$(".signUpPage").removeClass("defaultHidden"); $(".loginPage").addClass("defaultHidden")})
+		$(".getStarted").on("click",function(){$(".signUpPage").removeClass("defaultHidden"); 
+        $(".splashScreen").addClass("defaultHidden");
+        $(".orgRegPage").addClass("defaultHidden")})
+        
+		$("#loginButtonfromSignUp").on("click",function(){$(".loginPage").removeClass("defaultHidden ");                
+        $(".signUpPage").addClass("defaultHidden");
+        $(".orgRegPage").addClass("defaultHidden")})
+        
+        <!--Working on-->
+        $("#registerButtonfromSignUp").on("click",function(){$(".orgRegPage").removeClass("defaultHidden");                
+        $(".signUpPage").addClass("defaultHidden")})
+        <!--Working on-->
+        
+		$(".signUpfromLogin").on("click",function(){$(".signUpPage").removeClass("defaultHidden orgRegPage"); $(".loginPage").addClass("defaultHidden"); $(".orgRegPage").addClass("defaultHidden")})
+        
 		$("#vtrakButton").on("click",function(){if($(".splashScreen").is(":hidden"))$(".splashScreen").removeClass("defaultHidden");
-			$(".loginPage").addClass("defaultHidden"); $(".signUpPage").addClass("defaultHidden")})
+			$(".loginPage").addClass("defaultHidden"); 
+            $(".signUpPage").addClass("defaultHidden");
+            $(".orgRegPage").addClass("defaultHidden")})
+        
 		$("#signUpRibbon").on("click",function(){if($(".signUpPage").is(":hidden"))$(".signUpPage").removeClass("defaultHidden");
-			$(".loginPage").addClass("defaultHidden"); $(".splashScreen").addClass("defaultHidden")})
+			$(".loginPage").addClass("defaultHidden"); $(".splashScreen").addClass("defaultHidden");
+            $(".orgRegPage").addClass("defaultHidden")})
+        
 		$("#loginRibbon").on("click",function(){if($(".loginPage").is(":hidden"))$(".loginPage").removeClass("defaultHidden");
-			$(".splashScreen").addClass("defaultHidden"); $(".signUpPage").addClass("defaultHidden")})
+			$(".splashScreen").addClass("defaultHidden"); $(".signUpPage").addClass("defaultHidden");
+            $(".orgRegPage").addClass("defaultHidden")})
 
 
 	</script>
