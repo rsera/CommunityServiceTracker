@@ -2,8 +2,8 @@ import React from 'react';
 import { Text, View } from 'react-native';
 
 const Header = (props) => {
-  const { textStyle, 
-          viewStyle, 
+  const { textStyle,
+          viewStyle,
           headerContainerStyle } = styles;
 
   return  (
@@ -37,7 +37,7 @@ const styles = {
     alignSelf: 'center',
     justifyContent: 'center'
   },
-  
+
   textStyle: {
     color: '#FFFFFF',
     fontSize: 30,

@@ -6,20 +6,34 @@ import LoginForm from './components/LoginForm';
 import SignUpForm from './components/SignUpForm';
 import WelcomeUser from './components/WelcomeUser';
 import GoalBar from './components/GoalBar';
+import HomeScreen from './components/HomeScreen';
+import { Router, Scene } from 'react-native-router-flux';
 
 class App extends Component {
   render() {
     return (
-      <View>
-        <Header headerText={'vtrak'} />
-        <WelcomeUser />
-        <GoalBar goalBarText={'your goal'}/>
-        <VolunteerEventList />
-        {/* <Header headerText={'Log In'} />
-        <LoginForm /> */}
-        {/* <Header headerText={'Sign Up'} />
-        <SignUpForm /> */}
-      </View>
+      <Router>
+      <Scene key="root">
+        <Scene key="login"
+          component={LoginForm}
+          title="Login"
+          initial
+          hideNavBar="true"
+        />
+        <Scene
+          key="homescreen"
+          component={HomeScreen}
+          title="vTrak"
+          hideNavBar="true"
+        />
+        <Scene
+          key="signup"
+          component={SignUpForm}
+          title="Sign Up"
+          hideNavBar="true"
+        />
+      </Scene>
+    </Router>
     );
   }
 }
