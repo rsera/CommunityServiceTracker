@@ -10,7 +10,7 @@ const HomeScreen = () => {
   return (
     <View>
       <Header headerText={'vTrak'} />
-      <WelcomeUser />
+      	<WelcomeUser />
       <VolunteerEventList />
     </View>
   );
