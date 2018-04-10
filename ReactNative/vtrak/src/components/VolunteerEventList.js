@@ -6,19 +6,21 @@ class VolunteerEventList extends Component {
   componentWillMount() {
      console.log('componentWillMount in Volunteer Event List');
   }
-  
+
   render() {
     return (
-      <ScrollView>
-        <View style={styles.containerStyle}>
-          <Text style={styles.listHeaderStyle}>
-            Recent History
-          </Text>
-          <EventCard /> 
-          <EventCard />
-          <EventCard />
+      <View style={styles.containerStyle}>
+        <Text style={styles.listHeaderStyle}>
+          Recent History
+        </Text>
+        <View>
+        <ScrollView>
+            <EventCard />
+            <EventCard />
+            <EventCard />
+        </ScrollView>
         </View>
-      </ScrollView>
+      </View>
     );
   }
 }
@@ -26,13 +28,15 @@ class VolunteerEventList extends Component {
 const styles = {
   containerStyle: {
     marginLeft: 10,
-    marginTop: 5
+    marginTop: 5,
   },
   listHeaderStyle: {
     fontFamily: 'System',
     fontSize: 23,
-    color: '#368F8B',
-    fontWeight: '500'
+    color: '#45537A',
+    fontWeight: '500',
+    marginBottom: 3,
+    fontWeight: 'bold',
   }
 };
 

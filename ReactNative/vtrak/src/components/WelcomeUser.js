@@ -5,7 +5,7 @@ const WelcomeUser = () => {
 	return (
 		<View style={styles.welcomeContainerStyle}>
 			<Text style={styles.welcomeTextStyle}>
-				◄  Welcome, vtrak-user!  ► 
+				◄  Welcome, vtrak-user!  ►
 			</Text>
 		</View>
 	);
@@ -13,7 +13,7 @@ const WelcomeUser = () => {
 
 const styles = {
 	welcomeContainerStyle: {
-		backgroundColor: '#246A73',
+		backgroundColor: '#45537A',
 		height: 25,
 		width: '95%',
 		borderRadius: 15,
