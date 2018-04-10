@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
 import Button from './common/Button';
 import Card from './common/Card';
 import CardSection from './common/CardSection';
@@ -9,13 +9,41 @@ import Header from './header.js';
 
 
 class SignUpForm extends Component {
-  state = { username: '', password: '', passwordConfirm: '', zipcode: '' };
+  state = { fname: '',
+            lname: '',
+            username: '',
+            password: '',
+            passwordConfirm: '',
+            zipcode: '',
+            goal: '',
+          };
 
   render() {
     return (
       <View>
         <Header headerText={'vTrak'} />
         <Card>
+
+        <CardSection>
+          <Text style={styles.cardHeaderStyle}>Personal Information</Text>
+        </CardSection>
+
+          <CardSection>
+            <Input
+              label="First Name"
+              value={this.state.fname}
+              onChangeText={fname => this.setState({ fname })}
+            />
+          </CardSection>
+
+          <CardSection>
+            <Input
+              label="Last Name"
+              value={this.state.lname}
+              onChangeText={lname => this.setState({ lname })}
+            />
+          </CardSection>
+
           <CardSection>
             <Input
               label="Username"
@@ -38,28 +66,54 @@ class SignUpForm extends Component {
               secureTextEntry
               label="Retype Password"
               value={this.state.passwordConfirm}
-              onChangeText={password => this.setState({ passwordConfirm })}
+              onChangeText={passwordConfirm => this.setState({ passwordConfirm })}
             />
           </CardSection>
 
           <CardSection>
             <Input
-              secureTextEntry
               label="Zipcode"
               value={this.state.zipcode}
-              onChangeText={password => this.setState({ zipcode })}
+              onChangeText={zipcode => this.setState({ zipcode })}
             />
           </CardSection>
 
+        </Card>
+
+        <Card>
           <CardSection>
-            <Button onPress={() => Actions.homescreen()} >
-              Log in
-            </Button>
+            <Text style={styles.cardHeaderStyle}>Set your goal!</Text>
+          </CardSection>
+          <CardSection>
+            <Input
+              label="Goal"
+              value={this.state.goal}
+              onChangeText={goal => this.setState({ goal })}
+            />
           </CardSection>
         </Card>
+
+        <View style={styles.buttonContainerStyle}>
+          <Button onPress={() => Actions.homescreen()} >
+            Create Account and Start Volunteering!
+          </Button>
+        </View>
+
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  buttonContainerStyle: {
+    height: 45,
+    marginTop: 10,
+    marginBottom: 5,
+  },
+  cardHeaderStyle: {
+    fontSize: 16,
+    fontWeight: 'bold'
+  }
+});
 
 export default SignUpForm;
