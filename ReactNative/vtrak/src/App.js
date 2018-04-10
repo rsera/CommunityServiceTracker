@@ -42,6 +42,7 @@ class App extends Component {
                 flex: 1
               }
             }
+            tabBarPosition="bottom"
             activeTintColor='#76CB89'
           >
             <Scene
