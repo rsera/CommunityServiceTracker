@@ -1,38 +1,55 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import ProgressBarClassic from 'react-native-progress-bar-classic';
-
 
 const GoalBar = (props) => {
-  const { viewStyle, textStyle } = styles;
+  const { viewStyle, textStyle, colorFillStyle, color2FillStyle } = styles;
 
   return  (
-    <ProgressBarClassic
-    progress={20}
-    valueStyle={'default'}
-    height={200}
-  />  
+    <View style={viewStyle}>
+      {/* <Text> Goal </Text> */}
+      <View style={colorFillStyle}></View>
+      <View style={color2FillStyle}></View>
+      <Text style={textStyle}> 50/100 </Text>
+    </View>
   );
 };
 
 const styles = {
   viewStyle: {
-    backgroundColor: '#76CB89',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'center',
     height: 70,
-    elevation: 2,
     position: 'relative',
     flexDirection: 'row',
-    marginBottom: 10
+    margin: 10
   },
   textStyle: {
     color: '#FFFFFF',
-    fontSize: 30,
+    fontSize: 15,
     // justifyContent: 'center',
     alignItems: 'center',
     position: 'absolute',
-    fontFamily: 'sansation'
+    fontFamily: 'sansation',
+  },
+  colorFillStyle: {
+    backgroundColor: '#45537A',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    height: 50,
+    width: "60%",
+    position: 'relative',
+    flexDirection: 'row',
+    paddingLeft: 10
+  },
+  color2FillStyle: {
+    backgroundColor: '#BDBDBD',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    height: 50,
+    width: "40%",
+    position: 'relative',
+    flexDirection: 'row',
+    paddingRight: 10
   }
 };
 
