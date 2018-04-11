@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, ScrollView } from 'react-native';
 import EventCard from './EventCard';
 
+
 class VolunteerEventList extends Component {
   componentWillMount() {
      console.log('componentWillMount in Volunteer Event List');
@@ -13,13 +14,13 @@ class VolunteerEventList extends Component {
         <Text style={styles.listHeaderStyle}>
           Recent History
         </Text>
-        <View>
+
         <ScrollView>
             <EventCard />
             <EventCard />
             <EventCard />
         </ScrollView>
-        </View>
+
       </View>
     );
   }

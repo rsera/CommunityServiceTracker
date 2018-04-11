@@ -1,49 +1,58 @@
-import React from 'react';
-import { View,Text, ScrollView } from 'react-native';
+import React, {Component} from 'react';
+import { View,Text, ScrollView, TouchableHighlight } from 'react-native';
 import HoursIcon from './HoursIcon';
 
-const EventCard = () => {
-	const {
-		containerStyle,
-		textContainerStyle,
-		descriptionStyle,
-		locationStyle,
-	} = styles;
+class EventCard extends Component {
 
-	return (
-		<View style={containerStyle}>
-			<View style={textContainerStyle}>
-				<Text style={descriptionStyle}> 
-					Volunteer Description 
-				</Text>
-				<Text style={locationStyle}>
-					Location
-				</Text>
+	render () {
+		return (
+			<View style={styles.containerStyle}>
+				<View style={styles.initialPanelStyle}>
+
+					<View style={styles.textContainerStyle}>
+						<Text style={styles.descriptionStyle}>
+							Volunteer Description
+						</Text>
+						<Text style={styles.locationStyle}>
+							Location
+						</Text>
+					</View>
+
+					<View>
+							<HoursIcon />
+					</View>
+				</View>
+
+				<View style={styles.expandedPanelStyle} >
+					<Text>Extra information about the event, etc etc etc</Text>
+					<Text>Extra information about the event, etc etc etc</Text>
+					<Text>Extra information about the event, etc etc etc</Text>
+					<Text>Extra information about the event, etc etc etc</Text>
+				</View>
 			</View>
-			<View>
-				<HoursIcon />
-			</View>
-		</View>
-	);
-};
+		);
+	}
+}
 
 const styles = {
 	containerStyle: {
-		// For the border
-		/*
-		borderWidth: 1,
-		borderRadius: 5, // rounded corners
-		borderColor: '#A9A9A9',
-		elevation: 1,
-		*/
-		// marginLeft: 10,
+		// Entire event card, including extra description
 		marginRight: 10,
 		marginTop: 7,
 		marginBottom: 7,
-		flexDirection: 'row',
+		flexDirection: 'column',
 		position: 'relative',
 		justifyContent: 'space-between',
+		alignItems: 'stretch',
+	},
+	initialPanelStyle: {
+		flexDirection: 'row',
+		justifyContent: 'space-between',
 		alignItems: 'stretch'
+	},
+	expandedPanelStyle: {
+		marginTop: 5,
+		marginBottom: 5
 	},
 	textContainerStyle: {
 		// to align location and volunteer description
