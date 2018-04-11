@@ -5,10 +5,13 @@ import RecommendationCard from './RecommendationCard';
 
 const RecommendationsPage = () => {
 	return (
-		<View style={{flex:1}}>
+		<View style={{flex:1, backgroundColor: '#F9F9F9'}}>
 			<Header headerText={'vTrak'} />
 
-			<Text style={styles.pageTitle}>Recommendations</Text>
+			<View style={styles.textStyle}>
+				<Text style={styles.pageTitle}>Recommendations</Text>
+				<Text style={styles.subTitle}>Check out other volunteer opportunities in your area!</Text>
+			</View>
 
 			<ScrollView>
 				<View style={styles.cardContainerStyle}>
@@ -16,9 +19,21 @@ const RecommendationsPage = () => {
 						<RecommendationCard />
 						<RecommendationCard />
 						<RecommendationCard />
+						<RecommendationCard />
+						<RecommendationCard />
+						<RecommendationCard />
+						<RecommendationCard />
+						<RecommendationCard />
+						<RecommendationCard />
+						<RecommendationCard />
+						<RecommendationCard />
+						<RecommendationCard />
+						<RecommendationCard />
+						<RecommendationCard />
 					</View>
 				</View>
 			</ScrollView>
+
 		</View>
 	);
 };
@@ -48,6 +63,10 @@ const styles = {
 		marginRight: 10,
 		flex: 1
 	},
+	textStyle: {
+		borderBottomWidth: 2,
+		borderBottomColor: '#C3E8AB'
+	},
 	pageTitle: {
 		marginLeft: 10,
 		fontFamily: 'System',
@@ -56,6 +75,12 @@ const styles = {
 		fontWeight: '500',
 		marginBottom: 3,
 		fontWeight: 'bold'
+	},
+	subTitle: {
+		marginLeft: 10,
+		paddingBottom: 10,
+		paddingTop: 5,
+		fontFamily: 'System'
 	}
 };
 
