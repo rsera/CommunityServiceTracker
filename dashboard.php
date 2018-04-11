@@ -190,7 +190,7 @@
               <tbody>
 				  <?php
   					$thisUserID = $_SESSION['UserID'];
-  					$sql = "SELECT orgID, orgName, orgWebsite FROM organizations INNER JOIN user ON organizations.orgZip = user.userZip AND user.userID = ".$thisUserID;
+  					$sql = "SELECT orgID, orgName, orgType, orgWebsite FROM organizations INNER JOIN user ON organizations.orgZip = user.userZip AND user.userID = ".$thisUserID;
   					$result = mysqli_query($conn, $sql);
 
   					if (mysqli_num_rows($result) > 0)
