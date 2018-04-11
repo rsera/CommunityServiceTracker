@@ -10,18 +10,15 @@ class VolunteerEventList extends Component {
 
   render() {
     return (
-      <View style={styles.containerStyle}>
-        <Text style={styles.listHeaderStyle}>
-          Recent History
-        </Text>
-
-        <ScrollView style={{flex:1}}>
-            <EventCard />
-            <EventCard />
-            <EventCard />
-            <EventCard />
-        </ScrollView>
-
+      <View style={{backgroundColor: '#F9F9F9', flex:1}}>
+        <View style={styles.containerStyle}>
+          <ScrollView style={{flex:1}}>
+              <EventCard />
+              <EventCard />
+              <EventCard />
+              <EventCard />
+          </ScrollView>
+        </View>
       </View>
     );
   }
@@ -29,17 +26,8 @@ class VolunteerEventList extends Component {
 
 const styles = {
   containerStyle: {
-    marginLeft: 10,
     marginTop: 5,
     flex:1
-  },
-  listHeaderStyle: {
-    fontFamily: 'System',
-    fontSize: 23,
-    color: '#45537A',
-    fontWeight: '500',
-    marginBottom: 3,
-    fontWeight: 'bold',
   }
 };
 

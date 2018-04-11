@@ -81,10 +81,12 @@
 					/*echo '<p>Current hours:'.$row['hours'].'</p>';*/
         			//echo '<span class="pull-right">'. $row['hours'].' of '.$row['goal'].'</span>';
 					echo '<span id="hoursOfGoal" class="pull-right"><span id="hoursLabel">' . $row['hours'] . '</span> of <span id="goalLabel">' . $row['goal'] . ' hours</span></span>';
-				}
-				if($row['hours']>= $row['goal'])
-					echo '<script>$(document).ready(function(){$("#goalCongrats").dialog();});</script>';
 
+					if($row['hours'] >= $row['goal'])
+					{
+						echo '<script>$(document).ready(function(){$("#goalCongrats").dialog();});</script>';
+					}
+				}
 			}
     	?>
         </h2>
@@ -190,7 +192,7 @@
               <tbody>
 				  <?php
   					$thisUserID = $_SESSION['UserID'];
-  					$sql = "SELECT orgID, orgName, orgWebsite FROM organizations INNER JOIN user ON organizations.orgZip = user.userZip AND user.userID = ".$thisUserID;
+  					$sql = "SELECT orgID, orgName, orgType, orgWebsite FROM organizations INNER JOIN user ON organizations.orgZip = user.userZip AND user.userID = ".$thisUserID;
   					$result = mysqli_query($conn, $sql);
 
   					if (mysqli_num_rows($result) > 0)
@@ -241,8 +243,13 @@
 		$("#goalDrop").on("click",function(){$("#goalDialog").dialog()});
 		$("#pwDrop").on("click",function(){$("#pwDialog").dialog()});
 
-		// close the dialog upon submit
+		// Goal can be changed with the dropdown from account or the dialog that pops up when you reach your goal
 		$("#submitNewGoal").on("click",function(){$("#goalDialog").dialog("close");updateGoal()});
+		$("#submitNewGoalCongrats").on("click",function(){$("#goalCongrats").dialog("close");updateGoal()});
+		$("#goalDialog").keyup(function(event){if(event.keyCode === 13)$("#goalDialog").dialog("close");updateGoal()});
+		$("#goalCongrats").keyup(function(event){if(event.keyCode === 13)$("#goalCongrats").dialog("close");updateGoal()});
+
+		// close the dialog when the user clicks on update password
 		$("#submitNewPW").on("click",function(){$("#pwDialog").dialog("close")});
 
 		//

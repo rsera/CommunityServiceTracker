@@ -43,7 +43,10 @@ function addExperience(){
 }
 
 function updateGoal(){
-	var goal=$("#newGoal").val();
+	if($("#newGoal").val()!="")
+		var goal=$("#newGoal").val();
+	else if ($("#newGoalCongrats").val()!="")
+		var goal=$("#newGoalCongrats").val();
 
 	// do validation
 	if (goal==""){

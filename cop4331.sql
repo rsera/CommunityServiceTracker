@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 11, 2018 at 04:49 AM
+-- Generation Time: Apr 11, 2018 at 05:00 PM
 -- Server version: 5.7.19
 -- PHP Version: 5.6.31
 
@@ -105,6 +105,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `userPWHash` varchar(255) DEFAULT NULL,
   `userZip` int(11) DEFAULT NULL,
   `goal` int(11) DEFAULT NULL,
+  `admin` tinyint(1) NOT NULL,
   PRIMARY KEY (`UserID`),
   UNIQUE KEY `UserID_UNIQUE` (`UserID`),
   UNIQUE KEY `username_UNIQUE` (`username`)
