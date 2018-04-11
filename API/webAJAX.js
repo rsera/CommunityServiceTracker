@@ -40,7 +40,7 @@ function addExperience(){
 }
 
 function updateGoal(){
-		var goal=$("#newGoal").val();
+	var goal=$("#newGoal").val();
 
 	// do validation
 	if (goal==""){
@@ -58,8 +58,8 @@ function updateGoal(){
 			}
 			else if(resp.substr(0,10)!="fail"){
 				var obj = $.parseJSON(resp);
-				$("#hoursLabel").html(numHours);
-				$(".progress-bar").attr("style", "width:"+100*numHours/goal+"%");
+				$("#goalLabel").html(obj.goal);
+				$(".progress-bar").attr("style", "width:"+100*parseFloat($("#hoursLabel").html())/obj.goal+"%");
 			}
 			else {
 				alert("addContact API call fail whaled :(");
