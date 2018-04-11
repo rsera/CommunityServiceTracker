@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 09, 2018 at 07:40 PM
+-- Generation Time: Apr 11, 2018 at 04:49 AM
 -- Server version: 5.7.19
 -- PHP Version: 5.6.31
 
@@ -21,6 +21,29 @@ SET time_zone = "+00:00";
 --
 -- Database: `cop4331`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `experiences`
+--
+
+DROP TABLE IF EXISTS `experiences`;
+CREATE TABLE IF NOT EXISTS `experiences` (
+  `experienceID` int(11) NOT NULL AUTO_INCREMENT,
+  `userID` int(11) NOT NULL,
+  `name` varchar(64) NOT NULL,
+  `expDate` date NOT NULL,
+  `hours` float NOT NULL,
+  `notes` varchar(256) NOT NULL,
+  PRIMARY KEY (`experienceID`),
+  KEY `userID` (`userID`)
+) ENGINE=MyISAM AUTO_INCREMENT=50 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `experiences`
+--
+
 
 -- --------------------------------------------------------
 
@@ -48,7 +71,49 @@ INSERT INTO `organizations` (`orgID`, `orgName`, `orgZip`, `orgWebsite`, `conNam
 (1, 'Junior Knights', 32816, 'eecs.ucf.edu/JuniorKnights', '', '', 0),
 (2, 'ACM-W', 32816, 'ucf-w.acm.org', '', '', 0),
 (3, 'American Diabetes Association', 32751, 'diabetes.org', '', '', 0);
-COMMIT;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sessions`
+--
+
+DROP TABLE IF EXISTS `sessions`;
+CREATE TABLE IF NOT EXISTS `sessions` (
+  `userID` int(11) NOT NULL,
+  `sessionID` varchar(256) NOT NULL,
+  `lastActivity` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`sessionID`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `sessions`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE IF NOT EXISTS `user` (
+  `UserID` int(11) NOT NULL AUTO_INCREMENT,
+  `FName` varchar(45) DEFAULT NULL,
+  `LName` varchar(45) DEFAULT NULL,
+  `username` varchar(45) DEFAULT NULL,
+  `userPWHash` varchar(255) DEFAULT NULL,
+  `userZip` int(11) DEFAULT NULL,
+  `goal` int(11) DEFAULT NULL,
+  PRIMARY KEY (`UserID`),
+  UNIQUE KEY `UserID_UNIQUE` (`UserID`),
+  UNIQUE KEY `username_UNIQUE` (`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `user`
+--
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
