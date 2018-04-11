@@ -2,7 +2,6 @@ function addExperience(){
 		var name=$("#newName").val();
 	    var expDate=$("#newDate").val();
 		var hours=$("#newHours").val();
-		//var type=$("#newType").val();
 		var notes=$("#newNotes").val();
 
 	// do validation
@@ -14,7 +13,6 @@ function addExperience(){
 	$('#newName').val("");
 	$('#newDate').val("");
 	$('#newHours').val("");
-	//$("#newType").val("");
 	$('#newNotes').val("");
 
     jQuery.ajax({
@@ -28,11 +26,43 @@ function addExperience(){
 			else if(resp.substr(0,10)!="fail"){
 				var obj = $.parseJSON(resp);
 				$("#noActivity").hide();
-				$("#recent tr").first().before('<tr id="e' + obj.id + '" data-note="' + obj.notes + '"><td><p class="header">' + obj.name + '</strong></p><p>' + obj.expDate + '</p><p>' + obj.hours + ' hours</p></td></tr>');
+				$("#recent tr").first().before('<tr id="e' + obj.id + '" data-note="' + obj.notes + '"><td><p class="header">' + obj.name + '</strong></p><p>' + obj.expDate + '</p><p>' + obj.hours + ' hours</p><p>' + obj.notes + '</p></td></tr>');
 				var numHours = parseFloat($("#hoursLabel").html()) + parseFloat(obj.hours);
 				$("#hoursLabel").html(numHours);
 				var goal = parseFloat($(".progress-bar").attr("aria-valuemax"));
 				$(".progress-bar").attr("style", "width:"+100*numHours/goal+"%");
+
+				if(numHours >= goal)
+					$("#goalCongrats").dialog();
+			}
+			else {
+				alert("addContact API call fail whaled :(");
+			}
+		}
+    });
+}
+
+function updateGoal(){
+	var goal=$("#newGoal").val();
+
+	// do validation
+	if (goal==""){
+		alert("fields are required");
+		return;
+	}
+
+    jQuery.ajax({
+        url: '/API/updateGoal.php',
+        type: "POST",
+        data: {goal:goal},
+		success: function(resp){
+			if(resp=="invalid session"){
+				//Kick them off to the login page.
+			}
+			else if(resp.substr(0,10)!="fail"){
+				var obj = $.parseJSON(resp);
+				$("#goalLabel").html(obj.goal);
+				$(".progress-bar").attr("style", "width:"+100*parseFloat($("#hoursLabel").html())/obj.goal+"%");
 			}
 			else {
 				alert("addContact API call fail whaled :(");

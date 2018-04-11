@@ -254,6 +254,10 @@ td > p.header{
     font-size: 0.75em;
 }
 
+#recent tr p:nth-child(4) {
+    font-size: 0.85em;
+}
+
 #hoursOfGoal{
 	font-size: 0.6em;
 	position: relative;
@@ -261,6 +265,63 @@ td > p.header{
     color: #fff;
     font-weight: 700;
     font-family: sanssaFont;
+}
+
+/* Dropdown Button */
+.dropbtn {
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #2980B9;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .orgRegPage {
@@ -286,7 +347,7 @@ td > p.header{
 	text-align: center;
 	border-radius: 25px;
     background: #F9F3F4;
-    padding: 10px; 
+    padding: 10px;
     width: 250px;
     height: 555px;
 }
