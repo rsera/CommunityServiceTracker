@@ -246,6 +246,8 @@
 		// Goal can be changed with the dropdown from account or the dialog that pops up when you reach your goal
 		$("#submitNewGoal").on("click",function(){$("#goalDialog").dialog("close");updateGoal()});
 		$("#submitNewGoalCongrats").on("click",function(){$("#goalCongrats").dialog("close");updateGoal()});
+		$("#goalDialog").keyup(function(event){if(event.keyCode === 13)$("#goalDialog").dialog("close");updateGoal()});
+		$("#goalCongrats").keyup(function(event){if(event.keyCode === 13)$("#goalCongrats").dialog("close");updateGoal()});
 
 		// close the dialog when the user clicks on update password
 		$("#submitNewPW").on("click",function(){$("#pwDialog").dialog("close")});
