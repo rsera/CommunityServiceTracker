@@ -10,6 +10,7 @@ import HomeScreen from './components/HomeScreen';
 import AddEvent from './components/AddEvent';
 import RecommendationsPage from './components/RecommendationsPage';
 import { Router, Scene } from 'react-native-router-flux';
+import Settings from './components/Settings.js';
 
 class App extends Component {
   render() {
@@ -63,6 +64,13 @@ class App extends Component {
               key="explore"
               component={RecommendationsPage}
               title="💡"
+              hideNavBar="true"
+            />
+
+            <Scene
+              key="settings"
+              component={Settings}
+              title="Settings"
               hideNavBar="true"
             />
 

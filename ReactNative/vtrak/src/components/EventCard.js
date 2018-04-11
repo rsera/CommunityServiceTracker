@@ -7,7 +7,7 @@ class EventCard extends Component {
 	render () {
 		return (
 			<View style={styles.containerStyle}>
-				<View style={styles.initialPanelStyle}>
+				<View style={styles.panelHeaderStyle}>
 
 					<View style={styles.textContainerStyle}>
 						<Text style={styles.descriptionStyle}>
@@ -35,7 +35,7 @@ class EventCard extends Component {
 
 const styles = {
 	containerStyle: {
-		// Entire event card, including extra description
+		// Entire event card, header and description
 
 		flexDirection: 'column',
 		position: 'relative',
@@ -44,7 +44,7 @@ const styles = {
 		borderBottomWidth: 2,
 		borderBottomColor: '#C3E8AB'
 	},
-	initialPanelStyle: {
+	panelHeaderStyle: {
 		flexDirection: 'row',
 		justifyContent: 'space-between',
 		alignItems: 'stretch',
