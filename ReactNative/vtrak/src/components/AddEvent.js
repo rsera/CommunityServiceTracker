@@ -11,9 +11,36 @@ class AddEvent extends Component {
 	state = { organization: '', date: '', hours: '', notes: '' }
 
 	submitEvent = () => {
-		alert('Nice work!',
+		/*alert('Nice work!',
 					[ {text: 'Nice work!', onPress: () => Actions.homescreen() } ]
-		);
+		);*/
+		fetch('https://www.aptimage.net/API/addExperience.php',
+			{
+        method: 'POST',
+        headers:
+        {
+       		'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(
+        {
+          name : this.state.organization,
+
+          date : this.state.date,
+
+          hours : this.state.hours,
+
+					notes : this.state.notes
+        })
+
+        }).then((response) => response.json()).then((responseJsonFromServer) =>
+        {
+          alert(responseJsonFromServer);
+        }).catch((error) =>
+        {
+					console.log('you failed buddy');
+          console.error(error);
+      });
 	}
 
 	render() {
@@ -64,7 +91,7 @@ class AddEvent extends Component {
 				<View style={styles.buttonContainerStyle}>
 					<Button onPress={() => Actions.homescreen()}
 						title="Add New Event"
-						// onPress={this.submitEvent}
+						onPress={this.submitEvent}
 					>
 						Submit
 					</Button>
