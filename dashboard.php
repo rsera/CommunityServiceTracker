@@ -82,19 +82,9 @@
         			//echo '<span class="pull-right">'. $row['hours'].' of '.$row['goal'].'</span>';
 					echo '<span id="hoursOfGoal" class="pull-right"><span id="hoursLabel">' . $row['hours'] . '</span> of <span id="goalLabel">' . $row['goal'] . ' hours</span></span>';
 				}
+				if($row['hours']>= $row['goal'])
+					echo '<script>$(document).ready(function(){$("#goalCongrats").dialog();});</script>';
 
-				//if the hours are >= goal, we need to prompt to update goal
-				/*if($row.hours >= $row.goal)
-				{
-				echo '<dialog open>
-				<style>
-					dialog{background:#000;margin:0;}
-					canvas{cursor: crosshair;display: block;}
-				</style>
-				  <canvas id="canvas"></canvas>
-				  <script src="fireworks.js"></script>
-				</dialog>';
-			}*/
 			}
     	?>
         </h2>
@@ -220,6 +210,12 @@
       </div>
     </div>
 
+	<div id="goalCongrats" title="Update Goal" style="display:none">
+		<p> Congratulations! You've met your goal!</p>
+		<label=>Keeping going? Enter your new goal</label>
+		<input id="newGoalCongrats" type="text" placeholder="New Goal">
+		<input id="submitNewGoalCongrats" type="goalSubmit" class="signUpButton" value="Submit">
+	</div>
 	<div id="goalDialog" title="Update Goal" style="display:none">
 		<label for="newGoal">Enter your new goal</label>
 		<input id="newGoal" type="text" placeholder="New Goal">
