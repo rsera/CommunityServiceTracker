@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { View,Text, ScrollView, TouchableHighlight } from 'react-native';
 import HoursIcon from './HoursIcon';
+import Collapsible from 'react-native-collapsible';
 
 class EventCard extends Component {
 

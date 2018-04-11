@@ -15,7 +15,8 @@ class VolunteerEventList extends Component {
           Recent History
         </Text>
 
-        <ScrollView>
+        <ScrollView style={{flex:1}}>
+            <EventCard />
             <EventCard />
             <EventCard />
             <EventCard />
@@ -30,6 +31,7 @@ const styles = {
   containerStyle: {
     marginLeft: 10,
     marginTop: 5,
+    flex:1
   },
   listHeaderStyle: {
     fontFamily: 'System',

@@ -9,7 +9,7 @@ import GoalBar from './GoalBar.js';
 
 const HomeScreen = () => {
   return (
-    <View>
+    <View style={{flex:1}}>
       <Header headerText={'vTrak'} />
       	<WelcomeUser />
         <GoalBar />

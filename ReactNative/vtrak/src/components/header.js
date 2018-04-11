@@ -26,7 +26,7 @@ const styles = {
     elevation: 2,
     // position: 'relative',
     flexDirection: 'row',
-    marginBottom: 10
+    marginBottom: 10,
   },
 
   headerContainerStyle: {
