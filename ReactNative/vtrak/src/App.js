@@ -8,6 +8,7 @@ import WelcomeUser from './components/WelcomeUser';
 import GoalBar from './components/GoalBar';
 import HomeScreen from './components/HomeScreen';
 import AddEvent from './components/AddEvent';
+import RecommendationsPage from './components/RecommendationsPage';
 import { Router, Scene } from 'react-native-router-flux';
 
 class App extends Component {
@@ -42,22 +43,29 @@ class App extends Component {
                 flex: 1
               }
             }
-            tabBarPosition="bottom"
             activeTintColor='#76CB89'
           >
             <Scene
               key="homescreen"
               component={HomeScreen}
-              title="Home"
+              title="🏠"
               hideNavBar="true"
             />
 
             <Scene
               key="addevent"
               component={AddEvent}
-              title="Add Event"
+              title="➕"
               hideNavBar="true"
             />
+
+            <Scene
+              key="explore"
+              component={RecommendationsPage}
+              title="💡"
+              hideNavBar="true"
+            />
+
           </Scene>
 
         </Scene>
