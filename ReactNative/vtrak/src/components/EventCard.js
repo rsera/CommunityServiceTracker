@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import { View,Text, ScrollView, TouchableHighlight } from 'react-native';
 import HoursIcon from './HoursIcon';
-import Collapsible from 'react-native-collapsible';
 
 class EventCard extends Component {
 
@@ -25,10 +24,9 @@ class EventCard extends Component {
 				</View>
 
 				<View style={styles.expandedPanelStyle} >
-					<Text>Extra information about the event, etc etc etc</Text>
-					<Text>Extra information about the event, etc etc etc</Text>
-					<Text>Extra information about the event, etc etc etc</Text>
-					<Text>Extra information about the event, etc etc etc</Text>
+					<Text style={{textAlign: 'justify'}}>
+						yay women yay women yay women yay women yay women yay women yay women yay women yay women yay women yay women yay women yay women yay women yay women yay women yay women yay women yay women yay women
+					</Text>
 				</View>
 			</View>
 		);
@@ -38,22 +36,28 @@ class EventCard extends Component {
 const styles = {
 	containerStyle: {
 		// Entire event card, including extra description
-		marginRight: 10,
-		marginTop: 7,
-		marginBottom: 7,
+
 		flexDirection: 'column',
 		position: 'relative',
 		justifyContent: 'space-between',
 		alignItems: 'stretch',
+		borderBottomWidth: 2,
+		borderBottomColor: '#C3E8AB'
 	},
 	initialPanelStyle: {
 		flexDirection: 'row',
 		justifyContent: 'space-between',
-		alignItems: 'stretch'
+		alignItems: 'stretch',
+		marginRight: 10,
+		marginTop: 7,
+		marginBottom: 7,
+		marginLeft: 10
 	},
 	expandedPanelStyle: {
 		marginTop: 5,
-		marginBottom: 5
+		marginBottom: 5,
+		marginRight: 10,
+		marginLeft: 10,
 	},
 	textContainerStyle: {
 		// to align location and volunteer description
