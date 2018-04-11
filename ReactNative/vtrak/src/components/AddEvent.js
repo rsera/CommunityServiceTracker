@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
 import Button from './common/Button';
 import Card from './common/Card';
 import CardSection from './common/CardSection';
@@ -20,6 +20,9 @@ class AddEvent extends Component {
 		return(
 			<View>
 			<Header headerText={'vTrak'} />
+
+			<Text style={styles.pageTitle}>Add Event</Text>
+
 				<Card>
 					<CardSection>
 						<Input
@@ -80,7 +83,16 @@ const styles = StyleSheet.create({
 		height: 40,
 		marginTop: 5,
     marginBottom: 5,
-  }
+  },
+	pageTitle: {
+		marginLeft: 10,
+		fontFamily: 'System',
+		fontSize: 23,
+		color: '#45537A',
+		fontWeight: '500',
+		marginBottom: 3,
+		fontWeight: 'bold'
+	}
 });
 
 export default AddEvent;

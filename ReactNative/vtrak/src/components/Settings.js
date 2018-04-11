@@ -18,6 +18,8 @@ class Settings extends Component {
 
         <Header headerText={'vTrak'} />
 
+        <Text style={styles.pageTitle}>Settings</Text>
+
         <View style={{flex:1}}>
         <Card>
           <CardSection>
@@ -73,6 +75,15 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     fontSize: 16,
     color: 'red',
+    fontWeight: 'bold'
+  },
+  pageTitle: {
+    marginLeft: 10,
+    fontFamily: 'System',
+    fontSize: 23,
+    color: '#45537A',
+    fontWeight: '500',
+    marginBottom: 3,
     fontWeight: 'bold'
   }
 });

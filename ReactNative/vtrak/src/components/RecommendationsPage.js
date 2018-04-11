@@ -5,13 +5,11 @@ import RecommendationCard from './RecommendationCard';
 
 const RecommendationsPage = () => {
 	return (
-		<View>
+		<View style={{flex:1}}>
 			<Header headerText={'vTrak'} />
-			<View style={styles.recsContainerStyle}>
-				<Text style={styles.recsTextStyle}>
-					◄  Recommendations  ►
-				</Text>
-			</View>
+
+			<Text style={styles.pageTitle}>Recommendations</Text>
+
 			<ScrollView>
 				<View style={styles.cardContainerStyle}>
 					<View>
@@ -49,6 +47,15 @@ const styles = {
 		marginLeft: 10,
 		marginRight: 10,
 		flex: 1
+	},
+	pageTitle: {
+		marginLeft: 10,
+		fontFamily: 'System',
+		fontSize: 23,
+		color: '#45537A',
+		fontWeight: '500',
+		marginBottom: 3,
+		fontWeight: 'bold'
 	}
 };
 
