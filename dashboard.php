@@ -243,6 +243,7 @@
 
 		// close the dialog upon submit
 		$("#submitNewGoal").on("click",function(){$("#goalDialog").dialog("close");updateGoal()});
+		$("#submitNewGoalCongrats").on("click",function(){$("#goalCongrats").dialog("close");updateGoal()});
 		$("#submitNewPW").on("click",function(){$("#pwDialog").dialog("close")});
 
 		//
