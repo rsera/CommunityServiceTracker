@@ -44,12 +44,6 @@ CREATE TABLE IF NOT EXISTS `experiences` (
 -- Dumping data for table `experiences`
 --
 
-INSERT INTO `experiences` (`experienceID`, `userID`, `name`, `expDate`, `hours`, `notes`) VALUES
-(45, 17, 'Habitat for Humanity', '2018-04-04', 5, 'I helped build houses.'),
-(46, 17, 'YMCA', '2018-04-05', 5.75, 'Today I helped tutor in the after school program.'),
-(47, 17, 'Habitat for Humanity', '2018-04-06', 2.15, 'helped build houses'),
-(48, 17, 'YMCA', '2018-04-11', 3.1, 'helped tutor'),
-(49, 17, 'YMCA', '2018-04-12', 1, 'helped tutor');
 
 -- --------------------------------------------------------
 
@@ -96,26 +90,6 @@ CREATE TABLE IF NOT EXISTS `sessions` (
 -- Dumping data for table `sessions`
 --
 
-INSERT INTO `sessions` (`userID`, `sessionID`, `lastActivity`) VALUES
-(15, '2009a761-3233-11e8-ba12-408d5cde0989', '2018-03-27 22:52:43'),
-(14, 'fb004538-3232-11e8-ba12-408d5cde0989', '2018-03-27 22:52:21'),
-(12, '27884fcd-3232-11e8-ba12-408d5cde0989', '2018-03-27 22:45:42'),
-(13, 'de8ebbb6-3232-11e8-ba12-408d5cde0989', '2018-03-27 22:50:58'),
-(9, 'afac457c-3230-11e8-ba12-408d5cde0989', '2018-03-27 22:41:58'),
-(15, '3aed0296-3233-11e8-ba12-408d5cde0989', '2018-03-27 22:53:31'),
-(16, 'e1367486-3233-11e8-ba12-408d5cde0989', '2018-03-27 22:58:09'),
-(17, 'acc6e781-338d-11e8-a6d7-308d991afc4e', '2018-03-29 16:13:32'),
-(17, 'e3d8437b-3857-11e8-a6d7-308d991afc4e', '2018-04-04 18:29:31'),
-(17, '7edf2095-3859-11e8-a6d7-308d991afc4e', '2018-04-04 18:41:00'),
-(17, '9c866d65-3859-11e8-a6d7-308d991afc4e', '2018-04-04 18:41:50'),
-(17, 'c163e80e-39c2-11e8-9a7f-308d991afc4e', '2018-04-06 13:48:46'),
-(17, '9bdf912b-39c3-11e8-9a7f-308d991afc4e', '2018-04-06 14:16:14'),
-(17, '8b087a2d-39e1-11e8-9a7f-308d991afc4e', '2018-04-06 17:29:09'),
-(17, '67cccab5-39ec-11e8-9a7f-308d991afc4e', '2018-04-06 18:46:55'),
-(17, 'dea06291-39ed-11e8-9a7f-308d991afc4e', '2018-04-06 18:57:23'),
-(17, '00585666-39ee-11e8-9a7f-308d991afc4e', '2018-04-06 18:58:20'),
-(17, 'abcae5da-3b47-11e8-9a7f-308d991afc4e', '2018-04-08 12:12:03');
-
 -- --------------------------------------------------------
 
 --
@@ -140,9 +114,6 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`UserID`, `FName`, `LName`, `username`, `userPWHash`, `userZip`, `goal`) VALUES
-(17, 'abc', 'de', 'abc', '$2y$10$ZaPht0KPVqBh3CU00IdPdOprSgc7woveM5dInBEdA63MFf5VhMmm2', 32818, 20);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
