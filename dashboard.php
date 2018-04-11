@@ -12,10 +12,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link href="css/styles.css" rel="stylesheet">
+	<link href="jquery-ui.min.css" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="jquery-ui.min.js"></script>
 	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
+
 
 <body class="myDashboard">
   <!-- Top Banner Start -->
@@ -35,7 +38,11 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#" data-target="signUp" id="signUpRibbon">Account</a></li>
+          <li class="drowpdown"><a class="dropbtn" id="signUpRibbon">Account</a>
+		  <div id="myDropdown" class="dropdown-content defaultHidden">
+		    <a href="#" id="goalDrop">Update Goal</a>
+		    <a href="#" id="pwDrop">Change Password</a>
+		  </div></li>
           <li><a href="logout.php" data-target="login" id="loginRibbon">Log Out</a></li>
 		  <!--<button type="submit" class="btn btn-default navbar-btn"><a href="logout.php">Sign Out</a></button>-->
         </ul>
@@ -44,8 +51,20 @@
   </nav>
   <!-- Top Banner End -->
 
+
+
+  <div id="fireworks" style="display:none">
+  <style>
+    #firework{background:#000;margin:0;}
+    canvas{cursor: crosshair;display: block;}
+  </style>
+    <canvas id="canvas"></canvas>
+    <script src="fireworks.js"></script>
+	</div>
+
   <div class="row-eq-height" id="content">
     <div class="col-sm-4">
+
       <!-- Progress bar -->
       <div class="progress-bar-label">
         <h2>
@@ -63,6 +82,19 @@
         			//echo '<span class="pull-right">'. $row['hours'].' of '.$row['goal'].'</span>';
 					echo '<span id="hoursOfGoal" class="pull-right"><span id="hoursLabel">' . $row['hours'] . '</span> of <span id="goalLabel">' . $row['goal'] . ' hours</span></span>';
 				}
+
+				//if the hours are >= goal, we need to prompt to update goal
+				/*if($row.hours >= $row.goal)
+				{
+				echo '<dialog open>
+				<style>
+					dialog{background:#000;margin:0;}
+					canvas{cursor: crosshair;display: block;}
+				</style>
+				  <canvas id="canvas"></canvas>
+				  <script src="fireworks.js"></script>
+				</dialog>';
+			}*/
 			}
     	?>
         </h2>
@@ -85,7 +117,7 @@
 
       <!--Add activity-->
       <div id="addNew" class="panel panel-default" >
-        <div class="panel-heading">Add Activity</div>
+        <div class="panel-heading">Add Activity (*=required)</div>
         <div class="panel-body">
 
           <!--<form>-->
@@ -109,13 +141,6 @@
               <label for="newHours">Hours:</label>
               <input type="number" class="form-control" id="newHours">
             </div>
-			<!--<div class="form-group">
-              <label for="newType">Type:</label>
-              <select type="number" class="form-control" id="newType">
-				  <option value="1">social</option>
-				  <option value="2">poverty</option>
-			  </select>
-		  </div>-->
 			</span>
 
             <div class="form-group">
@@ -132,12 +157,14 @@
 
 
     <div class="col-sm-4">
+
       <h2><span class="label label-default">Recent Activity</span></h2>
 
 	  <div>
 		<input id="searchBox" type="text" class="form-control" placeholder="Search" style="margin-bottom:20px">
 		<!--<button id="searchButton" type="button" class="btn btn-default">Search</button>-->
 	  </div>
+
 
       <div class="panel panel-default">
         <div class="panel-body pre-scrollable" style="max-height: 75vh">
@@ -151,10 +178,11 @@
   					if (mysqli_num_rows($result) > 0)
   					{
   						while($row = mysqli_fetch_assoc($result)){
-  							echo '<tr id="e' . $row['experienceID'] . '" data-note="'.$row['notes'].'"><td><p class="header">' . $row['name'] . '</strong></p><p>' . $row['expDate'] . '</p><p>' . $row['hours'] . ' hours</p></td></tr>';
+  							echo '<tr id="e' . $row['experienceID'] . '" data-note="'.$row['notes'].'"><td><p class="header">' . $row['name'] . '</strong></p><p>' . $row['expDate'] . '</p><p>' . $row['hours'] . ' hours</p><p>' . $row['notes'] . '</p></td></tr>';
 						}
+						echo '<tr id="noActivity" class="defaultHidden"><td><p>No activity to show.</p></td></tr>';
   					}
-					else echo '<tr><td><p id="noActivity">You have no activity.</p></td></tr>';
+					else echo '<tr id="noActivity"><td><p>No activity to show.</p></td></tr>';
 
 				?>
               </tbody>
@@ -192,17 +220,38 @@
       </div>
     </div>
 
+	<div id="goalDialog" title="Update Goal" style="display:none">
+		<label for="newGoal">Enter your new goal</label>
+		<input id="newGoal" type="text" placeholder="New Goal">
+		<input id="submitNewGoal" type="goalSubmit" class="signUpButton" value="Submit">
+	</div>
+	<div id="pwDialog" title="Change Password" style="display:none">
+		<label for="newGoal">Enter your new password</label>
+		<input id="password1" class="passwordBox" type="password" placeholder=" Password" name="PWHash" required>
+		<input id="password2" class="passwordBox" type="password" placeholder=" Retype Password" name="PWHash2" required>
+		<input id="submitNewGoal" type="goalSubmit" class="signUpButton" value="Submit">
+	</div>
+
   </div>
+
 	<!--<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>-->
-		<script src="API/webAJAX.js"></script>
+	<script src="API/webAJAX.js"></script>
 	<script>
 		// When you click "submit" for new experiences, add the experience and update the recent activity list
 		$("#newSubmit").on("click",function(){addExperience()});
 
-		// Pressing <enter> in the search box will trigger the search funciton
+		// Clicking the "change password" or "update goal" options pulls up their dialogs
+		$("#goalDrop").on("click",function(){$("#goalDialog").dialog()});
+		$("#pwDrop").on("click",function(){$("#pwDialog").dialog()});
+
+		// close the dialog upon submit
+		$("#submitNewGoal").on("click",function(){$("#goalDialog").dialog("close");updateGoal()});
+		$("#submitNewPW").on("click",function(){$("#pwDialog").dialog("close")});
+
+		//
 		function searchExperiences(searchTerm){
-			$("#recent tr").each(
+			$("#recent tr").not("#noActivity").each(
 				function(){
 					var name = $(this).find(".header").html();
 					var note = $(this).attr("data-note");
@@ -210,9 +259,31 @@
 					var inNote = note.toLowerCase().includes(searchTerm.toLowerCase());
 					$(this).toggle(inName || inNote);
 			 	}
-			)
+			);
+
+			if($("#recent tr:visible").not("#noActivity").length == 0)
+			{
+				$("#noActivity").removeClass("defaultHidden");
+			}
+			else {
+				if($("#noActivity").not(":hidden"))
+					$("#noActivity").addClass("defaultHidden");
+			}
+
 		}
 		$("#searchBox").keyup(function(e){searchExperiences(this.value)});
+
+		// Toggle dropdown menu when "account is clicked"
+		// Close the dropdown menu if the user clicks anywhere else
+		window.onclick = function(event) {
+			if (event.target.matches('#signUpRibbon')) {
+				$("#myDropdown").toggleClass("defaultHidden")
+			}
+			else {
+				if($(".signUpPage").not(":hidden"))
+				$("#myDropdown").addClass("defaultHidden")
+			}
+		}
 
 	</script>
 </body>
