@@ -9,7 +9,7 @@
 	return;
   }
 
-  // Verify that the user has entered a first, last, phone, and email
+  // Verify that the user has entered the required information
   if (!(isset($_COOKIE['vtrakUser']) && isset($_POST['name']) && isset($_POST['expDate']) && isset($_POST['hours']) && isset($_POST['notes'])))
   {
     echo "fail whale isset";

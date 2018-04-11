@@ -31,6 +31,9 @@ function addExperience(){
 				$("#hoursLabel").html(numHours);
 				var goal = parseFloat($(".progress-bar").attr("aria-valuemax"));
 				$(".progress-bar").attr("style", "width:"+100*numHours/goal+"%");
+
+				if(numHours >= goal)
+					$("#goalCongrats").dialog();
 			}
 			else {
 				alert("addContact API call fail whaled :(");
