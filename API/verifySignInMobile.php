@@ -5,9 +5,6 @@
 	$json = file_get_contents('php://input');
 	$obj = json_decode($json, TRUE);
 
-	//$user =  $obj['username'];
-	//$pass = $obj['password'];
-
 	$user = mysqli_real_escape_string($conn, $obj['username']);
 	$pass = mysqli_real_escape_string($conn, $obj['password']);
 
@@ -31,36 +28,12 @@
 		// Query database to retrieve the userID of an attempted login. This query
 		// will return false if the log in credentials don't match a user's data
 
-		//$loginAttempt = $conn->query($loginQuery);
-		echo $query;
 		$loginAttempt = mysqli_query($conn, $query);
-		//var_dump($loginAttempt->num_rows);
-		//var_dump($loginAttempt->UserID);
-		//echo "printed";
 
 		if($loginAttempt->num_rows <= 0)
 		{
 			echo $loginAttempt->num_rows . "<- num rows";
 		}
-		/*if($loginAttempt)
-		{
-			echo("true");
-		}
-
-		if(false === $loginAttempt)
-		{
-			echo ("error" . mysqli_error($loginAttempt));
-		}*/
-		/*else
-		{
-			//echo("error" . $loginAttempt->error . "<-");
-			var_dump($conn);
-			echo("conn error" . mysqli_error($conn) . "<-");
-			var_dump($loginAttempt);
-			echo("attempt error" . mysqli_error($loginAttempt) . "<-");
-		}*/
-
-
 
 		$loginFlag = false;
 
@@ -84,12 +57,12 @@
 						setcookie("vtrakUser", $userID, time() + (86400 * 30), "/"); // (86400 * 30) is to expire after 30 days -- can modify if desired
 						$_SESSION["UserID"] = $userID;
 						$loginFlag = true;
+						echo("Logged In");
 					}
 			    }
 			}
 
 		}
-		//echo "it didn't work";
 
 		// If the query failed, the log in information was invalid
 		if(!$loginFlag)

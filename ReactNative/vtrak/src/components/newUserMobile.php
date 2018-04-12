@@ -3,9 +3,6 @@
 	// Handle new user signup input, insert into database, save hashed password
   include "header.php";
 
-  /*echo "wtf man";
-  ecch ("wtf man");*/
-
   $json = file_get_contents('php://input');
   $obj = json_decode($json, TRUE);
 
@@ -18,24 +15,6 @@
 	$goal = mysqli_real_escape_string($conn, $obj['goal']);
   $pass = mysqli_real_escape_string($conn, $obj['PWHash']);
   $pass2 = mysqli_real_escape_string($conn, $obj['PWHash2']);
-
-  /*$FName =  $obj['FName'];
-	$LName = $obj['LName'];
-  $zip = $obj['zip'];
-  $username = $obj['username'];
-	$goal = $obj['goal'];
-  $pass = $obj['PWHash'];
-  $pass2 = $obj['PWHash2'];*/
-
-  /*echo ("here we go");
-  echo $FName;
-  echo ($LName);
-  echo ($zip);
-  echo ($username);
-  echo ($goal);
-  echo ($pass);
-  echo ($pass2);*/
-
 
 	// Check if passwords are equal
 	// If wrong,  redirect back to home

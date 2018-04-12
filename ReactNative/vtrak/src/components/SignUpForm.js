@@ -19,7 +19,7 @@ class SignUpForm extends Component {
           };
 
   dbSignup = () => {
-    fetch('http://www.aptimage.net/API/newUserMobile.php',
+    fetch('http://www.aptimage.net/newUserMobile.php',
     {
       method: 'POST',
       headers:
@@ -40,14 +40,14 @@ class SignUpForm extends Component {
 
     }).then((response) => response.text()).then((responseJsonFromServer) =>
     {
-
+      console.log(responseJsonFromServer);
     }).catch((error) =>
     {
       console.log('you failed buddy');
       console.error(error);
     });
 
-    Actions.homescreen();
+    //Actions.homescreen();
 }
 
   clicker() {
