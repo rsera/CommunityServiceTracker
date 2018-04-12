@@ -13,7 +13,7 @@ class LoginForm extends Component {
   state = { username: '', password: '' };
 
   dbLogin = () => {
-    fetch('http://www.aptimage.net/API/verifySignInMobile.php',
+    fetch('http://www.aptimage.net/verifySignInMobile.php',
     {
       method: 'POST',
       headers:
@@ -36,7 +36,7 @@ class LoginForm extends Component {
       console.error(error);
     });
 
-    //Actions.homescreen();
+    Actions.homescreen();
     //alert("hello");
   }
 

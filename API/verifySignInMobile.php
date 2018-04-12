@@ -5,8 +5,12 @@
 	$json = file_get_contents('php://input');
 	$obj = json_decode($json, TRUE);
 
-	$user =  $obj['username'];
-	$pass = $obj['password'];
+	//$user =  $obj['username'];
+	//$pass = $obj['password'];
+
+	$user = mysqli_real_escape_string($conn, $obj['username']);
+	$pass = mysqli_real_escape_string($conn, $obj['password']);
+
 
 	// Check for error in connection
 	if ($conn->connect_error)
@@ -19,29 +23,55 @@
 	else
 	{
 		$loginQuery = "SELECT UserID, userPWHash FROM user WHERE username='" . $user . "'";
+		$query = "SELECT UserID, userPWHash FROM user WHERE username = '$user' ";
+		$test = "SELECT * FROM user WHERE username = '$user' ";
+		$testy = "SELECT * FROM 'user'";
+		$general = "SELECT userPWHash FROM user WHERE UserID = '18'";
 
 		// Query database to retrieve the userID of an attempted login. This query
 		// will return false if the log in credentials don't match a user's data
-		echo "uhh";
-		$loginAttempt = $conn->query($loginQuery);
-		echo "wtf";
+
+		//$loginAttempt = $conn->query($loginQuery);
+		echo $query;
+		$loginAttempt = mysqli_query($conn, $query);
+		//var_dump($loginAttempt->num_rows);
+		//var_dump($loginAttempt->UserID);
+		//echo "printed";
+
+		if($loginAttempt->num_rows <= 0)
+		{
+			echo $loginAttempt->num_rows . "<- num rows";
+		}
+		/*if($loginAttempt)
+		{
+			echo("true");
+		}
+
+		if(false === $loginAttempt)
+		{
+			echo ("error" . mysqli_error($loginAttempt));
+		}*/
+		/*else
+		{
+			//echo("error" . $loginAttempt->error . "<-");
+			var_dump($conn);
+			echo("conn error" . mysqli_error($conn) . "<-");
+			var_dump($loginAttempt);
+			echo("attempt error" . mysqli_error($loginAttempt) . "<-");
+		}*/
+
+
 
 		$loginFlag = false;
-		if ($loginAttempt->num_rows <= 0)
-		{
-			echo("shit");
-		}
 
 		if ($loginAttempt->num_rows > 0)
 		{
-			echo("further");
 			$loginAttempt = $loginAttempt->fetch_assoc();
 			$retrievedHash = $loginAttempt["userPWHash"];
 			$userID = $loginAttempt["UserID"];
 
 			if(password_verify($pass, $retrievedHash))
 			{
-				echo "your'e in.";
 				$sql = "INSERT INTO sessions(userID, sessionID) VALUES('".$userID."', UUID())";
 				if ($result = $conn->query($sql) == TRUE)
 			    {
@@ -59,7 +89,7 @@
 			}
 
 		}
-		echo "it didn't work";
+		//echo "it didn't work";
 
 		// If the query failed, the log in information was invalid
 		if(!$loginFlag)

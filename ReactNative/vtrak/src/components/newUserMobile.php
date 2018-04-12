@@ -1,19 +1,40 @@
 <?php
 
 	// Handle new user signup input, insert into database, save hashed password
-    include "header.php";
+  include "header.php";
 
-    $json = file_get_contents('php://input');
-    $obj = json_decode($json, TRUE);
+  /*echo "wtf man";
+  ecch ("wtf man");*/
+
+  $json = file_get_contents('php://input');
+  $obj = json_decode($json, TRUE);
+
 
 	// Store username and password from form submission
 	$FName =  mysqli_real_escape_string($conn, $obj['FName']);
 	$LName = mysqli_real_escape_string($conn, $obj['LName']);
-    $zip = mysqli_real_escape_string($conn, $obj['zip']);
-    $username = mysqli_real_escape_string($conn, $obj['username']);
+  $zip = mysqli_real_escape_string($conn, $obj['zip']);
+  $username = mysqli_real_escape_string($conn, $obj['username']);
 	$goal = mysqli_real_escape_string($conn, $obj['goal']);
-    $pass = mysqli_real_escape_string($conn, $obj['PWHash']);
-    $pass2 = mysqli_real_escape_string($conn, $obj['PWHash2']);
+  $pass = mysqli_real_escape_string($conn, $obj['PWHash']);
+  $pass2 = mysqli_real_escape_string($conn, $obj['PWHash2']);
+
+  /*$FName =  $obj['FName'];
+	$LName = $obj['LName'];
+  $zip = $obj['zip'];
+  $username = $obj['username'];
+	$goal = $obj['goal'];
+  $pass = $obj['PWHash'];
+  $pass2 = $obj['PWHash2'];*/
+
+  /*echo ("here we go");
+  echo $FName;
+  echo ($LName);
+  echo ($zip);
+  echo ($username);
+  echo ($goal);
+  echo ($pass);
+  echo ($pass2);*/
 
 
 	// Check if passwords are equal
