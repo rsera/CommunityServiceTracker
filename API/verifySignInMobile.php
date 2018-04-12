@@ -2,8 +2,11 @@
 	include "header.php";
 
 	// Store username and password from form submission
-	$user =  $_POST['username'];
-	$pass = $_POST['password'];
+	$json = file_get_contents('php://input');
+	$obj = json_decode($json, TRUE);
+
+	$user =  $obj['username'];
+	$pass = $obj['password'];
 
 	// Check for error in connection
 	if ($conn->connect_error)
@@ -19,17 +22,26 @@
 
 		// Query database to retrieve the userID of an attempted login. This query
 		// will return false if the log in credentials don't match a user's data
+		echo "uhh";
 		$loginAttempt = $conn->query($loginQuery);
+		echo "wtf";
 
 		$loginFlag = false;
+		if ($loginAttempt->num_rows <= 0)
+		{
+			echo("shit");
+		}
+
 		if ($loginAttempt->num_rows > 0)
 		{
+			echo("further");
 			$loginAttempt = $loginAttempt->fetch_assoc();
 			$retrievedHash = $loginAttempt["userPWHash"];
 			$userID = $loginAttempt["UserID"];
 
 			if(password_verify($pass, $retrievedHash))
 			{
+				echo "your'e in.";
 				$sql = "INSERT INTO sessions(userID, sessionID) VALUES('".$userID."', UUID())";
 				if ($result = $conn->query($sql) == TRUE)
 			    {
@@ -42,13 +54,12 @@
 						setcookie("vtrakUser", $userID, time() + (86400 * 30), "/"); // (86400 * 30) is to expire after 30 days -- can modify if desired
 						$_SESSION["UserID"] = $userID;
 						$loginFlag = true;
-						header("Location: /dashboard.php");
 					}
 			    }
-
 			}
 
 		}
+		echo "it didn't work";
 
 		// If the query failed, the log in information was invalid
 		if(!$loginFlag)
@@ -61,7 +72,6 @@
 			if($usernameCheckQueryResult->num_rows == 0)
 			{
 				// Placeholder for redirecting to signup page
-				header("Location: /?default=login&username=".$user."&error=Invalid username.");
 				$conn->close();
 				die();
 			}
@@ -69,7 +79,6 @@
 			// If the username IS present, the login attempt had an invalid password
 			else
 			{
-				header("Location: /?default=login&username=".$user."&error=Incorrect password.");
 				$conn->close();
 				die();
 			}
