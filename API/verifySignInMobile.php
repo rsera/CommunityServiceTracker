@@ -30,12 +30,11 @@
 
 		$loginAttempt = mysqli_query($conn, $query);
 
-		if($loginAttempt->num_rows <= 0)
-		{
-			echo $loginAttempt->num_rows . "<- num rows";
-		}
-
 		$loginFlag = false;
+
+		if ($loginAttempt->num_rows <= 0)
+			echo "Failure";
+
 
 		if ($loginAttempt->num_rows > 0)
 		{

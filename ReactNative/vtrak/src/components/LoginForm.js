@@ -30,14 +30,15 @@ class LoginForm extends Component {
     }).then((response) => response.text()).then((responseJsonFromServer) =>
     {
       console.log(responseJsonFromServer);
+      if (responseJsonFromServer === "Logged In")
+        Actions.homescreen();
+      else
+        alert("Invalid Login.");
     }).catch((error) =>
     {
       console.log('you failed buddy');
       console.error(error);
     });
-
-    Actions.homescreen();
-    //alert("hello");
   }
 
   render() {
