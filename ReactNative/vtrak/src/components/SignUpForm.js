@@ -41,6 +41,7 @@ class SignUpForm extends Component {
     }).then((response) => response.text()).then((responseJsonFromServer) =>
     {
       console.log(responseJsonFromServer);
+      Actions.login();
     }).catch((error) =>
     {
       console.log('you failed buddy');
@@ -49,11 +50,6 @@ class SignUpForm extends Component {
 
     //Actions.homescreen();
 }
-
-  clicker() {
-    this.dbSignup;
-    Actions.homescreen();
-  }
 
   render() {
     return (

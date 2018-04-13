@@ -4,12 +4,20 @@ import { View, Text } from 'react-native';
 const GoalBar = (props) => {
   const { viewStyle, textStyle, colorFillStyle, color2FillStyle } = styles;
 
+  // getGoalHours: function () {
+  //   return { goalHours: 100 };
+  // },
+
+  // getCurrentHours: function () {
+  //   return { currentHours: 60 }
+  // }, 
+
   return  (
     <View style={viewStyle}>
       {/* <Text> Goal </Text> */}
       <View style={colorFillStyle}></View>
       <View style={color2FillStyle}></View>
-      <Text style={textStyle}> 50/100 </Text>
+      <Text style={textStyle}> {/*{this.state.currentHours}*/}40/60{/*{this.state.goalHours}*/} </Text>
     </View>
   );
 };
