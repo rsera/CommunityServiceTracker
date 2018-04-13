@@ -21,9 +21,6 @@
 	{
 		$loginQuery = "SELECT UserID, userPWHash FROM user WHERE username='" . $user . "'";
 		$query = "SELECT UserID, userPWHash FROM user WHERE username = '$user' ";
-		$test = "SELECT * FROM user WHERE username = '$user' ";
-		$testy = "SELECT * FROM 'user'";
-		$general = "SELECT userPWHash FROM user WHERE UserID = '18'";
 
 		// Query database to retrieve the userID of an attempted login. This query
 		// will return false if the log in credentials don't match a user's data
