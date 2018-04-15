@@ -20,31 +20,30 @@
     <body>
         
         <!-- Top Banner Start -->
-        <!--Putting "navbar-fixed-top" at the top keeps the navbar fixed as you scroll the page-->
-        <nav class="navbar navbar-default">
-            <div class="container">
-                <div class="navbar-header">
-                    <!-- no "collapsed" and no "aria-expanded="false"" in button class below-->
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                      <span class="sr-only">Toggle navigation</span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                    </button>
-                    <!-- no "data-target="home" id="vtrakButton""-->
-                    <a class="navbar-brand" href="#" data-target="home" id="vtrakButton">vTrak</a>
-                </div>
-        
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <!-- no "navbar-right" at end of ul quotes-->
-                    <ul class="nav navbar-nav navbar-right">
-                      <li><a href="#" data-target="signUp" id="signUpRibbon">Account</a></li>
-                      <li><a href="#" data-target="login" id="loginRibbon">Log Out</a></li>
-                    </ul>
-                </div>    
-            </div>
-        </nav>
-        <!-- Top Banner End -->
+		<nav class="navbar navbar-default">
+		  <div class="container">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+                <!-- no "collapsed" and no "aria-expanded="false"" in button class below-->
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="#" data-target="home" id="vtrakButton">vTrak</a>
+		    </div>
+
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <ul class="nav navbar-nav navbar-right">
+		        <li><a href="#" data-target="signUp" id="signUpRibbon">Sign Up</a></li>
+		        <li><a href="#" data-target="login" id="loginRibbon">Login</a></li>
+		      </ul>
+		    </div>
+		  </div>
+		</nav>
+		<!-- Top Banner End -->
 
             
         <section class="orgRegPage">
