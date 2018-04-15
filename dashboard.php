@@ -17,6 +17,7 @@
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="jquery-ui.min.js"></script>
 	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<style> #validationMsg{font-weight: normal;font-size: medium;} </style>
 </head>
 
 
@@ -53,14 +54,14 @@
 
 
 
-  <div id="fireworks" style="display:none">
+  <!--<div id="fireworks" style="display:none">
   <style>
     #firework{background:#000;margin:0;}
     canvas{cursor: crosshair;display: block;}
   </style>
     <canvas id="canvas"></canvas>
     <script src="fireworks.js"></script>
-	</div>
+</div>-->
 
   <div class="row-eq-height" id="content">
     <div class="col-sm-4">
@@ -109,16 +110,16 @@
 
       <!--Add activity-->
       <div id="addNew" class="panel panel-default" >
-        <div class="panel-heading">Add Activity (*=required)</div>
+        <div class="panel-heading">Add Activity (*=required) <span class="defaultHidden"  id="validationMsg" style="margin-left:100px"><t>Please enter required fields.</span></div>
         <div class="panel-body">
 
           <!--<form>-->
             <div class="form-group">
-              <label for="newName">Name:</label>
+              <label for="newName">Name*:</label>
               <input type="text" class="form-control" id="newName">
             </div>
 
-            <label for="newDate">Date:</label>
+            <label for="newDate">Date*:</label>
             <div class="form-group">
                 <div class='input-group date'>
                     <input type='date' class="form-control" id="newDate"/>
@@ -130,7 +131,7 @@
 
 			<span>
             <div class="form-group">
-              <label for="newHours">Hours:</label>
+              <label for="newHours">Hours*:</label>
               <input type="number" class="form-control" id="newHours">
             </div>
 			</span>
@@ -192,7 +193,7 @@
               <tbody>
 				  <?php
   					$thisUserID = $_SESSION['UserID'];
-  					$sql = "SELECT orgID, orgName, orgType, orgWebsite FROM organizations INNER JOIN user ON organizations.orgZip = user.userZip AND user.userID = ".$thisUserID;
+  					$sql = "SELECT orgID, orgName, orgWebsite FROM organizations INNER JOIN user ON organizations.orgZip = user.userZip AND user.userID = ".$thisUserID;
   					$result = mysqli_query($conn, $sql);
 
   					if (mysqli_num_rows($result) > 0)
@@ -244,10 +245,10 @@
 		$("#pwDrop").on("click",function(){$("#pwDialog").dialog()});
 
 		// Goal can be changed with the dropdown from account or the dialog that pops up when you reach your goal
-		$("#submitNewGoal").on("click",function(){$("#goalDialog").dialog("close");updateGoal()});
-		$("#submitNewGoalCongrats").on("click",function(){$("#goalCongrats").dialog("close");updateGoal()});
-		$("#goalDialog").keyup(function(event){if(event.keyCode === 13)$("#goalDialog").dialog("close");updateGoal()});
-		$("#goalCongrats").keyup(function(event){if(event.keyCode === 13)$("#goalCongrats").dialog("close");updateGoal()});
+		$("#submitNewGoal").on("click",function(){$("#goalDialog").dialog("close");updateGoal();$('#newGoal').val("");});
+		$("#submitNewGoalCongrats").on("click",function(){$("#goalCongrats").dialog("close");updateGoal();$('#newGoalCongrats').val("");});
+		$("#goalDialog").keyup(function(event){if(event.keyCode == 13){$("#goalDialog").dialog("close");updateGoal()}});
+		$("#goalCongrats").keyup(function(event){if(event.keyCode == 13){$("#goalCongrats").dialog("close");updateGoal()}});
 
 		// close the dialog when the user clicks on update password
 		$("#submitNewPW").on("click",function(){$("#pwDialog").dialog("close")});
