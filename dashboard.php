@@ -217,18 +217,18 @@
 		<p> Congratulations! You've met your goal!</p>
 		<label=>Keeping going? Enter your new goal</label>
 		<input id="newGoalCongrats" type="text" placeholder="New Goal">
-		<input id="submitNewGoalCongrats" type="goalSubmit" class="signUpButton" value="Submit">
+		<input id="submitNewGoalCongrats" type="Submit" class="signUpButton" value="Submit">
 	</div>
 	<div id="goalDialog" title="Update Goal" style="display:none">
 		<label for="newGoal">Enter your new goal</label>
 		<input id="newGoal" type="text" placeholder="New Goal">
-		<input id="submitNewGoal" type="goalSubmit" class="signUpButton" value="Submit">
+		<input id="submitNewGoal" type="Submit" class="signUpButton" value="Submit">
 	</div>
 	<div id="pwDialog" title="Change Password" style="display:none">
 		<label for="newGoal">Enter your new password</label>
 		<input id="password1" class="passwordBox" type="password" placeholder=" Password" name="PWHash" required>
 		<input id="password2" class="passwordBox" type="password" placeholder=" Retype Password" name="PWHash2" required>
-		<input id="submitNewGoal" type="goalSubmit" class="signUpButton" value="Submit">
+		<input id="submitNewGoal" type="Submit" class="signUpButton" value="Submit">
 	</div>
 
   </div>
