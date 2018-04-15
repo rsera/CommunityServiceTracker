@@ -250,8 +250,13 @@
 		$("#goalDialog").keyup(function(event){if(event.keyCode == 13){$("#goalDialog").dialog("close");updateGoal()}});
 		$("#goalCongrats").keyup(function(event){if(event.keyCode == 13){$("#goalCongrats").dialog("close");updateGoal()}});
 
+
 		// close the dialog when the user clicks on update password
 		$("#submitNewPW").on("click",function(){$("#pwDialog").dialog("close")});
+
+		// if the dialog is closed via the X, whatever's typed in it will be removed
+		$( "#goalDialog" ).on("dialogclose", function(event) {if(event.which == 1)$('#newGoal').val("")} );
+		$( "#goalCongrats" ).on("dialogclose", function(event) {if(event.which == 1)$('#newGoalCongrats').val("")} );
 
 		//
 		function searchExperiences(searchTerm){
