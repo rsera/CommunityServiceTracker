@@ -14,7 +14,6 @@
 			body{font-family:sanssaFont;}
 			#vtrakButton{font-family:sanssaFont;}
 			#signUpRibbon{font-family:sanssaFont;}
-            #registerRibbon{font-family:sanssaFont;}
 			#loginRibbon{font-family:sanssaFont;}
 			#homePageContent h1{font-family:sanssaFont;}
 		</style>
@@ -103,7 +102,7 @@
 			</div>
 		</section>
 		<!-- SignUp Page End -->
-
+        
 
 		<!-- login Page Start -->
 		<section class="loginPage <?php if($default!="login")echo "defaultHidden"?>">
@@ -121,6 +120,7 @@
 			</div>
 		</section>
 		<!-- login Page End -->
+        
         
         <!-- Organization Registration Page Start -->
         <section class="orgRegPage <?php if($default!="register")echo "defaultHidden"?>">
@@ -155,13 +155,27 @@
                     </form>
                 </div>
             </div>
-          </section>
+        </section>
         <!-- Organization Registration Page End -->
+        
+        
+        <!-- Thank You for Registering Your Organization Page -->
+        <section class="orgRegRespPage <?php if($default!="registerresp")echo "defaultHidden"?>"> 
+            <div class="inner">
+                <div class="orgRegRespDiv">
+                                <br>
+                                <h1>Thank You</h1>
+                                <h4>The Contact of Your Organization Will Receive an Email from Us Shortly</h4>
+                </div>
+            </div>
+        </section>
+        <!-- Thank You for Registering Your Organization Page -->
 
 	<script>
 		$(".getStarted").on("click",function(){$(".signUpPage").removeClass("defaultHidden"); 
         $(".splashScreen").addClass("defaultHidden");
         $(".orgRegPage").addClass("defaultHidden")})
+        
         
 		$("#loginButtonfromSignUp").on("click",function(){$(".loginPage").removeClass("defaultHidden ");                
         $(".signUpPage").addClass("defaultHidden");
