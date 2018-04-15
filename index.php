@@ -28,6 +28,17 @@
 			if(isset($_GET['goal'])){$goal=$_GET['goal'];}else{$goal="";}
 			if(isset($_GET['error'])){$error=$_GET['error'];}else{$error="";}
 		?>
+        
+        <?php
+			if(isset($_GET['default'])){$default=$_GET['default'];}else{$default="splash";}
+			if(isset($_GET['orgName'])){$orgName=$_GET['orgName'];}else{$orgName="";}
+			if(isset($_GET['orgZip'])){$orgZip=$_GET['orgZip'];}else{$orgZip="";}
+			if(isset($_GET['orgWebsite'])){$orgWebsite=$_GET['orgWebsite'];}else{$orgWebsite="";}
+			if(isset($_GET['conName'])){$conName=$_GET['conName'];}else{$conName="";}
+            if(isset($_GET['conEmail'])){$conEmail=$_GET['conEmail'];}else{$conEmail="";}
+			if(isset($_GET['error'])){$error=$_GET['error'];}else{$error="";}
+		?>
+        
 		<!-- Top Banner Start -->
 		<nav class="navbar navbar-default">
 		  <div class="container">
@@ -115,7 +126,7 @@
         <section class="orgRegPage <?php if($default!="register")echo "defaultHidden"?>">
             <div class="inner">
                 <div id ="orgRegDiv" class="orgRegDiv">
-                    <form method="post" action="orgregresponse.html">  <!--optional php file name -->
+                    <form method="post" action="newOrg.php">  <!--optional php file name -->
                                 <br>
                                 <h1>Welcome</h1> 
                                 <h3>Tell Us About Your Organization</h3> <br>
@@ -126,19 +137,19 @@
                                 <br> 
                                 <p class="orgTextBoxTitles">Zip Code</p>
                                 <input id="zip" class="usernameBox" type="text"
-                                name="zipCode" required value>
+                                name="orgZip" required value>
                                 <br> 
                                 <p class="orgTextBoxTitles">Website Address</p>
                                 <input id="website" class="usernameBox" type="text"
-                                name="website" required value>   
+                                name="orgWebsite" required value>   
                                 <br> 
                                 <p class="orgTextBoxTitles">Contact Name</p>
                                 <input id="contactname" class="usernameBox" type="text"
-                                name="contactName" required value>   
+                                name="conName" required value>   
                                 <br> 
                                 <p class="orgTextBoxTitles">Contact Email</p>
                                 <input id="contactemail" class="usernameBox" type="text"
-                                name="contactEmail" required value>   
+                                name="conEmail" required value>   
                                 <br>
                                 <input type="submit" class="signUpButton" value="Register">
                     </form>
