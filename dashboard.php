@@ -15,9 +15,12 @@
 	<link href="jquery-ui.min.css" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-	<script type="text/javascript" src="jquery-ui.min.js"></script>
 	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-	<style> #validationMsg{font-weight: normal;font-size: medium;} </style>
+	<script type="text/javascript" src="jquery-ui.min.js"></script>
+	<style>
+		#validationMsg{font-weight: normal;font-size: medium; float:right; margin-top:5px; color:#FF0000;}
+		.asterisk{color:#FF0000;font-size:14px;}
+	</style>
 </head>
 
 
@@ -81,7 +84,7 @@
 				while($row = mysqli_fetch_assoc($result)){
 					/*echo '<p>Current hours:'.$row['hours'].'</p>';*/
         			//echo '<span class="pull-right">'. $row['hours'].' of '.$row['goal'].'</span>';
-					echo '<span id="hoursOfGoal" class="pull-right"><span id="hoursLabel">' . $row['hours'] . '</span> of <span id="goalLabel">' . $row['goal'] . ' hours</span></span>';
+					echo '<span id="hoursOfGoal" class="pull-right"><span id="hoursLabel">' . $row['hours'] . '</span> of <span id="goalLabel">' . $row['goal'] . '</span> hours</span>';
 
 					if($row['hours'] >= $row['goal'])
 					{
@@ -110,16 +113,16 @@
 
       <!--Add activity-->
       <div id="addNew" class="panel panel-default" >
-        <div class="panel-heading">Add Activity (*=required) <span class="defaultHidden"  id="validationMsg" style="margin-left:100px"><t>Please enter required fields.</span></div>
+        <div class="panel-heading">Add Activity<span class="defaultHidden"  id="validationMsg">Please enter required fields.</span></div>
         <div class="panel-body">
 
           <!--<form>-->
             <div class="form-group">
-              <label for="newName">Name*:</label>
+              <label for="newName">Name <span class="asterisk">*</span>:</label>
               <input type="text" class="form-control" id="newName">
             </div>
 
-            <label for="newDate">Date*:</label>
+            <label for="newDate">Date <span class="asterisk">*</span>:</label>
             <div class="form-group">
                 <div class='input-group date'>
                     <input type='date' class="form-control" id="newDate"/>
@@ -131,7 +134,7 @@
 
 			<span>
             <div class="form-group">
-              <label for="newHours">Hours*:</label>
+              <label for="newHours">Hours <span class="asterisk">*</span>:</label>
               <input type="number" class="form-control" id="newHours">
             </div>
 			</span>
@@ -247,8 +250,8 @@
 		// Goal can be changed with the dropdown from account or the dialog that pops up when you reach your goal
 		$("#submitNewGoal").on("click",function(){$("#goalDialog").dialog("close");updateGoal();$('#newGoal').val("");});
 		$("#submitNewGoalCongrats").on("click",function(){$("#goalCongrats").dialog("close");updateGoal();$('#newGoalCongrats').val("");});
-		$("#goalDialog").keyup(function(event){if(event.keyCode == 13){$("#goalDialog").dialog("close");updateGoal()}});
-		$("#goalCongrats").keyup(function(event){if(event.keyCode == 13){$("#goalCongrats").dialog("close");updateGoal()}});
+		$("#goalDialog").keyup(function(event){if(event.keyCode == 13){$("#goalDialog").dialog("close");updateGoal();$('#newGoal').val("");}});
+		$("#goalCongrats").keyup(function(event){if(event.keyCode == 13){$("#goalCongrats").dialog("close");updateGoal();$('#newGoalCOngrats').val("");}});
 
 
 		// close the dialog when the user clicks on update password

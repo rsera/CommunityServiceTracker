@@ -5,9 +5,14 @@ function addExperience(){
 		var notes=$("#newNotes").val();
 
 	// do validation
-	if (name=="" || expDate==""){
-		alert("fields are required");
+	if (name=="" || expDate=="" || hours==""){
+		//alert("fields are required");
+		$("#validationMsg").removeClass("defaultHidden");
 		return;
+	}
+	else{
+		if(!$("#validationMsg").is(":hidden"))
+			$("#validationMsg").addClass("defaultHidden");
 	}
 
 	$('#newName').val("");
@@ -65,7 +70,12 @@ function updateGoal(){
 			else if(resp.substr(0,10)!="fail"){
 				var obj = $.parseJSON(resp);
 				$("#goalLabel").html(obj.goal);
+				$(".progress-bar").attr("aria-valuemax", obj.goal);
 				$(".progress-bar").attr("style", "width:"+100*parseFloat($("#hoursLabel").html())/obj.goal+"%");
+
+				var numHours = parseFloat($("#hoursLabel").html());
+				if(numHours >= obj.goal)
+					$("#goalCongrats").dialog();
 			}
 			else {
 				alert("addContact API call fail whaled :(");
