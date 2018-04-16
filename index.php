@@ -27,17 +27,7 @@
 			if(isset($_GET['goal'])){$goal=$_GET['goal'];}else{$goal="";}
 			if(isset($_GET['error'])){$error=$_GET['error'];}else{$error="";}
 		?>
-        
-        <?php
-			if(isset($_GET['default'])){$default=$_GET['default'];}else{$default="splash";}
-			if(isset($_GET['orgName'])){$orgName=$_GET['orgName'];}else{$orgName="";}
-			if(isset($_GET['orgZip'])){$orgZip=$_GET['orgZip'];}else{$orgZip="";}
-			if(isset($_GET['orgWebsite'])){$orgWebsite=$_GET['orgWebsite'];}else{$orgWebsite="";}
-			if(isset($_GET['conName'])){$conName=$_GET['conName'];}else{$conName="";}
-            if(isset($_GET['conEmail'])){$conEmail=$_GET['conEmail'];}else{$conEmail="";}
-			if(isset($_GET['error'])){$error=$_GET['error'];}else{$error="";}
-		?>
-        
+
 		<!-- Top Banner Start -->
 		<nav class="navbar navbar-default">
 		  <div class="container">
@@ -57,6 +47,7 @@
 		      <ul class="nav navbar-nav navbar-right">
 		        <li><a href="#" data-target="signUp" id="signUpRibbon">Sign Up</a></li>
 		        <li><a href="#" data-target="login" id="loginRibbon">Login</a></li>
+				<li><a href="#" data-target="register" id="orgRibbon">Organizations</a></li>
 		      </ul>
 		    </div>
 		  </div>
@@ -78,7 +69,6 @@
 		</section>
 		<!-- Splash Screen -->
 
-
 		<!-- SignUp Page -->
 		<section class="signUpPage <?php if($default!="signup")echo "defaultHidden"?>">
 			<div class="inner">
@@ -86,39 +76,28 @@
 					<form method="post" action="newUser.php">
 						<h1>Sign Up</h1>
 						<?php if($error!=""&&$default=="signup")echo $error;?>
-                        <br>
-                        
-                        <label for="FName">First Name</label>
-                        <input id="firstname" class="usernameBox" type="text" name="FName" required value="<?=$fname?>"> <br> <br>
-                        
-                        <label for="LName">Last Name</label>
-                        <input id="lastname" class="usernameBox" type="text" name="LName" required value="<?=$lname?>"> <br> <br>
-                        
-                        <label for="zip">Zip Code</label>
-                        <input id="zip" class="usernameBox" type="text" name="zip" required value=""> <br> <br>
-                        
-                        <label for="username">Username</label>
-                        <input id="zip" class="usernameBox" type="text" name="username" required value="<?=$username?>"> <br> <br>
-                        
-                        <label for="goal">Goal in Hours</label>
-                        <input id="goal" class="usernameBox" type="text" name="goal" required value="<?=$goal?>"> <br> <br>
-                        
-						<label for="password">Password</label>
-                        <input id="password" class="passwordBox" type="password" name="PWHash" required> <br> <br>
-                        
-                        <label for="password">Retype Password</label>
-                        <input id="password" class="passwordBox" type="password" name="PWHash2" required> <br> <br>
-                        
+						<span>First name</span>
+						<input id="firstname" class="usernameBox" type="text" name="FName" required value="<?=$fname?>"><br /><br />
+						<span>Last name</span>
+						<input id="lastname" class="usernameBox" type="text"  name="LName" required value="<?=$lname?>"><br /><br />
+						<span>Zip code</span>
+						<input id="zipS" class="usernameBox" type="text"  name="zip" required value=""><br /><br />
+						<span>Username</span>
+						<input id="username" class="usernameBox" type="text" name="username" required value="<?=$username?>"><br /><br />
+						<span>Goal in Hours</span>
+						<input id="goal" class="usernameBox" type="text" name="goal" required value="<?=$goal?>"><br /><br />
+						<span>Password</span>
+						<input id="passwordS1" class="passwordBox" type="password" name="PWHash" required><br /><br />
+						<span>Verify password</span>
+						<input id="passwordS2" class="passwordBox" type="password" name="PWHash2" required><br /><br />
 						<input type="submit" class="signUpButton" value="Sign Up">
 						<h3>Existing member? <a href="#" data-target="login" id="loginButtonfromSignUp"><strong>Login</strong></a></h3>
-                        
-                        <h3>Want Your Organization Involved? <a href="#" data-target="register" id="registerButtonfromSignUp"><strong>Register</strong></a></h3>
 					</form>
 				</div>
 			</div>
 		</section>
 		<!-- SignUp Page End -->
-        
+
 
 		<!-- login Page Start -->
 		<section class="loginPage <?php if($default!="login")echo "defaultHidden"?>">
@@ -127,12 +106,12 @@
 					<form method="post" action="verifySignIn.php">
 						<h1>Login</h1> <br>
 						<?php if($error!=""&&$default=="login")echo $error;?>
-						<label for="username">Username</label>
-                        <input id="zip" class="usernameBox" type="text" name="username" required value="<?=$username?>"> <br> <br>
-                        
-                        <label for="password">Password</label>
+						<span>Username</span>
+                        <input id="zipL" class="usernameBox" type="text" name="username" required value="<?=$username?>"> <br> <br>
+
+                        <span>Password</span>
                         <input id="password" class="passwordBox" type="password" name="password" required> <br>
-                        
+
 						<input class="buttons" type="submit" value="Login">
 						<h3>New member? <a href="#" data-target="signUp" class="signUpfromLogin"><strong>Sign Up</strong></a></h3>
 					</form>
@@ -140,67 +119,59 @@
 			</div>
 		</section>
 		<!-- login Page End -->
-        
-        
+
+
         <!-- Organization Registration Page Start -->
         <section class="orgRegPage <?php if($default!="register")echo "defaultHidden"?>">
             <div class="inner">
                 <div id ="orgRegDiv" class="orgRegDiv">
                     <form method="post" action="newOrg.php">  <!--optional php file name -->
                         <br>
-                        <h1>Welcome</h1> 
-                        <h3>Tell Us About Your Organization</h3> <br>
-                        <?php if($error!=""&&$default=="register")echo $error;?>
-                                
-                        <label for="orgname">Organization Name</label>
-                        <input id="orgname" class="usernameBox" type="text" name="orgName" required value> <br> <br>
-                        
-                        <label for="zip">Zip Code</label>
-                        <input id="zip" class="usernameBox" type="text" name="orgZip" required value> <br> <br>
-                        
-                        <label for="website">Website Address</label>
-                        <input id="website" class="usernameBox" type="text" name="orgWebsite" required value> <br> <br>
-                        
-                        <label for="contactname">Contact Name</label>
-                        <input id="contactname" class="usernameBox" type="text" name="conName" required value> <br> <br>        
-                                 
-                        <label for="contactemail">Contact Email</label>
-                        <input id="contactemail" class="usernameBox" type="text" name="conEmail" required value> <br> <br>           
-                                
-                    
+                        <h1>Welcome</h1>
+                        <h3>Tell us about tour organization</h3><br />
+                        <span>Organization Name</span>
+                        <input id="orgname" class="usernameBox" type="text" name="orgName" required value><br /><br />
+                        <span>Zip Code</span>
+                        <input id="zipO" class="usernameBox" type="text" name="orgZip" required value><br /><br />
+                        <span>Website Address</span>
+                        <input id="website" class="usernameBox" type="text" name="orgWebsite" required value> <br /><br />
+                        <span>Contact Name</span>
+                        <input id="contactname" class="usernameBox" type="text" name="conName" required value><br /><br />
+                        <span>Contact Email</span>
+                        <input id="contactemail" class="usernameBox" type="text" name="conEmail" required value> <br /><br />
                         <input type="submit" class="signUpButton" value="Register">
                     </form>
                 </div>
             </div>
         </section>
-        
+
 
 	<script>
-		$(".getStarted").on("click",function(){$(".signUpPage").removeClass("defaultHidden"); 
+		$(".getStarted").on("click",function(){$(".signUpPage").removeClass("defaultHidden");
         $(".splashScreen").addClass("defaultHidden");
         $(".orgRegPage").addClass("defaultHidden")})
-        
-        
-		$("#loginButtonfromSignUp").on("click",function(){$(".loginPage").removeClass("defaultHidden ");                
+
+
+		$("#loginButtonfromSignUp").on("click",function(){$(".loginPage").removeClass("defaultHidden ");
         $(".signUpPage").addClass("defaultHidden");
         $(".orgRegPage").addClass("defaultHidden")})
-        
-        
-        $("#registerButtonfromSignUp").on("click",function(){$(".orgRegPage").removeClass("defaultHidden");                
-        $(".signUpPage").addClass("defaultHidden")})
-       
-        
+
+
+        $("#orgRibbon").on("click",function(){$(".orgRegPage").removeClass("defaultHidden");$(".loginPage").addClass("defaultHidden");$(".splashScreen").addClass("defaultHidden");
+        	$(".signUpPage").addClass("defaultHidden")})
+
+
 		$(".signUpfromLogin").on("click",function(){$(".signUpPage").removeClass("defaultHidden orgRegPage"); $(".loginPage").addClass("defaultHidden"); $(".orgRegPage").addClass("defaultHidden")})
-        
+
 		$("#vtrakButton").on("click",function(){if($(".splashScreen").is(":hidden"))$(".splashScreen").removeClass("defaultHidden");
-			$(".loginPage").addClass("defaultHidden"); 
+			$(".loginPage").addClass("defaultHidden");
             $(".signUpPage").addClass("defaultHidden");
             $(".orgRegPage").addClass("defaultHidden")})
-        
+
 		$("#signUpRibbon").on("click",function(){if($(".signUpPage").is(":hidden"))$(".signUpPage").removeClass("defaultHidden");
 			$(".loginPage").addClass("defaultHidden"); $(".splashScreen").addClass("defaultHidden");
             $(".orgRegPage").addClass("defaultHidden")})
-        
+
 		$("#loginRibbon").on("click",function(){if($(".loginPage").is(":hidden"))$(".loginPage").removeClass("defaultHidden");
 			$(".splashScreen").addClass("defaultHidden"); $(".signUpPage").addClass("defaultHidden");
             $(".orgRegPage").addClass("defaultHidden")})
