@@ -2,8 +2,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        
-    <title>Register Your Organization</title>  
+
+    <title>Register Your Organization</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -11,12 +11,12 @@
 	<link href="css/styles.css" rel="stylesheet">
     <link href="css/signUp.css" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>   
-    
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
     </head>
 
     <body>
-        
+
         <!-- Top Banner Start -->
         <!--Putting "navbar-fixed-top" at the top keeps the navbar fixed as you scroll the page-->
         <nav class="navbar navbar-default">
@@ -30,43 +30,36 @@
                       <span class="icon-bar"></span>
                     </button>
                     <!-- no "data-target="home" id="vtrakButton""-->
-                    <a class="navbar-brand" href="#" data-target="home" id="vtrakButton">vTrak</a>
+                    <a class="navbar-brand" href="index.php" data-target="home" id="vtrakButton">vTrak</a>
                 </div>
-        
+
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <!-- no "navbar-right" at end of ul quotes-->
                     <ul class="nav navbar-nav navbar-right">
-                      <li><a href="#" data-target="signUp" id="signUpRibbon">Sign Up</a></li>
-                      <li><a href="#" data-target="login" id="loginRibbon">Log In</a></li>
+                      <li><a href="index.php" id="homeRibbon">Home</a></li>
                     </ul>
-                </div>    
+                </div>
             </div>
         </nav>
         <!-- Top Banner End -->
 
-            
+
         <section class="orgRegPage">
             <div class="inner">
                 <div class="orgRegRespDiv">
                                 <br>
-                                <h1>Thank You</h1>
-                                <h4>The Contact of Your Organization Will Receive an Email from Us Shortly</h4>
+                                <h1>Thank you</h1>
+                                <h4>You will receive an email from us shortly</h4>
                 </div>
             </div>
           </section>
-        
-        <!--This js bootstrap script is needed here for the navbar menu to toggle-->
-        <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    
+
+
         <style>
             @font-face{font-family: sanssaFont;src:url(CSS/Sansation_Regular.ttf)};
         </style>
-        
-        <!--After 5 seconds, the Thank You page redirects to the main page-->
-        <?php 
-            header( "refresh:5; url=index.php" ); 
-        ?>
-        
+
+
         <?php
                 // Handle new user signup input, insert into database, save hashed password
                 require_once "dbinit.php";
@@ -86,7 +79,6 @@
                 }
 
                 // Connection successful
-                // Valid username, insert new user
                 else
                 {
 
@@ -103,13 +95,7 @@
                     die();
                 }
         ?>
-        
-        
+
+
     </body>
 </html>
-
-
-
-
-
- 
