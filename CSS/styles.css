@@ -99,7 +99,7 @@ body{font-family:sanssaFont;}
     background: #F9F3F4;
     padding: 5px;
     width: 360px;
-    height: 300px;
+    height: 305px;
 }
 
 .loginDiv h1{
@@ -129,11 +129,22 @@ body{font-family:sanssaFont;}
     text-align: center;
 }
 
+.loginDiv form{
+    padding-left: 30px;
+   padding-right: 30px;
+}
+
+#loginDiv span{
+    float: left;
+    padding-top: 8px;
+}
+
 .usernameBox {
 	width: 200px;
 	height: 25px;
 	margin: 5px;
 	font-size: 100%;
+    float: right;
 }
 
 .passwordBox {
@@ -141,6 +152,7 @@ body{font-family:sanssaFont;}
 	height: 25px;
 	margin: 5px;
 	font-size: 100%;
+    float: right;
 }
 
 .signUpPage {
@@ -171,44 +183,6 @@ body{font-family:sanssaFont;}
     height: 490px;
 }
 
- .usernameBox{  /*find container and add padding right*/
-    float: right;
-}
-
-.passwordBox{
-    float: right;
-}
-
-#loginDiv span{
-    float: left;
-    padding-top: 8px;
-}
-
-#signUpDiv span{
-    float:left; 
-    padding-top: 8px;
-}
-
-.orgRegDiv span{
-    float:left; 
-    padding-top: 8px;
-}
-
-.loginDiv form{
-    padding-left: 30px;
-   padding-right: 30px;
-}
-
-.orgRegDiv form{
-   padding-left: 30px;
-   padding-right: 30px;
-}
-
-.signUpDiv form {
-   padding-left: 30px;
-   padding-right: 30px;
-}
-
 .signUpDiv h1{
 	font-family: 'Raleway', sans-serif;
 	color: #515151;
@@ -229,6 +203,16 @@ body{font-family:sanssaFont;}
 	color: #515151;
 	font-size: 100%;
 	text-shadow: 0px 0px 300px #000;
+}
+
+.signUpDiv form {
+   padding-left: 30px;
+   padding-right: 30px;
+}
+
+#signUpDiv span{
+    float:left; 
+    padding-top: 8px;
 }
 
 body.myDashboard{
@@ -432,9 +416,14 @@ td > p.header{
 	text-shadow: 0px 0px 300px #000;
 }
 
-.orgRegDiv form input{
-    display: inline-block;
-    text-align:center;  
+.orgRegDiv form{
+   padding-left: 30px;
+   padding-right: 30px;
+}
+
+#orgRegDiv span{
+    float:left; 
+    padding-top: 8px;
 }
 
 .orgRegRespDiv {
