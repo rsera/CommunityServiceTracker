@@ -128,7 +128,7 @@
                     <form method="post" action="newOrg.php">  <!--optional php file name -->
                         <br>
                         <h1>Welcome</h1>
-                        <h3>Tell us about tour organization</h3><br />
+                        <h3>Tell us about your organization</h3><br />
                         <span>Organization Name</span>
                         <input id="orgname" class="usernameBox" type="text" name="orgName" required value><br /><br />
                         <span>Zip Code</span>
