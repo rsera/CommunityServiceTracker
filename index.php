@@ -75,7 +75,7 @@
 				<div id="signUpDiv" class="signUpDiv">
 					<form method="post" action="newUser.php">
 						<h1>Sign Up</h1>
-						<?php if($error!=""&&$default=="signup")echo $error;?>
+						<?php if($error!=""&&$default=="signup")echo $error.'<br/>';?>
 						<span>First name</span>
 						<input id="firstname" class="usernameBox" type="text" name="FName" required value="<?=$fname?>"><br /><br />
 						<span>Last name</span>
@@ -105,7 +105,7 @@
 				<div id="loginDiv" class="loginDiv">
 					<form method="post" action="verifySignIn.php">
 						<h1>Login</h1> <br>
-						<?php if($error!=""&&$default=="login")echo $error;?>
+						<?php if($error!=""&&$default=="login")echo $error.'<br/>';?>
 						<span>Username</span>
                         <input id="zipL" class="usernameBox" type="text" name="username" required value="<?=$username?>"> <br> <br>
 
