@@ -86,13 +86,29 @@
 					<form method="post" action="newUser.php">
 						<h1>Sign Up</h1>
 						<?php if($error!=""&&$default=="signup")echo $error;?>
-						<input id="firstname" class="usernameBox" type="text" placeholder=" First Name" name="FName" required value="<?=$fname?>"><br />
-						<input id="lastname" class="usernameBox" type="text" placeholder=" Last Name" name="LName" required value="<?=$lname?>"><br />
-						<input id="zip" class="usernameBox" type="text" placeholder=" Zip Code" name="zip" required value=""><br />
-						<input id="username" class="usernameBox" type="text" placeholder=" Username" name="username" required value="<?=$username?>"><br />
-						<input id="goal" class="usernameBox" type="text" placeholder=" Set Your Goal (in hours)" name="goal" required value="<?=$goal?>"><br />
-						<input id="password" class="passwordBox" type="password" placeholder=" Password" name="PWHash" required><br />
-						<input id="password" class="passwordBox" type="password" placeholder=" Retype Password" name="PWHash2" required><br />
+                        <br>
+                        
+                        <label for="FName">First Name</label>
+                        <input id="firstname" class="usernameBox" type="text" name="FName" required value="<?=$fname?>"> <br> <br>
+                        
+                        <label for="LName">Last Name</label>
+                        <input id="lastname" class="usernameBox" type="text" name="LName" required value="<?=$lname?>"> <br> <br>
+                        
+                        <label for="zip">Zip Code</label>
+                        <input id="zip" class="usernameBox" type="text" name="zip" required value=""> <br> <br>
+                        
+                        <label for="username">Username</label>
+                        <input id="zip" class="usernameBox" type="text" name="username" required value="<?=$username?>"> <br> <br>
+                        
+                        <label for="goal">Goal in Hours</label>
+                        <input id="goal" class="usernameBox" type="text" name="goal" required value="<?=$goal?>"> <br> <br>
+                        
+						<label for="password">Password</label>
+                        <input id="password" class="passwordBox" type="password" name="PWHash" required> <br> <br>
+                        
+                        <label for="password">Retype Password</label>
+                        <input id="password" class="passwordBox" type="password" name="PWHash2" required> <br> <br>
+                        
 						<input type="submit" class="signUpButton" value="Sign Up">
 						<h3>Existing member? <a href="#" data-target="login" id="loginButtonfromSignUp"><strong>Login</strong></a></h3>
                         
@@ -109,10 +125,14 @@
 			<div class="inner">
 				<div id="loginDiv" class="loginDiv">
 					<form method="post" action="verifySignIn.php">
-						<h1>Login</h1>
+						<h1>Login</h1> <br>
 						<?php if($error!=""&&$default=="login")echo $error;?>
-						<input id="username" class="usernameBox" type="text" placeholder=" Username" name="username" required value="<?=$username?>"> <br />
-						<input id="password" class="passwordBox" type="password" placeholder=" Password" name="password" required> <br />
+						<label for="username">Username</label>
+                        <input id="zip" class="usernameBox" type="text" name="username" required value="<?=$username?>"> <br> <br>
+                        
+                        <label for="password">Password</label>
+                        <input id="password" class="passwordBox" type="password" name="password" required> <br>
+                        
 						<input class="buttons" type="submit" value="Login">
 						<h3>New member? <a href="#" data-target="signUp" class="signUpfromLogin"><strong>Sign Up</strong></a></h3>
 					</form>
@@ -127,49 +147,33 @@
             <div class="inner">
                 <div id ="orgRegDiv" class="orgRegDiv">
                     <form method="post" action="newOrg.php">  <!--optional php file name -->
-                                <br>
-                                <h1>Welcome</h1> 
-                                <h3>Tell Us About Your Organization</h3> <br>
-                                <?php if($error!=""&&$default=="register")echo $error;?>
-                                <p class="orgTextBoxTitles">Organization Name</p>
-                                <input id="orgname" class="usernameBox" type="text"
-                                name="orgName" required value>
-                                <br> 
-                                <p class="orgTextBoxTitles">Zip Code</p>
-                                <input id="zip" class="usernameBox" type="text"
-                                name="orgZip" required value>
-                                <br> 
-                                <p class="orgTextBoxTitles">Website Address</p>
-                                <input id="website" class="usernameBox" type="text"
-                                name="orgWebsite" required value>   
-                                <br> 
-                                <p class="orgTextBoxTitles">Contact Name</p>
-                                <input id="contactname" class="usernameBox" type="text"
-                                name="conName" required value>   
-                                <br> 
-                                <p class="orgTextBoxTitles">Contact Email</p>
-                                <input id="contactemail" class="usernameBox" type="text"
-                                name="conEmail" required value>   
-                                <br>
-                                <input type="submit" class="signUpButton" value="Register">
+                        <br>
+                        <h1>Welcome</h1> 
+                        <h3>Tell Us About Your Organization</h3> <br>
+                        <?php if($error!=""&&$default=="register")echo $error;?>
+                                
+                        <label for="orgname">Organization Name</label>
+                        <input id="orgname" class="usernameBox" type="text" name="orgName" required value> <br> <br>
+                        
+                        <label for="zip">Zip Code</label>
+                        <input id="zip" class="usernameBox" type="text" name="orgZip" required value> <br> <br>
+                        
+                        <label for="website">Website Address</label>
+                        <input id="website" class="usernameBox" type="text" name="orgWebsite" required value> <br> <br>
+                        
+                        <label for="contactname">Contact Name</label>
+                        <input id="contactname" class="usernameBox" type="text" name="conName" required value> <br> <br>        
+                                 
+                        <label for="contactemail">Contact Email</label>
+                        <input id="contactemail" class="usernameBox" type="text" name="conEmail" required value> <br> <br>           
+                                
+                    
+                        <input type="submit" class="signUpButton" value="Register">
                     </form>
                 </div>
             </div>
         </section>
-        <!-- Organization Registration Page End -->
         
-        
-        <!-- Thank You for Registering Your Organization Page -->
-        <section class="orgRegRespPage <?php if($default!="registerresp")echo "defaultHidden"?>"> 
-            <div class="inner">
-                <div class="orgRegRespDiv">
-                                <br>
-                                <h1>Thank You</h1>
-                                <h4>The Contact of Your Organization Will Receive an Email from Us Shortly</h4>
-                </div>
-            </div>
-        </section>
-        <!-- Thank You for Registering Your Organization Page -->
 
 	<script>
 		$(".getStarted").on("click",function(){$(".signUpPage").removeClass("defaultHidden"); 
