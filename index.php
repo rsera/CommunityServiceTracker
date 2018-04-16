@@ -74,7 +74,7 @@
 			<div class="inner">
 				<div id="signUpDiv" class="signUpDiv">
 					<form method="post" action="newUser.php">
-						<h1>Sign Up</h1> <br>
+						<h1>Sign Up</h1><br>
 						<?php if($error!=""&&$default=="signup")echo $error.'<br/>';?>
 						<span>First name</span>
 						<input id="firstname" class="usernameBox" type="text" name="FName" required value="<?=$fname?>"><br /><br />
