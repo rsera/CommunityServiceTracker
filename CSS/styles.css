@@ -93,14 +93,13 @@ body{font-family:sanssaFont;}
 
 .loginDiv {
 	opacity: 0.8;
-	max-width: 340px;
 	margin: 0 auto;
 	text-align: center;
 	border-radius: 25px;
     background: #F9F3F4;
     padding: 5px;
-    width: 340px;
-    height: 335px;
+    width: 360px;
+    height: 300px;
 }
 
 .loginDiv h1{
@@ -115,6 +114,7 @@ body{font-family:sanssaFont;}
 	color: #515151;
 	font-size: 100%;
 	text-shadow: 0px 0px 300px #000;
+    margin-top: 0px;
 }
 
 .loginDiv a{
@@ -124,23 +124,9 @@ body{font-family:sanssaFont;}
 	text-shadow: 0px 0px 300px #000;
 }
 
-.loginDiv label{
-	font-family: 'Raleway', sans-serif;
-	color: #515151;
-	font-size: 100%;
-	text-shadow: 0px 0px 300px #000;
-}
-
-.loginDiv form label{
-    display: inline-block;
-    text-align: right;
-    
-}
-
 .loginDiv form input{
     display: inline-block;
     text-align: center;
-    
 }
 
 .usernameBox {
@@ -148,18 +134,6 @@ body{font-family:sanssaFont;}
 	height: 25px;
 	margin: 5px;
 	font-size: 100%;
-}
-
-.signUpDiv form label{
-    display: inline-block;
-    text-align: right;
-    
-}
-
-.signUpDiv form input{
-    display: inline-block;
-    text-align:center;
-    
 }
 
 .passwordBox {
@@ -174,7 +148,7 @@ body{font-family:sanssaFont;}
 	width: 100%;
 	position: center;
 	display: table;
-	padding-top: 1%;
+	padding-top: 5%;
     padding-bottom: 2%;
 }
 
@@ -194,7 +168,45 @@ body{font-family:sanssaFont;}
     background: #F9F3F4;
     padding: 5px;
     width: 410px;
-    height: 620px;
+    height: 490px;
+}
+
+ .usernameBox{  /*find container and add padding right*/
+    float: right;
+}
+
+.passwordBox{
+    float: right;
+}
+
+#loginDiv span{
+    float: left;
+    padding-top: 8px;
+}
+
+#signUpDiv span{
+    float:left; 
+    padding-top: 8px;
+}
+
+.orgRegDiv span{
+    float:left; 
+    padding-top: 8px;
+}
+
+.loginDiv form{
+    padding-left: 30px;
+   padding-right: 30px;
+}
+
+.orgRegDiv form{
+   padding-left: 30px;
+   padding-right: 30px;
+}
+
+.signUpDiv form {
+   padding-left: 30px;
+   padding-right: 30px;
 }
 
 .signUpDiv h1{
@@ -202,6 +214,7 @@ body{font-family:sanssaFont;}
 	color: #515151;
 	font-size: 300%;
 	text-shadow: 0px 0px 300px #000;
+    padding-top: 5px;
 }
 
 .signUpDiv h3{
@@ -216,16 +229,6 @@ body{font-family:sanssaFont;}
 	color: #515151;
 	font-size: 100%;
 	text-shadow: 0px 0px 300px #000;
-}
-
-.signUpDiv label{
-	font-family: 'Raleway', sans-serif;
-	color: #515151;
-	font-size: 100%;
-	text-shadow: 0px 0px 300px #000;
-    display: inline-block;
-    text-align: center;
-    float:inherit;
 }
 
 body.myDashboard{
@@ -385,7 +388,7 @@ td > p.header{
 	width: 100%;
 	position: center;
 	display: table;
-	padding-top: 1%;
+	padding-top: 5%;
     padding-bottom: 1%;
 }
 
@@ -405,7 +408,7 @@ td > p.header{
     background: #F9F3F4;
     padding: 0px;
     width: 410px;
-    height: 500px;
+    height: 420px;
 }
 
 .orgRegDiv h1{
@@ -429,26 +432,9 @@ td > p.header{
 	text-shadow: 0px 0px 300px #000;
 }
 
-.orgRegDiv label{
-	font-family: 'Raleway', sans-serif;
-	color: #515151;
-	font-size: 100%;
-	text-shadow: 0px 0px 300px #000;
-    display: inline-block;
-    text-align: center;
-    float:inherit;
-}
-
-.orgRegDiv form label{
-    display: inline-block;
-    text-align: right;
-    
-}
-
 .orgRegDiv form input{
     display: inline-block;
-    text-align:center;
-    
+    text-align:center;  
 }
 
 .orgRegRespDiv {
