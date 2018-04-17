@@ -2,8 +2,8 @@
 	include "header.php";
 
 	// Store username and password from form submission
-	$user =  $_POST["username"];
-	$pass = $_POST["password"];
+	$user =  $_POST['username'];
+	$pass = $_POST['password'];
 
 	// Check for error in connection
 	if ($conn->connect_error)
@@ -15,7 +15,7 @@
 	// Connection successful, verify login details
 	else
 	{
-		$loginQuery = "SELECT UserID, userPWHash FROM user WHERE username='" . $user . "'";
+		$loginQuery = "SELECT UserID, admin, userPWHash FROM user WHERE username='" . $user . "'";
 
 		// Query database to retrieve the userID of an attempted login. This query
 		// will return false if the log in credentials don't match a user's data
@@ -33,7 +33,7 @@
 				$sql = "INSERT INTO sessions(userID, sessionID) VALUES('".$userID."', UUID())";
 				if ($result = $conn->query($sql) == TRUE)
 			    {
-					$sql = "SELECT sessionID FROM sessions WHERE userID = '".$userID."' ORDER BY lastActivity DESC LIMIT 1";
+					$sql = "SELECT sessionID FROM sessions WHERE UserID = '".$userID."' ORDER BY lastActivity DESC LIMIT 1";
 					$result = $conn->query($sql);
 					if ($result->num_rows > 0)
 					{
@@ -42,7 +42,10 @@
 						setcookie("vtrakUser", $userID, time() + (86400 * 30), "/"); // (86400 * 30) is to expire after 30 days -- can modify if desired
 						$_SESSION["UserID"] = $userID;
 						$loginFlag = true;
-						header("Location: /dashboard.php");
+						if($loginAttempt['admin']==1)
+							header("Location: /admin.php");
+						else
+							header("Location: /dashboard.php");
 					}
 			    }
 

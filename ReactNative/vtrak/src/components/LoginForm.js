@@ -12,6 +12,35 @@ import Header from './header';
 class LoginForm extends Component {
   state = { username: '', password: '' };
 
+  dbLogin = () => {
+    fetch('http://www.aptimage.net/verifySignInMobile.php',
+    {
+      method: 'POST',
+      headers:
+      {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(
+      {
+        username: this.state.username,
+        password: this.state.password
+      })
+
+    }).then((response) => response.text()).then((responseJsonFromServer) =>
+    {
+      console.log(responseJsonFromServer);
+      if (responseJsonFromServer === "Logged In")
+        Actions.homescreen();
+      else
+        alert("Invalid Login.");
+    }).catch((error) =>
+    {
+      console.log('you failed buddy');
+      console.error(error);
+    });
+  }
+
   render() {
     return (
       <View>
@@ -39,7 +68,7 @@ class LoginForm extends Component {
 
         <View style={styles.buttonContainerStyle}>
 
-          <Button onPress={() => Actions.homescreen()} >
+          <Button onPress={this.dbLogin} >
             Log In
           </Button>
 

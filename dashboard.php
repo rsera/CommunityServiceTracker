@@ -15,8 +15,12 @@
 	<link href="jquery-ui.min.css" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-	<script type="text/javascript" src="jquery-ui.min.js"></script>
 	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="jquery-ui.min.js"></script>
+	<style>
+		#validationMsg{font-weight: normal;font-size: medium; float:right; margin-top:5px; color:#FF0000;}
+		.asterisk{color:#FF0000;font-size:14px;}
+	</style>
 </head>
 
 
@@ -53,14 +57,14 @@
 
 
 
-  <div id="fireworks" style="display:none">
+  <!--<div id="fireworks" style="display:none">
   <style>
     #firework{background:#000;margin:0;}
     canvas{cursor: crosshair;display: block;}
   </style>
     <canvas id="canvas"></canvas>
     <script src="fireworks.js"></script>
-	</div>
+</div>-->
 
   <div class="row-eq-height" id="content">
     <div class="col-sm-4">
@@ -80,7 +84,7 @@
 				while($row = mysqli_fetch_assoc($result)){
 					/*echo '<p>Current hours:'.$row['hours'].'</p>';*/
         			//echo '<span class="pull-right">'. $row['hours'].' of '.$row['goal'].'</span>';
-					echo '<span id="hoursOfGoal" class="pull-right"><span id="hoursLabel">' . $row['hours'] . '</span> of <span id="goalLabel">' . $row['goal'] . ' hours</span></span>';
+					echo '<span id="hoursOfGoal" class="pull-right"><span id="hoursLabel">' . $row['hours'] . '</span> of <span id="goalLabel">' . $row['goal'] . '</span> hours</span>';
 
 					if($row['hours'] >= $row['goal'])
 					{
@@ -109,16 +113,16 @@
 
       <!--Add activity-->
       <div id="addNew" class="panel panel-default" >
-        <div class="panel-heading">Add Activity (*=required)</div>
+        <div class="panel-heading">Add Activity<span class="defaultHidden"  id="validationMsg">Please enter required fields.</span></div>
         <div class="panel-body">
 
           <!--<form>-->
             <div class="form-group">
-              <label for="newName">Name:</label>
+              <label for="newName">Name <span class="asterisk">*</span>:</label>
               <input type="text" class="form-control" id="newName">
             </div>
 
-            <label for="newDate">Date:</label>
+            <label for="newDate">Date <span class="asterisk">*</span>:</label>
             <div class="form-group">
                 <div class='input-group date'>
                     <input type='date' class="form-control" id="newDate"/>
@@ -130,7 +134,7 @@
 
 			<span>
             <div class="form-group">
-              <label for="newHours">Hours:</label>
+              <label for="newHours">Hours <span class="asterisk">*</span>:</label>
               <input type="number" class="form-control" id="newHours">
             </div>
 			</span>
@@ -192,7 +196,7 @@
               <tbody>
 				  <?php
   					$thisUserID = $_SESSION['UserID'];
-  					$sql = "SELECT orgID, orgName, orgType, orgWebsite FROM organizations INNER JOIN user ON organizations.orgZip = user.userZip AND user.userID = ".$thisUserID;
+  					$sql = "SELECT orgID, orgName, orgWebsite FROM organizations INNER JOIN user ON organizations.orgZip = user.userZip AND user.userID = ".$thisUserID ." where approved=1";
   					$result = mysqli_query($conn, $sql);
 
   					if (mysqli_num_rows($result) > 0)
@@ -216,18 +220,18 @@
 		<p> Congratulations! You've met your goal!</p>
 		<label=>Keeping going? Enter your new goal</label>
 		<input id="newGoalCongrats" type="text" placeholder="New Goal">
-		<input id="submitNewGoalCongrats" type="goalSubmit" class="signUpButton" value="Submit">
+		<input id="submitNewGoalCongrats" type="Submit" class="signUpButton" value="Submit">
 	</div>
 	<div id="goalDialog" title="Update Goal" style="display:none">
 		<label for="newGoal">Enter your new goal</label>
 		<input id="newGoal" type="text" placeholder="New Goal">
-		<input id="submitNewGoal" type="goalSubmit" class="signUpButton" value="Submit">
+		<input id="submitNewGoal" type="Submit" class="signUpButton" value="Submit">
 	</div>
 	<div id="pwDialog" title="Change Password" style="display:none">
 		<label for="newGoal">Enter your new password</label>
 		<input id="password1" class="passwordBox" type="password" placeholder=" Password" name="PWHash" required>
 		<input id="password2" class="passwordBox" type="password" placeholder=" Retype Password" name="PWHash2" required>
-		<input id="submitNewGoal" type="goalSubmit" class="signUpButton" value="Submit">
+		<input id="submitNewGoal" type="Submit" class="signUpButton" value="Submit">
 	</div>
 
   </div>
@@ -244,13 +248,18 @@
 		$("#pwDrop").on("click",function(){$("#pwDialog").dialog()});
 
 		// Goal can be changed with the dropdown from account or the dialog that pops up when you reach your goal
-		$("#submitNewGoal").on("click",function(){$("#goalDialog").dialog("close");updateGoal()});
-		$("#submitNewGoalCongrats").on("click",function(){$("#goalCongrats").dialog("close");updateGoal()});
-		$("#goalDialog").keyup(function(event){if(event.keyCode === 13)$("#goalDialog").dialog("close");updateGoal()});
-		$("#goalCongrats").keyup(function(event){if(event.keyCode === 13)$("#goalCongrats").dialog("close");updateGoal()});
+		$("#submitNewGoal").on("click",function(){$("#goalDialog").dialog("close");updateGoal();$('#newGoal').val("");});
+		$("#submitNewGoalCongrats").on("click",function(){$("#goalCongrats").dialog("close");updateGoal();$('#newGoalCongrats').val("");});
+		$("#goalDialog").keyup(function(event){if(event.keyCode == 13){$("#goalDialog").dialog("close");updateGoal();$('#newGoal').val("");}});
+		$("#goalCongrats").keyup(function(event){if(event.keyCode == 13){$("#goalCongrats").dialog("close");updateGoal();$('#newGoalCOngrats').val("");}});
+
 
 		// close the dialog when the user clicks on update password
 		$("#submitNewPW").on("click",function(){$("#pwDialog").dialog("close")});
+
+		// if the dialog is closed via the X, whatever's typed in it will be removed
+		$( "#goalDialog" ).on("dialogclose", function(event) {if(event.which == 1)$('#newGoal').val("")} );
+		$( "#goalCongrats" ).on("dialogclose", function(event) {if(event.which == 1)$('#newGoalCongrats').val("")} );
 
 		//
 		function searchExperiences(searchTerm){

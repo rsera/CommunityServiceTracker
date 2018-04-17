@@ -1,20 +1,57 @@
-import React from 'react';
-import { View, Text } from 'react-native';
+import React, { Component } from 'react';
+import { View, Text, StyleSheet } from 'react-native';
 
-const GoalBar = (props) => {
-  const { viewStyle, textStyle, colorFillStyle, color2FillStyle } = styles;
+class GoalBar extends Component {
+  constructor(props) {
+    super(props);
 
-  return  (
-    <View style={viewStyle}>
+    this.state = {
+      goal: '',
+      hours: '',
+      blueBar: '',
+      greyBar: ''
+    };
+
+    this.fetchData = this.fetchData.bind(this);
+  }
+
+  componentDidMount() {
+    this.fetchData();
+  }
+
+  fetchData() {
+    fetch('http://www.aptimage.net/getGBContentMobile.php')
+   .then((response) => response.text()).then((responseJsonFromServer) =>
+    {
+      // console.log(responseJsonFromServer);
+      obj = JSON.parse(responseJsonFromServer);
+      // console.log(obj.hours);
+      // console.log(obj.goal);
+      this.setState({hours: obj.hours});
+      this.setState({goal: obj.goal});
+      this.setState({blueBar: obj.blueBar});
+      this.setState({greyBar: obj.greyBar});
+      // console.log(this.state.blueBar);
+    }).catch((error) =>
+    {
+      console.log('Could not retrieve hours.');
+      console.error(error);
+    });
+  }
+
+  render() {
+    return (
+      <View style={styles.viewStyle}>
       {/* <Text> Goal </Text> */}
-      <View style={colorFillStyle}></View>
-      <View style={color2FillStyle}></View>
-      <Text style={textStyle}> 50/100 </Text>
-    </View>
-  );
-};
+      <View style={styles.colorFillStyle}></View>
+      <View style={styles.color2FillStyle}></View>
+      <Text style={styles.textStyle}> {this.state.hours} / {this.state.goal} </Text>
+      </View>
+    );
+  }
+}
 
-const styles = {
+const styles = StyleSheet.create({
   viewStyle: {
     justifyContent: 'flex-start',
     alignItems: 'center',
@@ -51,6 +88,6 @@ const styles = {
     flexDirection: 'row',
     paddingRight: 10
   }
-};
+});
 
 export default GoalBar;

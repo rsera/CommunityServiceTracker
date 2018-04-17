@@ -18,6 +18,38 @@ class SignUpForm extends Component {
             goal: '',
           };
 
+  dbSignup = () => {
+    fetch('http://www.aptimage.net/newUserMobile.php',
+    {
+      method: 'POST',
+      headers:
+      {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(
+      {
+        FName : this.state.fname,
+        LName : this.state.lname,
+        zip : this.state.zipcode,
+        username : this.state.username,
+        goal : this.state.goal,
+        PWHash : this.state.password,
+        PWHash2 : this.state.passwordConfirm
+      })
+
+    }).then((response) => response.text()).then((responseJsonFromServer) =>
+    {
+      console.log(responseJsonFromServer);
+      Actions.login();
+    }).catch((error) =>
+    {
+      console.log('you failed buddy');
+      console.error(error);
+    });
+
+}
+
   render() {
     return (
       <View style={{flex:1}}>
@@ -97,7 +129,7 @@ class SignUpForm extends Component {
           </Card>
 
           <View style={styles.buttonContainerStyle}>
-            <Button onPress={() => Actions.homescreen()} >
+            <Button onPress={this.dbSignup}>
               Create Account and Start Volunteering!
             </Button>
           </View>

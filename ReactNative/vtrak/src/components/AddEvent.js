@@ -11,9 +11,33 @@ class AddEvent extends Component {
 	state = { organization: '', date: '', hours: '', notes: '' }
 
 	submitEvent = () => {
-		alert('Nice work!',
-					[ {text: 'Nice work!', onPress: () => Actions.homescreen() } ]
-		);
+		fetch('http://www.aptimage.net/addExperienceMobile.php',
+			{
+        method: 'POST',
+        headers:
+        {
+       		'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(
+        {
+          name : this.state.organization,
+
+          expDate : this.state.date,
+
+          hours : this.state.hours,
+
+					notes : this.state.notes
+        })
+
+			}).then((response) => response.text()).then((responseJsonFromServer) =>
+        {
+          console.log(responseJsonFromServer);
+        }).catch((error) =>
+        {
+					console.log('you failed buddy');
+          console.error(error);
+      });
 	}
 
 	render() {
@@ -36,7 +60,7 @@ class AddEvent extends Component {
 					<CardSection>
 						<Input
 							label="Date"
-							placeholder="mm/dd/yyyy"
+							placeholder="yyyy-mm-dd"
 							value={this.state.date}
 							onChangeText={date => this.setState({ date })}
 						/>
@@ -67,7 +91,7 @@ class AddEvent extends Component {
 				<View style={styles.buttonContainerStyle}>
 					<Button onPress={() => Actions.homescreen()}
 						title="Add New Event"
-						// onPress={this.submitEvent}
+						onPress={this.submitEvent}
 					>
 						Submit
 					</Button>
