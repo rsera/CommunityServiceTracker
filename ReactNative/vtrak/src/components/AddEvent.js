@@ -46,7 +46,7 @@ class AddEvent extends Component {
 			<Header headerText={'vTrak'} />
 
 			<Text style={styles.pageTitle}>Add Event</Text>
-			<ScrollView style={{flex:1}>
+			<ScrollView style={{flex:1}}>
 					<Card>
 						<CardSection>
 							<Input
