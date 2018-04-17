@@ -18,7 +18,7 @@ class GoalBar extends Component {
 
   componentWillMount() {
     this.fetchData();
-    let timer = setInterval(this.fetchData, 5000);
+    let timer = setInterval(this.fetchData, 1000);
     this.setState({timer});
   }
 

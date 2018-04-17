@@ -36,8 +36,7 @@ class App extends Component {
             tabs={true}
             tabBarStyle={
               { backgroundColor: '#FFFFFF',
-                alignSelf: 'center',
-                paddingBottom: 8
+                alignSelf: 'center'
               }
             }
             labelStyle={
