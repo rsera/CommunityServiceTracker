@@ -7,6 +7,7 @@ import VolunteerEventList from './VolunteerEventList.js';
 import WelcomeUser from './WelcomeUser';
 import GoalBar from './GoalBar.js';
 import RecentHistoryHeader from './RecentHistoryHeader.js';
+import GoalText from './GoalText.js';
 
 const HomeScreen = () => {
   return (
@@ -14,7 +15,7 @@ const HomeScreen = () => {
       <View style={{backgroundColor: '#F9F9F9'}}>
         <Header headerText={'vTrak'} />
       	<WelcomeUser />
-        <GoalBar />
+        <GoalText />
         <RecentHistoryHeader />
       </View>
       <VolunteerEventList />
