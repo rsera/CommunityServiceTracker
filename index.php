@@ -66,8 +66,9 @@
 					</div>
 				</div>
 			</div>
+			
+			<hr class="featurette-divider">
 			<div class="container marketing">
-
 		      <!-- Three columns of text below the "Get started!" -->
 		      <div class="row">
 		        <div class="col-lg-4">
