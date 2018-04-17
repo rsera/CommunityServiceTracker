@@ -10,7 +10,32 @@ import Input from './common/Input';
 
 
 class Settings extends Component {
-  state = { newGoal: '' };
+  state = { goal: '' };
+
+  dbUpdate = () => {
+    fetch('http://www.aptimage.net/updateGoalMobile.php',
+    {
+      method: 'POST',
+      headers:
+      {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(
+      {
+        goal : this.state.goal
+      })
+    }).then((response) => response.text()).then((responseJsonFromServer) =>
+    {
+      console.log(responseJsonFromServer);
+      // this.setState({goal: obj.goal});
+      Actions.homescreen();
+    }).catch((error) =>
+    {
+      console.log('Could not update goal.');
+      console.error(error);
+    });
+  }
 
   render() {
     return(
@@ -28,14 +53,14 @@ class Settings extends Component {
           <CardSection>
             <Input
               label="New Goal"
-              value={this.state.newGoal}
-              onChangeText={newGoal => this.setState({ newGoal })}
+              value={this.state.goal}
+              onChangeText={goal => this.setState({ goal })}
             />
           </CardSection>
         </Card>
 
         <View style={styles.buttonContainerStyle}>
-          <Button onPress={() => Actions.homescreen()} title="Update">
+          <Button onPress={() => this.dbUpdate()} title="Update">
             Update
           </Button>
         </View>
