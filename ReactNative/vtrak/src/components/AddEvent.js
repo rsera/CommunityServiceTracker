@@ -42,11 +42,11 @@ class AddEvent extends Component {
 
 	render() {
 		return(
-			<View>
+			<View style={{flex:1}}>
 			<Header headerText={'vTrak'} />
 
 			<Text style={styles.pageTitle}>Add Event</Text>
-			<ScrollView>
+			<ScrollView style={{flex:1}>
 					<Card>
 						<CardSection>
 							<Input
