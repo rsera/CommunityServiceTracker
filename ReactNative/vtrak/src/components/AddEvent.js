@@ -33,6 +33,7 @@ class AddEvent extends Component {
 			}).then((response) => response.text()).then((responseJsonFromServer) =>
         {
           console.log(responseJsonFromServer);
+					Actions.homescreen();
         }).catch((error) =>
         {
 					console.log('you failed buddy');

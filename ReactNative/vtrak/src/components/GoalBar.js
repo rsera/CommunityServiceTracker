@@ -9,14 +9,17 @@ class GoalBar extends Component {
       goal: '',
       hours: '',
       blueBar: '',
-      greyBar: ''
+      greyBar: '',
+      timer: null
     };
 
     this.fetchData = this.fetchData.bind(this);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.fetchData();
+    let timer = setInterval(this.fetchData, 5000);
+    this.setState({timer});
   }
 
   fetchData() {

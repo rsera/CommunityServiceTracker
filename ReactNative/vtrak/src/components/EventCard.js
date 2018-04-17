@@ -26,11 +26,7 @@ const EventCard = ({ experience }) => {
 
 				<View style={styles.expandedPanelStyle} >
 					<Text style={{textAlign: 'justify'}}>
-<<<<<<< HEAD
 						{notes}
-=======
-						yay women yay women yay women yay women yay women yay women
->>>>>>> 87a5707baaca90ed66276ad208a51e7d38522188
 					</Text>
 				</View>
 			</View>

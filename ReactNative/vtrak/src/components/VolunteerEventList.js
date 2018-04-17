@@ -9,17 +9,20 @@ class VolunteerEventList extends Component {
 
     this.state = {
       content: [],
+      timer: null
     };
 
     this.fetchData = this.fetchData.bind(this);
   }
 
   componentWillMount() {
-    console.log("will mount");
     this.fetchData();
+    let timer = setInterval(this.fetchData, 5000);
+    this.setState({timer});
   }
 
-  fetchData() {
+
+  fetchData(){
     fetch('http://www.aptimage.net/getEventDataMobile.php')
    .then((response) => response.text()).then((responseJsonFromServer) =>
     {
@@ -34,9 +37,10 @@ class VolunteerEventList extends Component {
   }
 
   renderEvents() {
-    console.log(this.state.content, "in renderEvents()", this.state.content.length);
+
     if( this.state.content.length > 0)
     {
+      console.log("fetched", this.state.content);
       var i = -1;
 
       return (this.state.content.map(experience =>
