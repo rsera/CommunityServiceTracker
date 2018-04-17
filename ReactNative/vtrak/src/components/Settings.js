@@ -7,6 +7,7 @@ import { Actions } from 'react-native-router-flux';
 import Card from './common/Card.js';
 import CardSection from './common/CardSection.js';
 import Input from './common/Input';
+import { connect } from 'react-redux';
 
 
 class Settings extends Component {

@@ -48,6 +48,7 @@ class App extends Component {
             }
             activeTintColor='#76CB89'
             tabBarPosition='bottom'
+            activeBackgroundColor='#e6e8ef'
           >
             <Scene
               key="homescreen"
