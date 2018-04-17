@@ -15,7 +15,7 @@ const HomeScreen = () => {
       <View style={{backgroundColor: '#F9F9F9'}}>
         <Header headerText={'vTrak'} />
       	<WelcomeUser />
-        <GoalText />
+        <GoalBar />
         <RecentHistoryHeader />
       </View>
       <VolunteerEventList />
