@@ -5,12 +5,12 @@ const HoursIcon = () => {
 	return (
 		<View style={styles.iconContainerStyle}>
 			<View style={styles.hoursContainerStyle}>
-				<Text style={styles.hoursTextStyle}> 
-					100
+				<Text style={styles.hoursTextStyle}>
+					10
 				</Text>
 			</View>
 			<Text style={styles.abbrevTextStyle}>
-				hrs
+				hours
 			</Text>
 		</View>
 	);
@@ -20,32 +20,34 @@ const styles = {
 	iconContainerStyle: {
 		flexDirection: 'column',
 		// alignItems: 'flex-start',
-		marginLeft: 10,
-		marginRight: 10,
-		height: 45,
-		width: 45,
-		borderRadius: 22.5,
-
-		backgroundColor: '#160F29',
+		// marginLeft: 10,
+		// marginRight: 10,
+		// height: 45,
+		// width: 45,
+		// borderRadius: 22.5,
+		padding: 5,
+		backgroundColor: '#C3E8AB',
+		borderWidth: .5,
+		borderColor: '#76CB89'
 
 		// For white border
-		borderWidth: 1,
-		borderColor: '#FFFFFF'
+		// borderWidth: 1,
+		// borderColor: '#FFFFFF'
 	},
 	hoursContainerStyle: {
-		marginTop: 5
+		// marginTop: 5
 	},
 	hoursTextStyle: {
-		fontFamily: 'arial',
-		fontSize: 20,
-		color: '#FFFFFF',
-		textAlign: 'center'
+		fontFamily: 'sansation',
+		fontSize: 30,
+		color: '#45537A',
+		// textAlign: 'center'
 	},
 	abbrevTextStyle: {
-		fontFamily: 'arial',
-		fontSize: 9,
-		color: '#FFFFFF',
-		textAlign: 'center'
+		fontFamily: 'sansation',
+		fontSize: 11,
+		color: '#45537A',
+		// textAlign: 'center'
 	}
 };
 

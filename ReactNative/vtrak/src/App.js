@@ -35,7 +35,9 @@ class App extends Component {
             key="tabbar"
             tabs={true}
             tabBarStyle={
-              { backgroundColor: '#FFFFFF'
+              { backgroundColor: '#FFFFFF',
+                alignSelf: 'center',
+                paddingBottom: 8
               }
             }
             labelStyle={
@@ -71,7 +73,7 @@ class App extends Component {
             <Scene
               key="settings"
               component={Settings}
-              title="Settings"
+              title="🔧"
               hideNavBar="true"
             />
 
