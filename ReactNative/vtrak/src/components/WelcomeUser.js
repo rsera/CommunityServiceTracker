@@ -5,7 +5,7 @@ const WelcomeUser = () => {
 	return (
 		<View style={styles.welcomeContainerStyle}>
 			<Text style={styles.welcomeTextStyle}>
-				◄  Welcome, vtrak-user!  ►
+				Welcome, Krystal!
 			</Text>
 		</View>
 	);
@@ -13,22 +13,21 @@ const WelcomeUser = () => {
 
 const styles = {
 	welcomeContainerStyle: {
-		backgroundColor: '#45537A',
+		// backgroundColor: '#45537A',
 		height: 25,
-		width: '95%',
-		borderRadius: 15,
+		// width: '95%',
+		// borderRadius: 15,
 		alignItems: 'center',
 		justifyContent:'center',
-		marginLeft: 5,
-		marginRight: 5,
-		marginBottom: 10
+		marginLeft: 10,
+		marginRight: 10,
 	},
 
 	welcomeTextStyle: {
-		textAlign: 'center',
+		textAlign: 'left',
 		fontFamily: 'sansation',
-		fontSize: 17,
-		color: '#FFFFFF'
+		fontSize: 16,
+		color: '#45537A'
 	}
 };
 

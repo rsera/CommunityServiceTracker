@@ -4,6 +4,8 @@
   
 	$json = file_get_contents('php://input');
   $obj = json_decode($json, TRUE);
+
+  $goal = mysqli_real_escape_string($conn, $obj['goal']);
   
   // Validate the session cookies. This should be done first for all API calls.
   if (!checkSession())
@@ -13,7 +15,7 @@
   }
 
   // Verify that the user has entered the required information
-  if (!isset($_POST['goal']))
+  if (!isset($goal))
   {
     echo "fail whale isset";
 	return;
@@ -28,15 +30,17 @@
   else {
 
     //
-    $sql = "UPDATE user SET goal='" . mysqli_real_escape_string($conn, $_POST['goal']) . "' WHERE userID = ". mysqli_real_escape_string($conn, $_COOKIE['vtrakUser']);
+    $sql = "UPDATE user SET goal='" . $goal . "' WHERE userID = ". mysqli_real_escape_string($conn, $_COOKIE['vtrakUser']);
+    $result = mysqli_query($conn, $sql); 
 
-    if ($result = $conn->query($sql) != TRUE)
+    if ($result != TRUE)
     {
       echo "fail whale result not true";
     }
     else
 	{
-      echo '{"goal":"'.$_POST['goal'].'"}';
+      // echo '{"goal":"'.$obj['goal'].'"}';
+      echo ("{\"goal\":".$goal."}");
 	}
 
     $conn->close();
