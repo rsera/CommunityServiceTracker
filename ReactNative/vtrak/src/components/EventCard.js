@@ -25,7 +25,7 @@ class EventCard extends Component {
 
 				<View style={styles.expandedPanelStyle} >
 					<Text style={{textAlign: 'justify'}}>
-						yay women yay women yay women yay women yay women yay women yay women yay women yay women yay women yay women yay women yay women yay women yay women yay women yay women yay women yay women yay women
+						yay women yay women yay women yay women yay women yay women
 					</Text>
 				</View>
 			</View>
@@ -54,8 +54,8 @@ const styles = {
 		marginLeft: 10
 	},
 	expandedPanelStyle: {
-		marginTop: 5,
-		marginBottom: 5,
+		// marginTop: 5,
+		marginBottom: 10,
 		marginRight: 10,
 		marginLeft: 10,
 	},
