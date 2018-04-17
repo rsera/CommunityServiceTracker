@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet, Text, ScrollView } from 'react-native';
 import Button from './common/Button';
 import Card from './common/Card';
 import CardSection from './common/CardSection';
@@ -42,61 +42,61 @@ class AddEvent extends Component {
 
 	render() {
 		return(
-			<View>
+			<View style={{flex:1}}>
 			<Header headerText={'vTrak'} />
 
 			<Text style={styles.pageTitle}>Add Event</Text>
+			<ScrollView style={{flex:1}}>
+					<Card>
+						<CardSection>
+							<Input
+								label="Event"
+								placeholder="Junior Knights"
+								value={this.state.organization}
+								onChangeText={organization => this.setState({ organization })}
+							/>
+						</CardSection>
 
-				<Card>
-					<CardSection>
-						<Input
-							label="Event"
-							placeholder="Junior Knights"
-							value={this.state.organization}
-							onChangeText={organization => this.setState({ organization })}
-						/>
-					</CardSection>
+						<CardSection>
+							<Input
+								label="Date"
+								placeholder="yyyy-mm-dd"
+								value={this.state.date}
+								onChangeText={date => this.setState({ date })}
+							/>
+						</CardSection>
 
-					<CardSection>
-						<Input
-							label="Date"
-							placeholder="yyyy-mm-dd"
-							value={this.state.date}
-							onChangeText={date => this.setState({ date })}
-						/>
-					</CardSection>
+						<CardSection>
+							<Input
+								label="Hours"
+								placeholder="5"
+								keyboardType="numeric"
+								value={this.state.hours}
+								onChangeText={hours => this.setState({ hours })}
+							/>
+						</CardSection>
 
-					<CardSection>
-						<Input
-							label="Hours"
-							placeholder="5"
-							keyboardType="numeric"
-							value={this.state.hours}
-							onChangeText={hours => this.setState({ hours })}
-						/>
-					</CardSection>
+						<CardSection>
+							<Input
+								multiline = {true}
+	         			numberOfLines = {4}
+								label="Notes"
+								placeholder="Taught high schoolers."
+								value={this.state.notes}
+								onChangeText={notes => this.setState({ notes })}
+							/>
+						</CardSection>
+					</Card>
 
-					<CardSection>
-						<Input
-							multiline = {true}
-         			numberOfLines = {4}
-							label="Notes"
-							placeholder="Taught high schoolers."
-							value={this.state.notes}
-							onChangeText={notes => this.setState({ notes })}
-						/>
-					</CardSection>
-				</Card>
-
-				<View style={styles.buttonContainerStyle}>
-					<Button onPress={() => Actions.homescreen()}
-						title="Add New Event"
-						onPress={this.submitEvent}
-					>
-						Submit
-					</Button>
-				</View>
-
+					<View style={styles.buttonContainerStyle}>
+						<Button onPress={() => Actions.homescreen()}
+							title="Add New Event"
+							onPress={this.submitEvent}
+						>
+							Submit
+						</Button>
+					</View>
+				</ScrollView>
 			</View>
 		);
 	}
