@@ -2,36 +2,36 @@ import React, {Component} from 'react';
 import { View,Text, ScrollView, TouchableHighlight } from 'react-native';
 import HoursIcon from './HoursIcon';
 
-class EventCard extends Component {
+const EventCard = ({ experience }) => {
+	const { name, expDate, hours, notes } = experience;
 
-	render () {
 		return (
 			<View style={styles.containerStyle}>
 				<View style={styles.panelHeaderStyle}>
 
 					<View style={styles.textContainerStyle}>
 						<Text style={styles.descriptionStyle}>
-							Volunteer Description
+							{name}
+
 						</Text>
 						<Text style={styles.locationStyle}>
-							Location
+							{expDate}
 						</Text>
 					</View>
 
 					<View>
-							<HoursIcon />
+							<HoursIcon hours={hours}/>
 					</View>
 				</View>
 
 				<View style={styles.expandedPanelStyle} >
 					<Text style={{textAlign: 'justify'}}>
-						yay women yay women yay women yay women yay women yay women yay women yay women yay women yay women yay women yay women yay women yay women yay women yay women yay women yay women yay women yay women
+						{notes}
 					</Text>
 				</View>
 			</View>
 		);
-	}
-}
+};
 
 const styles = {
 	containerStyle: {

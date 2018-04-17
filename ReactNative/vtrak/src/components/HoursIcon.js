@@ -1,12 +1,12 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-const HoursIcon = () => {
+const HoursIcon = ({hours}) => {
 	return (
 		<View style={styles.iconContainerStyle}>
 			<View style={styles.hoursContainerStyle}>
-				<Text style={styles.hoursTextStyle}> 
-					100
+				<Text style={styles.hoursTextStyle}>
+					{hours}
 				</Text>
 			</View>
 			<Text style={styles.abbrevTextStyle}>
