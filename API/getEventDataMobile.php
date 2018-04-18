@@ -14,12 +14,7 @@
 		echo $conn->connect_error . "fail whale on connection";
 	// Successful connection
 
-  $grabExp = mysqli_query($conn, $query);
-  
-  if (mysqli_num_rows($grabExp) <= 0)
-  {
-    echo "new user";
-  }
+	$grabExp = mysqli_query($conn, $query);
 
 	if (mysqli_num_rows($grabExp) > 0)
 	{
