@@ -40,11 +40,11 @@
     {
       $end = '"}';
       $myJsonString = '{"id":"'.mysqli_insert_id($conn);
-      $myJsonString = $myJsonString.'","name":"'.$_POST['name'];
-      $myJsonString = $myJsonString.'","expDate":"'.$_POST['expDate'];
-      $myJsonString = $myJsonString.'","hours":"'.$_POST['hours'];
-      $myJsonString = $myJsonString.'","notes":"'.$_POST['notes'];
-	  $myJsonString = $myJsonString.'","userID":"'.$_COOKIE['vtrakUser'];
+      $myJsonString = $myJsonString.'","name":"'.sanitizeXSS($_POST['name']);
+      $myJsonString = $myJsonString.'","expDate":"'.sanitizeXSS($_POST['expDate']);
+      $myJsonString = $myJsonString.'","hours":"'.sanitizeXSS($_POST['hours']);
+      $myJsonString = $myJsonString.'","notes":"'.sanitizeXSS($_POST['notes']);
+	  $myJsonString = $myJsonString.'","userID":"'.sanitizeXSS($_COOKIE['vtrakUser']);
       $myJsonString = $myJsonString.$end;
 
       echo $myJsonString;

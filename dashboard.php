@@ -42,6 +42,24 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
+			<?php
+			  // Find current user First and Last Name
+			  $thisUserID = $_SESSION['UserID'];
+			  $NameQuery = "SELECT FName, LName FROM user WHERE UserID='" . $thisUserID . "'";
+			  $Name = mysqli_query($conn, $NameQuery);
+
+			  if (mysqli_num_rows($Name) > 0)
+			  {
+				  $row = mysqli_fetch_assoc($Name);
+				  echo '<li><p class="navbar-text">Welcome, ' . sanitizeXSS($row['FName']) . " " . sanitizeXSS($row['LName']) . '!</p></li>';
+			  }
+
+			  // Just in case it doesn't work, default greeting
+			  else
+			  {
+				  echo '<li><p class="navbar-text">Welcome!</p></li>';
+			  }
+			?>
           <li class="drowpdown"><a class="dropbtn" id="signUpRibbon">Account</a>
 		  <div id="myDropdown" class="dropdown-content defaultHidden">
 		    <a href="#" id="goalDrop">Update Goal</a>

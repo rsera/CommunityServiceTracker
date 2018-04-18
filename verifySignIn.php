@@ -64,7 +64,7 @@
 			if($usernameCheckQueryResult->num_rows == 0)
 			{
 				// Placeholder for redirecting to signup page
-				header("Location: /?default=login&username=".$user."&error=Invalid username.");
+				header("Location: /?default=login&username=".$user."&error=Invalid username.<p/>");
 				$conn->close();
 				die();
 			}

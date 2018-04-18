@@ -9,8 +9,8 @@
 		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 		<style>
 			.defaultHidden{display:none;visibility:hidden;}
-			@font-face{font-family: sanssaFont;src:url(/CSS/Sansation_Regular.ttf)};
-			@font-face{font-family: sanssaBold;src:url(/CSS/Sansation_Bold.ttf);font-weight:bold};
+			@font-face{font-family: sanssaFont;src:url(/css/Sansation_Regular.ttf)};
+			@font-face{font-family: sanssaBold;src:url(/css/Sansation_Bold.ttf);font-weight:bold};
 			body{font-family:sanssaFont;}
 			#vtrakButton{font-family:sanssaFont;}
 			#signUpRibbon{font-family:sanssaFont;}

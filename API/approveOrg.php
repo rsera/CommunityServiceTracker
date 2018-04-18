@@ -10,7 +10,7 @@
   }
 
   // Verify that the user has entered the required information
-  if (!isset($_POST['goal']))
+  if (!(isset($_COOKIE['vtrakUser']) && isset($_POST['orgID'])))
   {
     echo "fail whale isset";
 	return;
@@ -24,17 +24,16 @@
   }
   else {
 
-    //
-    $sql = "UPDATE user SET goal='" . mysqli_real_escape_string($conn, $_POST['goal']) . "' WHERE userID = ". mysqli_real_escape_string($conn, $_COOKIE['vtrakUser']);
+    $sql = "UPDATE organizations SET approved = 1 WHERE organizations.orgID =" . mysqli_real_escape_string($conn, $_POST['orgID']);
 
     if ($result = $conn->query($sql) != TRUE)
     {
       echo "fail whale result not true";
     }
     else
-	{
-      echo '{"goal":"'.sanitizeXSS($_POST['goal']).'"}';
-	}
+    {
+      echo '{"id":"'. sanitizeXSS($_POST['orgID']) .'"}';
+    }
 
     $conn->close();
   }

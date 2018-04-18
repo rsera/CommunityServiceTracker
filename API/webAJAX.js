@@ -58,6 +58,10 @@ function updateGoal(){
 		alert("fields are required");
 		return;
 	}
+	else if (isNaN(goal)){
+		alert("please enter a number");
+		return;
+	}
 
     jQuery.ajax({
         url: '/API/updateGoal.php',
@@ -83,21 +87,45 @@ function updateGoal(){
 		}
     });
 }
-/*
-function searchExperiences(){
+
+function approveOrg(id){
 	jQuery.ajax({
-        url: '/API/searchExperience.php',
-        type: "GET",
-        data: {searchTerm:searchTerm},
+        url: '/API/approveOrg.php',
+        type: "POST",
+		data: {orgID:id},
 		success: function(resp){
-			if(resp!="fail whale :("){
-				$('#searchBox').val("");
+			if(resp=="invalid session"){
+				//Kick them off to the login page.
+			}
+			else if(resp.substr(0,10)!="fail"){
 				var obj = $.parseJSON(resp);
-				$('.contact').hide();
-				for(var i=0; i < obj.length; i++){
-					$('#'+obj[i].cid).show();
-				}
+				var oID = "#o" + obj.id;
+				$(oID).remove();
+			}
+			else {
+				alert("approveOrg API call fail whaled :(");
 			}
 		}
-	});
-}*/
+    });
+}
+
+function declineOrg(id){
+	jQuery.ajax({
+        url: '/API/deleteOrg.php',
+        type: "POST",
+		data: {orgID:id},
+		success: function(resp){
+			if(resp=="invalid session"){
+				//Kick them off to the login page.
+			}
+			else if(resp.substr(0,10)!="fail"){
+				var obj = $.parseJSON(resp);
+				var oID = "#o" + obj.id;
+				$(oID).remove();
+			}
+			else {
+				alert("deleteOrg API call fail whaled :(");
+			}
+		}
+    });
+}
