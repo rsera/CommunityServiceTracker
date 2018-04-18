@@ -16,6 +16,8 @@
 			#signUpRibbon{font-family:sanssaFont;}
 			#loginRibbon{font-family:sanssaFont;}
 			#homePageContent h1{font-family:sanssaFont;}
+			.marketing{background: #e7e7e7;padding: 30px;margin-left: -15px;}
+			.featurette-divider{border-top:5px solid #ef997a;}
 		</style>
 	</head>
 	<body>
@@ -69,7 +71,6 @@
 
 			<!-- Three columns of text below the "Get started!" -->
 			<br>
-			<hr class="featurette-divider">
 			<div class="container marketing">
 		      <div class="row">
 		        <div class="col-lg-4"><!-- /.col-lg-4 -->
