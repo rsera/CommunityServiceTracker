@@ -24,13 +24,13 @@ class RecommendationsPage extends Component {
     fetch('http://www.aptimage.net/getRecommendationsMobile.php')
    .then((response) => response.text()).then((responseJsonFromServer) =>
     {
-			console.log(responseJsonFromServer);
+			//console.log(responseJsonFromServer);
       obj = JSON.parse(responseJsonFromServer);
       this.setState({content: obj});
 
     }).catch((error) =>
     {
-      console.log('Could not retrieve data.');
+      console.log('Could not retrieve data.', responseJsonFromServer);
       console.error(error);
     });
   }
@@ -39,7 +39,7 @@ class RecommendationsPage extends Component {
 
     if( this.state.content.length > 0)
     {
-      console.log("fetched", this.state.content);
+      //console.log("fetched", this.state.content);
       var i = -1;
 
       return (this.state.content.map(recommendation =>

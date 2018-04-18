@@ -1,11 +1,13 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 
-const WelcomeUser = () => {
+const WelcomeUser = ({name}) => {
+	//const { username } = name;
+
 	return (
 		<View style={styles.welcomeContainerStyle}>
 			<Text style={styles.welcomeTextStyle}>
-				Welcome, Krystal!
+				Welcome, {name}!
 			</Text>
 		</View>
 	);
