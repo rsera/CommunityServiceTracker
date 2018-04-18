@@ -1,7 +1,8 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-const RecommendationCard = () => {
+const RecommendationCard = ({ recommendation }) => {
+	const { orgName, orgZip} = recommendation;
 	const {
 		cardContainerStyle,
 		recsNameStyle,
@@ -11,10 +12,10 @@ const RecommendationCard = () => {
 	return (
 		<View style={cardContainerStyle}>
 			<Text style={recsNameStyle}>
-				Judy's Pet Shelter
+				{orgName}
 			</Text>
 			<Text style={recsLocationStyle}>
-				Sanford, FL
+				{orgZip}
 			</Text>
 		</View>
 	);

@@ -1,42 +1,86 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { View, Text, ScrollView } from 'react-native';
 import Header from "./header";
 import RecommendationCard from './RecommendationCard';
 
-const RecommendationsPage = () => {
-	return (
-		<View style={{flex:1, backgroundColor: '#F9F9F9'}}>
-			<Header headerText={'vTrak'} />
+class RecommendationsPage extends Component {
 
-			<View style={styles.textStyle}>
-				<Text style={styles.pageTitle}>Recommendations</Text>
-				<Text style={styles.subTitle}>Check out other volunteer opportunities in your area!</Text>
-			</View>
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      content: []
+    };
+
+    this.fetchData = this.fetchData.bind(this);
+  }
+
+  componentWillMount() {
+    this.fetchData();
+  }
+
+
+  fetchData(){
+    fetch('http://www.aptimage.net/getRecommendationsMobile.php')
+   .then((response) => response.text()).then((responseJsonFromServer) =>
+    {
+			console.log(responseJsonFromServer);
+      obj = JSON.parse(responseJsonFromServer);
+      this.setState({content: obj});
+
+    }).catch((error) =>
+    {
+      console.log('Could not retrieve data.');
+      console.error(error);
+    });
+  }
+
+  renderRecs() {
+
+    if( this.state.content.length > 0)
+    {
+      console.log("fetched", this.state.content);
+      var i = -1;
+
+      return (this.state.content.map(recommendation =>
+        {
+          i++;
+          return(
+           	<RecommendationCard key={this.state.content[i].orgID} recommendation={this.state.content[i]}/>
+          );
+        }));
+    }
+
+    else
+    {
+      console.log("wait");
+      return ;
+    }
+
+  }
+
+  render() {
+    return (
+			<View style={{flex:1, backgroundColor: '#F9F9F9'}}>
+				<Header headerText={'vTrak'} />
+
+				<View style={styles.textStyle}>
+					<Text style={styles.pageTitle}>Recommendations</Text>
+					<Text style={styles.subTitle}>Check out other volunteer opportunities in your area!</Text>
+				</View>
 
 			<ScrollView>
 				<View style={styles.cardContainerStyle}>
 					<View>
-						<RecommendationCard />
-						<RecommendationCard />
-						<RecommendationCard />
-						<RecommendationCard />
-						<RecommendationCard />
-						<RecommendationCard />
-						<RecommendationCard />
-						<RecommendationCard />
-						<RecommendationCard />
-						<RecommendationCard />
-						<RecommendationCard />
-						<RecommendationCard />
-						<RecommendationCard />
-						<RecommendationCard />
+						{this.renderRecs()}
 					</View>
 				</View>
 			</ScrollView>
 
 		</View>
-	);
-};
+    )
+  }
+}
 
 const styles = {
 	recsContainerStyle: {
