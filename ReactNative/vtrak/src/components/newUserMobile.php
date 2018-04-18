@@ -69,6 +69,14 @@
 		$userID = $validID["UserID"];
 		$retrievedHash = $validID["userPWHash"];
 
+    $placeholder = "INSERT INTO experiences(userID, name, expDate, hours, notes)
+      VALUES('$userID', 'Start Volunteering!', '0000-00-00', '0', 'Your volunteering events will show up here.')";
+
+    if($placer = $conn->query($placeholder) == TRUE)
+      echo "inserted";
+    else
+      echo "failed placeholder";
+
 		if(password_verify($pass, $retrievedHash))
 		{
 
@@ -79,15 +87,12 @@
 				$result = $conn->query($sql);
 				if ($result->num_rows > 0)
 				{
+          echo "signed up";
 					$result = $result->fetch_assoc();
 					setcookie("vtrakSession", $result["sessionID"], time() + (86400 * 30), "/"); // (86400 * 30) is to expire after 30 days -- can modify if desired
 					setcookie("vtrakUser", $userID, time() + (86400 * 30), "/"); // (86400 * 30) is to expire after 30 days -- can modify if desired
 					$_SESSION["UserID"] = $userID;
 					$loginFlag = true;
-          $placeholder = "INSERT INTO experiences(userID, name, expDate, hours, notes)
-            VALUES('$userID', 'Start Volunteering!', '0000-00-00', '0', 'Your volunteering events will show up here.')";
-
-          $place = $conn->query($placeholder);
 				}
 			}
 		}
