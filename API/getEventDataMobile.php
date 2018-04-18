@@ -7,7 +7,7 @@
 	$jsonArray = array();
 
 	$thisUserID = $_SESSION['UserID'];
-	$query = "SELECT experienceID, name, expDate, hours, notes from experiences WHERE userID = '$thisUserID'";
+	$query = "SELECT experienceID, name, expDate, hours, notes from experiences WHERE userID = '$thisUserID' ORDER BY expDate DESC";
 
 	// Check for error in connection
 	if ($conn->connect_error)

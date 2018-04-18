@@ -17,7 +17,7 @@ class VolunteerEventList extends Component {
 
   componentWillMount() {
     this.fetchData();
-    let timer = setInterval(this.fetchData, 5000);
+    let timer = setInterval(this.fetchData, 1000);
     this.setState({timer});
   }
 
@@ -40,7 +40,7 @@ class VolunteerEventList extends Component {
 
     if( this.state.content.length > 0)
     {
-      console.log("fetched", this.state.content);
+      //console.log("fetched", this.state.content);
       var i = -1;
 
       return (this.state.content.map(experience =>
