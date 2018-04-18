@@ -28,7 +28,8 @@ const styles = {
 		padding: 5,
 		backgroundColor: '#C3E8AB',
 		borderWidth: .5,
-		borderColor: '#76CB89'
+    borderColor: '#76CB89',
+    alignItems: 'center'
 
 		// For white border
 		// borderWidth: 1,
@@ -40,7 +41,8 @@ const styles = {
 	hoursTextStyle: {
 		fontFamily: 'sansation',
 		fontSize: 30,
-		color: '#45537A',
+    color: '#45537A',
+    alignItems: 'center'
 		// textAlign: 'center'
 	},
 	abbrevTextStyle: {
