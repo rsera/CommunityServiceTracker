@@ -66,30 +66,31 @@
 					</div>
 				</div>
 			</div>
-			
+
+			<!-- Three columns of text below the "Get started!" -->
+			<br>
 			<hr class="featurette-divider">
 			<div class="container marketing">
-		      <!-- Three columns of text below the "Get started!" -->
 		      <div class="row">
-		        <div class="col-lg-4">
-		          <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-		          <h2>Heading</h2>
-		          <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
-		          <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
-		        </div><!-- /.col-lg-4 -->
-		        <div class="col-lg-4">
-		          <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-		          <h2>Heading</h2>
-		          <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-		          <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
-		        </div><!-- /.col-lg-4 -->
-		        <div class="col-lg-4">
-		          <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-		          <h2>Heading</h2>
-		          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-		          <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
-		        </div><!-- /.col-lg-4 -->
-		      </div><!-- /.row -->
+		        <div class="col-lg-4"><!-- /.col-lg-4 -->
+		          <img class="img-circle" src="time.jpg" alt="Generic placeholder image" width="140" height="140">
+		          <h2>Track</h2>
+		          <p style="font-size:20px">Track your time spent volunteering. Keep a detailed record of your volunteering history.</p>
+		          <!-- <p><a class="btn btn-default" href="#" role="button">View details »</a></p> -->
+		        </div>
+		        <div class="col-lg-4"><!-- /.col-lg-4 -->
+							<img class="img-circle" src="Location-Icon.png" alt="Generic placeholder image" width="140" height="140">
+		          <h2>Recommend</h2>
+		          <p style="font-size:20px">Get recommendations for new organizations to volunteer with <br> based on your location.</p>
+		          <!-- <p><a class="btn btn-default" href="#" role="button">View details »</a></p> -->
+		        </div>
+		        <div class="col-lg-4"><!-- /.col-lg-4 -->
+							<img class="img-circle" src="notes-icon-mac.jpg" alt="Generic placeholder image" width="140" height="140">
+		          <h2>Write</h2>
+		          <p style="font-size:20px">Take notes on your activities. Remember your volunteering experiences.</p>
+		          <!-- <p><a class="btn btn-default" href="#" role="button">View details »</a></p> -->
+		        </div>
+		      </div>
 
 
 		      <!-- START THE FEATURETTES -->
@@ -98,11 +99,12 @@
 
 		      <div class="row featurette">
 		        <div class="col-md-7">
-		          <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
-		          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+		          <h2 class="featurette-heading">Track your hours <span class="text-muted"></span></h2>
+							<p class="lead">Whether you are curious about your hours spent volunteering or you need a detailed record for applications, vTrak
+							has your back. With vTrak, you can keep record of your time spent volunteering and take notes on each activity you participated in.</p>
 		        </div>
 		        <div class="col-md-5">
-		          <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="500x500" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgdmlld0JveD0iMCAwIDUwMCA1MDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzUwMHg1MDAvYXV0bwpDcmVhdGVkIHdpdGggSG9sZGVyLmpzIDIuNi4wLgpMZWFybiBtb3JlIGF0IGh0dHA6Ly9ob2xkZXJqcy5jb20KKGMpIDIwMTItMjAxNSBJdmFuIE1hbG9waW5za3kgLSBodHRwOi8vaW1za3kuY28KLS0+PGRlZnM+PHN0eWxlIHR5cGU9InRleHQvY3NzIj48IVtDREFUQVsjaG9sZGVyXzE2MmQ1YjY0MjMzIHRleHQgeyBmaWxsOiNBQUFBQUE7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTpBcmlhbCwgSGVsdmV0aWNhLCBPcGVuIFNhbnMsIHNhbnMtc2VyaWYsIG1vbm9zcGFjZTtmb250LXNpemU6MjVwdCB9IF1dPjwvc3R5bGU+PC9kZWZzPjxnIGlkPSJob2xkZXJfMTYyZDViNjQyMzMiPjxyZWN0IHdpZHRoPSI1MDAiIGhlaWdodD0iNTAwIiBmaWxsPSIjRUVFRUVFIi8+PGc+PHRleHQgeD0iMTg1LjEyNSIgeT0iMjYxLjEiPjUwMHg1MDA8L3RleHQ+PC9nPjwvZz48L3N2Zz4=" data-holder-rendered="true">
+							<img class="featurette-image img-responsive center-block" alt="500x500" src="habitat-for-humanity.jpg">
 		        </div>
 		      </div>
 
@@ -110,27 +112,30 @@
 
 		      <div class="row featurette">
 		        <div class="col-md-7 col-md-push-5">
-		          <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
-		          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+		          <h2 class="featurette-heading">Learn of new organizations<span class="text-muted"></span></h2>
+							<p class="lead">If you are looking for new organizations to devote your time, vTrak is here to help.
+								Non-profit organizations register with us, and we use their data to recommend new organizations
+								that might be of interest to you. Widen your volunteering experiences and learn new things with us. </p>
 		        </div>
 		        <div class="col-md-5 col-md-pull-7">
-		          <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="500x500" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgdmlld0JveD0iMCAwIDUwMCA1MDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzUwMHg1MDAvYXV0bwpDcmVhdGVkIHdpdGggSG9sZGVyLmpzIDIuNi4wLgpMZWFybiBtb3JlIGF0IGh0dHA6Ly9ob2xkZXJqcy5jb20KKGMpIDIwMTItMjAxNSBJdmFuIE1hbG9waW5za3kgLSBodHRwOi8vaW1za3kuY28KLS0+PGRlZnM+PHN0eWxlIHR5cGU9InRleHQvY3NzIj48IVtDREFUQVsjaG9sZGVyXzE2MmQ1YjVmYzI0IHRleHQgeyBmaWxsOiNBQUFBQUE7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTpBcmlhbCwgSGVsdmV0aWNhLCBPcGVuIFNhbnMsIHNhbnMtc2VyaWYsIG1vbm9zcGFjZTtmb250LXNpemU6MjVwdCB9IF1dPjwvc3R5bGU+PC9kZWZzPjxnIGlkPSJob2xkZXJfMTYyZDViNWZjMjQiPjxyZWN0IHdpZHRoPSI1MDAiIGhlaWdodD0iNTAwIiBmaWxsPSIjRUVFRUVFIi8+PGc+PHRleHQgeD0iMTg1LjEyNSIgeT0iMjYxLjEiPjUwMHg1MDA8L3RleHQ+PC9nPjwvZz48L3N2Zz4=" data-holder-rendered="true">
-		        </div>
+							<img class="featurette-image img-responsive center-block" alt="500x500" src="teaching-volunteering.jpg" data-holder-rendered="true">
+						</div>
 		      </div>
 
 		      <hr class="featurette-divider">
 
 		      <div class="row featurette">
 		        <div class="col-md-7">
-		          <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-		          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+		          <h2 class="featurette-heading">Remember your experience <span class="text-muted"></span></h2>
+							<p class="lead">Years from now, you can look back at your accomplishments via vTrak.
+							Read your notes and see how you have grown through volunteering. Devoting your time
+							to causes that you believe in is admirable, so don't be shy in proudly showing off your achievements.</p>
 		        </div>
 		        <div class="col-md-5">
-		          <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="500x500" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgdmlld0JveD0iMCAwIDUwMCA1MDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzUwMHg1MDAvYXV0bwpDcmVhdGVkIHdpdGggSG9sZGVyLmpzIDIuNi4wLgpMZWFybiBtb3JlIGF0IGh0dHA6Ly9ob2xkZXJqcy5jb20KKGMpIDIwMTItMjAxNSBJdmFuIE1hbG9waW5za3kgLSBodHRwOi8vaW1za3kuY28KLS0+PGRlZnM+PHN0eWxlIHR5cGU9InRleHQvY3NzIj48IVtDREFUQVsjaG9sZGVyXzE2MmQ1YjVkNmQyIHRleHQgeyBmaWxsOiNBQUFBQUE7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTpBcmlhbCwgSGVsdmV0aWNhLCBPcGVuIFNhbnMsIHNhbnMtc2VyaWYsIG1vbm9zcGFjZTtmb250LXNpemU6MjVwdCB9IF1dPjwvc3R5bGU+PC9kZWZzPjxnIGlkPSJob2xkZXJfMTYyZDViNWQ2ZDIiPjxyZWN0IHdpZHRoPSI1MDAiIGhlaWdodD0iNTAwIiBmaWxsPSIjRUVFRUVFIi8+PGc+PHRleHQgeD0iMTg1LjEyNSIgeT0iMjYxLjEiPjUwMHg1MDA8L3RleHQ+PC9nPjwvZz48L3N2Zz4=" data-holder-rendered="true">
-		        </div>
+							<img class="featurette-image img-responsive center-block" alt="500x500" src="volunteering.jpg" style="height:400px">
+						</div>
 		      </div>
-
-		      <hr class="featurette-divider">
+					<br>
 		</section>
 		<!-- Splash Screen -->
 
