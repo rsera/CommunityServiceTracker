@@ -23,11 +23,14 @@ const RecommendationCard = ({ recommendation }) => {
 
 const styles = {
 	cardContainerStyle: {
-		marginRight: 10,
 		marginTop: 7,
 		marginBottom: 7,
 		flexDirection: 'column',
-		justifyContent: 'space-around'
+		justifyContent: 'space-around',
+
+		borderBottomWidth: 2,
+		borderBottomColor: '#C3E8AB',
+		paddingBottom: 10
 	},
 
 	recsNameStyle: {
