@@ -80,7 +80,8 @@ const styles = {
 		marginLeft: 10,
 		paddingBottom: 10,
 		paddingTop: 5,
-		fontFamily: 'System'
+    fontFamily: 'System',
+    fontSize: 12
 	}
 };
 
