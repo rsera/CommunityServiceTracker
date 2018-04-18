@@ -84,7 +84,7 @@
 				while($row = mysqli_fetch_assoc($result)){
 					/*echo '<p>Current hours:'.$row['hours'].'</p>';*/
         			//echo '<span class="pull-right">'. $row['hours'].' of '.$row['goal'].'</span>';
-					echo '<span id="hoursOfGoal" class="pull-right"><span id="hoursLabel">' . $row['hours'] . '</span> of <span id="goalLabel">' . $row['goal'] . '</span> hours</span>';
+					echo '<span id="hoursOfGoal" class="pull-right"><span id="hoursLabel">' . sanitizeXSS($row['hours']) . '</span> of <span id="goalLabel">' . sanitizeXSS($row['goal']) . '</span> hours</span>';
 
 					if($row['hours'] >= $row['goal'])
 					{
@@ -106,7 +106,7 @@
           while($row = mysqli_fetch_assoc($result)){
             $val = (int)($row['hours']/$row['goal']*100);
 
-			echo '<div class="progress"><div class="progress-bar" role="progressbar" aria-valuenow="'.$row['hours'].'" aria-value-min="0" aria-valuemax="'.$row['goal'].'" style="width:'.$val.'%">'.'<div class="progress-bar-title"></div>'.'</div></div>';
+			echo '<div class="progress"><div class="progress-bar" role="progressbar" aria-valuenow="'.sanitizeXSS($row['hours']).'" aria-value-min="0" aria-valuemax="'.sanitizeXSS($row['goal']).'" style="width:'.$val.'%">'.'<div class="progress-bar-title"></div>'.'</div></div>';
           }
         }
       ?>
@@ -174,7 +174,7 @@
   					if (mysqli_num_rows($result) > 0)
   					{
   						while($row = mysqli_fetch_assoc($result)){
-  							echo '<tr id="e' . $row['experienceID'] . '" data-note="'.$row['notes'].'"><td><p class="header">' . $row['name'] . '</strong></p><p>' . $row['expDate'] . '</p><p>' . $row['hours'] . ' hours</p><p>' . $row['notes'] . '</p></td></tr>';
+  							echo '<tr id="e' . sanitizeXSS($row['experienceID']) . '" data-note="'.sanitizeXSS($row['notes']).'"><td><p class="header">' . sanitizeXSS($row['name']) . '</strong></p><p>' . sanitizeXSS($row['expDate']) . '</p><p>' . sanitizeXSS($row['hours']) . ' hours</p><p>' . sanitizeXSS($row['notes']) . '</p></td></tr>';
 						}
 						echo '<tr id="noActivity" class="defaultHidden"><td><p>No activity to show.</p></td></tr>';
   					}
@@ -203,7 +203,7 @@
   					{
   						while($row = mysqli_fetch_assoc($result)){
   							//echo '<div id="o'. $row['orgID'] . '" class="panel"><div class="name">' . $row['orgName'] . '</div><div class="type">' . $row['orgType'] . '</div><div class="webaddress">' . $row['orgWebsite'] . '</div></div>';
-							echo '<tr><td><p id="o'. $row['orgID'] . '" class="header">' . $row['orgName'] . '</p><p>' . $row['orgWebsite'] . '</p></td></tr>';
+							echo '<tr><td><p id="o'. sanitizeXSS($row['orgID']) . '" class="header">' . sanitizeXSS($row['orgName']) . '</p><p>' . sanitizeXSS($row['orgWebsite']) . '</p></td></tr>';
 						}
   					}
 					else {

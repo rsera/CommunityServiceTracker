@@ -26,11 +26,9 @@
 		@font-face{font-family: sanssaFont;src:url(CSS/Sansation_Regular.ttf)};
 		@font-face{font-family: sanssaBold;src:url(CSS/Sansation_Bold.ttf);font-weight:bold};
 		body{font-family:sanssaFont;}
-		#vtrakButton{font-family:sanssaFont; font-size: 25px;}
-		#signUpRibbon{font-family:sanssaFont; font-size: 20px}
-		#loginRibbon{font-family:sanssaFont; font-size: 20px}
 		#homePageContent h1{font-family:sanssaFont;}
-		#acceptAdmin{
+
+		.acceptOrg, .acceptAdmin{
 			margin-bottom: 5px;
 			margin-left: 5px;
 			background-color: #006600;
@@ -38,22 +36,7 @@
 			font-family: sanssaFont;
 		}
 
-		#declineAdmin{
-			margin-bottom: 5px;
-			margin-left: 5px;
-			background-color: #cc0000;
-			color: white;
-			font-family: sanssaFont;
-		}
-		#acceptOrg{
-			margin-bottom: 5px;
-			margin-left: 5px;
-			background-color: #006600;
-			color: white;
-			font-family: sanssaFont;
-		}
-
-		#declineOrg{
+		.declineOrg, .declineAdmin{
 			margin-bottom: 5px;
 			margin-left: 5px;
 			background-color: #cc0000;
@@ -84,7 +67,7 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#" id="loginRibbon">Log Out</a></li>
+          <li><a href="logout.php" id="loginRibbon">Log Out</a></li>
         </ul>
       </div>
     </div>
@@ -105,17 +88,17 @@
 					<tbody>
 						<?php
 	    					$thisUserID = $_SESSION['UserID'];
-	    					$sql = "SELECT orgName, orgWebsite, conName, conEmail FROM organizations WHERE approved = 0";
+	    					$sql = "SELECT orgID, orgName, orgWebsite, conName, conEmail FROM organizations WHERE approved = 0";
 	    					$result = mysqli_query($conn, $sql);
 
 	    					if (mysqli_num_rows($result) > 0)
 	    					{
 	    						while($row = mysqli_fetch_assoc($result)){
-	    							echo '<tr class="myRequests"><td><p class="myOrgs">' . $row['orgName']. '<br>'. $row['orgWebsite'] .'<br>'. $row['conName'].'<br>'.$row['conEmail'].'<br></p>
-											<button id="acceptOrg" type="button" class="btn btn-primary btn-md">Accept</button>
-											<button id="declineOrg" type="button" class="btn btn-primary btn-md">Decline</button>
-										</td>
-									</tr>';
+	    							echo '<tr class="myRequests" id="o'. sanitizeXSS($row['orgID']) .'">
+											<td><p class="myOrgs">' . sanitizeXSS($row['orgName']). '<br>'. sanitizeXSS($row['orgWebsite']) .'<br>'. sanitizeXSS($row['conName']).'<br>'.sanitizeXSS($row['conEmail']).'<br></p>
+											<button value="'.sanitizeXSS($row['orgID']).'" type="button" class="btn btn-primary btn-md acceptOrg">Accept</button>
+											<button value="'.sanitizeXSS($row['orgID']).'" type="button" class="btn btn-primary btn-md declineOrg">Decline</button>
+											</td></tr>';
 	  						}
 	    					}
 	 	  				?>
@@ -141,8 +124,8 @@
 									Niel Gaiman<br>
 									Username: nielg<br>
 								</p>
-								<button id="acceptAdmin" type="button" class="btn btn-primary btn-md">Accept</button>
-								<button id="declineAdmin" type="button" class="btn btn-primary btn-md">Decline</button>
+								<button type="button" class="btn btn-primary btn-md acceptAdmin">Accept</button>
+								<button type="button" class="btn btn-primary btn-md declineAdmin">Decline</button>
 								<hr>
 							</td>
 						</tr>
@@ -155,8 +138,8 @@
 									Terry Pratchett<br>
 									Username: tpratchett<br>
 								</p>
-								<button id="acceptAdmin" type="button" class="btn btn-primary btn-md">Accept</button>
-								<button id="declineAdmin" type="button" class="btn btn-primary btn-md">Decline</button>
+								<button type="button" class="btn btn-primary btn-md acceptAdmin">Accept</button>
+								<button type="button" class="btn btn-primary btn-md declineAdmin">Decline</button>
 								<hr>
 							</td>
 						</tr>
@@ -168,8 +151,8 @@
 									Michael Ende<br>
 									Username: michaele<br>
 								</p>
-								<button id="acceptAdmin" type="button" class="btn btn-primary btn-md">Accept</button>
-								<button id="declineAdmin" type="button" class="btn btn-primary btn-md">Decline</button>
+								<button type="button" class="btn btn-primary btn-md acceptAdmin">Accept</button>
+								<button type="button" class="btn btn-primary btn-md declineAdmin">Decline</button>
 								<hr>
 							</td>
 						</tr>
@@ -182,8 +165,8 @@
 									Friedrich Nietzsche<br>
 									Username: nietzsche<br>
 								</p>
-								<button id="acceptAdmin" type="button" class="btn btn-primary btn-md">Accept</button>
-								<button id="declineAdmin" type="button" class="btn btn-primary btn-md">Decline</button>
+								<button type="button" class="btn btn-primary btn-md acceptAdmin">Accept</button>
+								<button type="button" class="btn btn-primary btn-md declineAdmin">Decline</button>
 								<hr>
 							</td>
 						</tr>
@@ -196,8 +179,8 @@
 									Herman Hesse<br>
 									Username: hhesse<br>
 								</p>
-								<button id="acceptAdmin" type="button" class="btn btn-primary btn-md">Accept</button>
-								<button id="declineAdmin" type="button" class="btn btn-primary btn-md">Decline</button>
+								<button type="button" class="btn btn-primary btn-md acceptAdmin">Accept</button>
+								<button type="button" class="btn btn-primary btn-md declineAdmin">Decline</button>
 								<hr>
 							</td>
 						</tr>
@@ -207,10 +190,14 @@
 		</div>
 	</div>
 	<!--End ADMIN scrollable-->
-
 	<div class="col-sm-3">
 	</div>
 
+	<script src="API/webAJAX.js"></script>
+	<script>
+		$(".acceptOrg").on("click",function(){approveOrg($(this).val())});
+		$(".declineOrg").on("click",function(){declineOrg($(this).val())});
+	</script>
 
 </body>
 

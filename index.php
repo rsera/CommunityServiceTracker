@@ -27,6 +27,7 @@
 			if(isset($_GET['lname'])){$lname=$_GET['lname'];}else{$lname="";}
 			if(isset($_GET['username'])){$username=$_GET['username'];}else{$username="";}
 			if(isset($_GET['goal'])){$goal=$_GET['goal'];}else{$goal="";}
+			if(isset($_GET['zip'])){$zip=$_GET['zip'];}else{$zip="";}
 			if(isset($_GET['error'])){$error=$_GET['error'];}else{$error="";}
 		?>
 
@@ -152,7 +153,7 @@
 						<span>Last name</span>
 						<input id="lastname" class="usernameBox" type="text"  name="LName" required value="<?=$lname?>"><br /><br />
 						<span>Zip code</span>
-						<input id="zipS" class="usernameBox" type="text"  name="zip" required value=""><br /><br />
+						<input id="zipS" class="usernameBox" type="text"  name="zip" required value="<?=$zip?>"><br /><br />
 						<span>Username</span>
 						<input id="username" class="usernameBox" type="text" name="username" required value="<?=$username?>"><br /><br />
 						<span>Goal in Hours</span>

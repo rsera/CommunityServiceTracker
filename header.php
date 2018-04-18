@@ -20,4 +20,12 @@ function checkSession(){
 	}
 	return false;
 }
+
+function sanitizeXSS($str){
+	$str = str_replace("<", "&lt;", $str);
+	$str = str_replace(">", "&gt;", $str);
+	$str = str_replace("'", "&apos;", $str);
+	$str = str_replace('"', "&quot;", $str);
+	return $str;
+}
 ?>

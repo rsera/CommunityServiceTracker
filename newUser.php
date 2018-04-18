@@ -15,7 +15,7 @@
 	// If wrong,  redirect back to home
 	if($pass != $pass2)
 	{
-		header("Location: /?default=signup&fname=".$FName."&lname=".$LName."&username=".$username."&goal=".$goal."&error=Passwords don't match.");
+		header("Location: /?default=signup&fname=".$FName."&lname=".$LName."&username=".$username."&goal=".$goal."&zip=$zip"."&error=Passwords don't match.");
 		die();
 	}
 
@@ -36,7 +36,7 @@
 	if (mysqli_num_rows($usernameCheck) > 0)
 	{
 		// Invalid - Username exists in table already, go to Login
-		header("Location: /?default=signup&fname=".$FName."&lname=".$LName."&username=".$username."&goal=".$goal."&error=Username already exists.");
+		header("Location: /?default=signup&fname=".$FName."&lname=".$LName."&username=".$username."&goal=".$goal."&zip=$zip"."&error=Username already exists.");
 		die();
 	}
 
