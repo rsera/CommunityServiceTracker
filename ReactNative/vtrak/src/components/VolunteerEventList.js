@@ -26,11 +26,8 @@ class VolunteerEventList extends Component {
     fetch('http://www.aptimage.net/getEventDataMobile.php')
    .then((response) => response.text()).then((responseJsonFromServer) =>
     {
-      console.log(responseJsonFromServer);
       obj = JSON.parse(responseJsonFromServer);
       this.setState({content: obj});
-    
-
     }).catch((error) =>
     {
       console.log('Could not retrieve data.');
