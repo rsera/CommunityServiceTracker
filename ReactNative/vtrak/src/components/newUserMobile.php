@@ -71,6 +71,7 @@
 
 		if(password_verify($pass, $retrievedHash))
 		{
+
 			$sql = "INSERT INTO sessions(userID, sessionID) VALUES('".$userID."', UUID())";
 			if ($result = $conn->query($sql) == TRUE)
 			{
@@ -83,6 +84,10 @@
 					setcookie("vtrakUser", $userID, time() + (86400 * 30), "/"); // (86400 * 30) is to expire after 30 days -- can modify if desired
 					$_SESSION["UserID"] = $userID;
 					$loginFlag = true;
+          $placeholder = "INSERT INTO experiences(userID, name, expDate, hours, notes)
+            VALUES('$userID', 'Start Volunteering!', '0000-00-00', '0', 'Your volunteering events will show up here.')";
+
+          $place = $conn->query($placeholder);
 				}
 			}
 		}
