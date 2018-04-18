@@ -63,10 +63,9 @@
           <li class="drowpdown"><a class="dropbtn" id="signUpRibbon">Account</a>
 		  <div id="myDropdown" class="dropdown-content defaultHidden">
 		    <a href="#" id="goalDrop">Update Goal</a>
-		    <a href="#" id="pwDrop">Change Password</a>
+		    <!--<a href="#" id="pwDrop">Change Password</a>-->
 		  </div></li>
           <li><a href="logout.php" data-target="login" id="loginRibbon">Log Out</a></li>
-		  <!--<button type="submit" class="btn btn-default navbar-btn"><a href="logout.php">Sign Out</a></button>-->
         </ul>
       </div>
     </div>
