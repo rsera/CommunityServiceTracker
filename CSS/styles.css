@@ -126,7 +126,6 @@ body{font-family:sanssaFont;}
 
 .loginDiv form input{
     display: inline-block;
-    text-align: left;
 }
 
 .loginDiv form{
