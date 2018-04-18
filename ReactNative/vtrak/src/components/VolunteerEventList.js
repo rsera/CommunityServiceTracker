@@ -9,7 +9,8 @@ class VolunteerEventList extends Component {
 
     this.state = {
       content: [],
-      timer: null
+      timer: null,
+      new: false
     };
 
     this.fetchData = this.fetchData.bind(this);
@@ -26,8 +27,17 @@ class VolunteerEventList extends Component {
     fetch('http://www.aptimage.net/getEventDataMobile.php')
    .then((response) => response.text()).then((responseJsonFromServer) =>
     {
-      obj = JSON.parse(responseJsonFromServer);
-      this.setState({content: obj});
+      if(responseJsonFromServer === "new user")
+      {
+        this.setState({new: true});
+      }
+      else 
+      {
+        console.log(responseJsonFromServer);
+        obj = JSON.parse(responseJsonFromServer);
+        this.setState({content: obj});
+      }
+      
 
     }).catch((error) =>
     {
@@ -43,13 +53,22 @@ class VolunteerEventList extends Component {
       //console.log("fetched", this.state.content);
       var i = -1;
 
-      return (this.state.content.map(experience =>
-        {
-          i++;
-          return(
-            <EventCard key={this.state.content[i].experienceID} experience={this.state.content[i]}/>
-          );
-        }));
+      if(this.state.new === true)
+      {
+        
+        return (this.state.content.map(experience =>
+          {
+            i++;
+            return(
+              <EventCard key={this.state.content[i].experienceID} experience={this.state.content[i]}/>
+            );
+          }));
+      }
+      else
+      {
+        return;
+      }
+
     }
 
     else
