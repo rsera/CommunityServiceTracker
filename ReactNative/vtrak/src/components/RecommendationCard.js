@@ -11,7 +11,7 @@ const RecommendationCard = () => {
 	return (
 		<View style={cardContainerStyle}>
 			<Text style={recsNameStyle}>
-				Judy's Pet Shelter
+				Judys Pet Shelter
 			</Text>
 			<Text style={recsLocationStyle}>
 				Sanford, FL
@@ -22,11 +22,14 @@ const RecommendationCard = () => {
 
 const styles = {
 	cardContainerStyle: {
-		marginRight: 10,
 		marginTop: 7,
 		marginBottom: 7,
 		flexDirection: 'column',
-		justifyContent: 'space-around'
+		justifyContent: 'space-around',
+
+		borderBottomWidth: 2,
+		borderBottomColor: '#C3E8AB',
+		paddingBottom: 10
 	},
 
 	recsNameStyle: {

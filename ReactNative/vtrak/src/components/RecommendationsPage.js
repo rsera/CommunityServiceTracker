@@ -59,8 +59,8 @@ const styles = {
 	},
 
 	cardContainerStyle: {
-		marginLeft: 10,
-		marginRight: 10,
+		marginLeft: 7,
+		marginRight: 7,
 		flex: 1
 	},
 	textStyle: {
