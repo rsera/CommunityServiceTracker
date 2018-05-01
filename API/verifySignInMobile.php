@@ -5,6 +5,7 @@
 	$json = file_get_contents('php://input');
 	$obj = json_decode($json, TRUE);
 
+	// Retrive data from decoded JSON object
 	$user = mysqli_real_escape_string($conn, $obj['username']);
 	$pass = mysqli_real_escape_string($conn, $obj['password']);
 
@@ -25,6 +26,7 @@
 		// Query database to retrieve the userID of an attempted login. This query
 		// will return false if the log in credentials don't match a user's data
 
+		// This query will check to see if the user exists in the database
 		$loginAttempt = mysqli_query($conn, $query);
 
 		$loginFlag = false;
@@ -33,15 +35,20 @@
 			echo "Failure";
 
 
+		// A successful SELECT query will have a row for each selected data
 		if ($loginAttempt->num_rows > 0)
 		{
 			$loginAttempt = $loginAttempt->fetch_assoc();
 			$retrievedHash = $loginAttempt["userPWHash"];
 			$userID = $loginAttempt["UserID"];
 
+			// Verify that the passwords match the database
 			if(password_verify($pass, $retrievedHash))
 			{
+				// Update sessions table
 				$sql = "INSERT INTO sessions(userID, sessionID) VALUES('".$userID."', UUID())";
+
+				// If the INSERT query returns true it was successful
 				if ($result = $conn->query($sql) == TRUE)
 			    {
 					$sql = "SELECT sessionID FROM sessions WHERE userID = '".$userID."' ORDER BY lastActivity DESC LIMIT 1";
